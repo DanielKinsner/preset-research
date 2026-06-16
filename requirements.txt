@@ -1,0 +1,11 @@
+# Preset-research analysis stack. Python 3.13.
+# Install into a local venv:
+#   python -m venv .venv
+#   .venv/Scripts/python -m pip install -r requirements.txt   # Windows
+#   .venv/bin/python    -m pip install -r requirements.txt    # macOS/Linux
+numpy==2.3.2
+scipy==1.17.1
+matplotlib==3.10.9
+pandas==2.3.1
+soundfile==0.14.0      # libsndfile-backed WAV I/O (robust across bit depths)
+pyloudnorm==0.2.0      # EBU R128 / ITU-R BS.1770 integrated loudness + LRA

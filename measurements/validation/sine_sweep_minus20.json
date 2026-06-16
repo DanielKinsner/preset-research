@@ -1,0 +1,129 @@
+{
+  "file": "sine_sweep_minus20.wav",
+  "role": "sweep",
+  "purpose": "Precise frequency response. Reveals narrow-band features broadband noise misses.",
+  "priority": 2,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "sample_rate",
+      "measured": 44100,
+      "expected": 44100,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "channels",
+      "measured": 2,
+      "expected": 2,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "bit_depth",
+      "measured": "PCM_16",
+      "expected": "PCM_16",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "frames",
+      "measured": 2646000,
+      "expected": 2646000,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "duration_sec",
+      "measured": 60.0,
+      "expected": 60.0,
+      "tolerance": 0.001,
+      "status": "PASS",
+      "note": "|\u0394|=0.000s"
+    },
+    {
+      "check": "rms_dbfs",
+      "measured": -21.005,
+      "expected": -21.0,
+      "tolerance": 0.6,
+      "status": "PASS",
+      "note": "|\u0394|=0.005dB"
+    },
+    {
+      "check": "sweep start_hz near 20",
+      "measured": 21.5,
+      "expected": "<= 60",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "sweep end_hz near 20k",
+      "measured": 19950.5,
+      "expected": ">= 15000",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "sweep monotonic_fraction",
+      "measured": 1.0,
+      "expected": ">= 0.9",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    }
+  ],
+  "measurement": {
+    "file": "sine_sweep_minus20.wav",
+    "role": "sweep",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -17.99,
+      "true_peak_dbtp": -17.95,
+      "rms_dbfs": -21.005,
+      "crest_factor_db": 3.015
+    },
+    "loudness": {
+      "integrated_lufs": -17.08,
+      "lra_lu": 8.413
+    },
+    "spectral": {
+      "centroid_hz": 2828.85,
+      "slope_db_per_oct": -3.018,
+      "bands_dbfs": {
+        "20-60 Hz": -29.066,
+        "60-120 Hz": -31.028,
+        "120-250 Hz": -30.726,
+        "250-500 Hz": -30.936,
+        "500-1k Hz": -30.956,
+        "1-2k Hz": -30.945,
+        "2-4k Hz": -30.973,
+        "4-8k Hz": -30.946,
+        "8-16k Hz": -30.968
+      }
+    },
+    "stereo": {
+      "correlation": 1.0,
+      "mid_rms_dbfs": -21.0051,
+      "side_rms_dbfs": -400.0,
+      "side_minus_mid_db": -378.9949,
+      "mono": false
+    },
+    "signal_specific": {
+      "dominant_start_hz": 21.5,
+      "dominant_end_hz": 19950.5,
+      "monotonic_fraction": 1.0
+    }
+  }
+}

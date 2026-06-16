@@ -1,0 +1,10 @@
+# Normalize line endings to LF in the repo and working tree (Windows-safe).
+* text=auto eol=lf
+
+# Treat binary assets as binary (no EOL conversion, no diff noise).
+*.wav binary
+*.flac binary
+*.mp3 binary
+*.png binary
+*.aif binary
+*.aiff binary

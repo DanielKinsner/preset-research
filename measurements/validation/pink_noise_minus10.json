@@ -1,0 +1,116 @@
+{
+  "file": "pink_noise_minus10.wav",
+  "role": "pink_noise",
+  "purpose": "Hot-level behavior. Pushes compressor/limiter; reveals stand-down on loud material.",
+  "priority": 2,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "sample_rate",
+      "measured": 44100,
+      "expected": 44100,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "channels",
+      "measured": 2,
+      "expected": 2,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "bit_depth",
+      "measured": "PCM_16",
+      "expected": "PCM_16",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "frames",
+      "measured": 2646000,
+      "expected": 2646000,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "duration_sec",
+      "measured": 60.0,
+      "expected": 60.0,
+      "tolerance": 0.001,
+      "status": "PASS",
+      "note": "|\u0394|=0.000s"
+    },
+    {
+      "check": "rms_dbfs",
+      "measured": -11.004,
+      "expected": -11.0,
+      "tolerance": 0.5,
+      "status": "PASS",
+      "note": "|\u0394|=0.004dB"
+    },
+    {
+      "check": "spectral_slope_db_per_oct",
+      "measured": -3.009,
+      "expected": -3.01,
+      "tolerance": 0.3,
+      "status": "PASS",
+      "note": "|\u0394|=0.001dB/oct"
+    },
+    {
+      "check": "L-R correlation (decorrelated)",
+      "measured": -0.012,
+      "expected": "<= 0.5",
+      "tolerance": null,
+      "status": "PASS",
+      "note": "independent stereo -> low correlation"
+    }
+  ],
+  "measurement": {
+    "file": "pink_noise_minus10.wav",
+    "role": "pink_noise",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -0.0,
+      "true_peak_dbtp": 0.978,
+      "rms_dbfs": -11.004,
+      "crest_factor_db": 11.004
+    },
+    "loudness": {
+      "integrated_lufs": -10.216,
+      "lra_lu": 0.076
+    },
+    "spectral": {
+      "centroid_hz": 2906.24,
+      "slope_db_per_oct": -3.009,
+      "bands_dbfs": {
+        "20-60 Hz": -25.086,
+        "60-120 Hz": -27.246,
+        "120-250 Hz": -26.748,
+        "250-500 Hz": -26.967,
+        "500-1k Hz": -27.041,
+        "1-2k Hz": -27.014,
+        "2-4k Hz": -27.043,
+        "4-8k Hz": -27.038,
+        "8-16k Hz": -27.027
+      }
+    },
+    "stereo": {
+      "correlation": -0.0121,
+      "mid_rms_dbfs": -14.067,
+      "side_rms_dbfs": -13.9621,
+      "side_minus_mid_db": 0.1048,
+      "mono": false
+    }
+  }
+}

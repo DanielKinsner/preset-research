@@ -1,0 +1,116 @@
+{
+  "file": "pink_noise_minus20.wav",
+  "role": "pink_noise",
+  "purpose": "Primary tonal reference. Equal energy per octave; output delta IS the EQ curve.",
+  "priority": 1,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "sample_rate",
+      "measured": 44100,
+      "expected": 44100,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "channels",
+      "measured": 2,
+      "expected": 2,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "bit_depth",
+      "measured": "PCM_16",
+      "expected": "PCM_16",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "frames",
+      "measured": 2646000,
+      "expected": 2646000,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "duration_sec",
+      "measured": 60.0,
+      "expected": 60.0,
+      "tolerance": 0.001,
+      "status": "PASS",
+      "note": "|\u0394|=0.000s"
+    },
+    {
+      "check": "rms_dbfs",
+      "measured": -21.001,
+      "expected": -21.0,
+      "tolerance": 0.5,
+      "status": "PASS",
+      "note": "|\u0394|=0.001dB"
+    },
+    {
+      "check": "spectral_slope_db_per_oct",
+      "measured": -3.008,
+      "expected": -3.01,
+      "tolerance": 0.3,
+      "status": "PASS",
+      "note": "|\u0394|=0.002dB/oct"
+    },
+    {
+      "check": "L-R correlation (decorrelated)",
+      "measured": 0.035,
+      "expected": "<= 0.5",
+      "tolerance": null,
+      "status": "PASS",
+      "note": "independent stereo -> low correlation"
+    }
+  ],
+  "measurement": {
+    "file": "pink_noise_minus20.wav",
+    "role": "pink_noise",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -6.956,
+      "true_peak_dbtp": -6.82,
+      "rms_dbfs": -21.001,
+      "crest_factor_db": 14.045
+    },
+    "loudness": {
+      "integrated_lufs": -20.392,
+      "lra_lu": 0.07
+    },
+    "spectral": {
+      "centroid_hz": 2900.84,
+      "slope_db_per_oct": -3.008,
+      "bands_dbfs": {
+        "20-60 Hz": -35.233,
+        "60-120 Hz": -37.292,
+        "120-250 Hz": -36.932,
+        "250-500 Hz": -37.164,
+        "500-1k Hz": -37.227,
+        "1-2k Hz": -37.204,
+        "2-4k Hz": -37.227,
+        "4-8k Hz": -37.201,
+        "8-16k Hz": -37.203
+      }
+    },
+    "stereo": {
+      "correlation": 0.0349,
+      "mid_rms_dbfs": -23.8623,
+      "side_rms_dbfs": -24.1656,
+      "side_minus_mid_db": -0.3033,
+      "mono": false
+    }
+  }
+}

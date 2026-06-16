@@ -1,0 +1,24 @@
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Competitor / service audio (mastered outputs): NEVER committed ---
+# Only their measurements + fingerprints (under measurements/) are committed.
+competitors/**/*.wav
+competitors/**/*.WAV
+competitors/**/*.flac
+competitors/**/*.mp3
+competitors/**/*.aif
+competitors/**/*.aiff
+
+# --- Large real-music reference masters (future adaptive-profiling material) ---
+# ~344 MB of WAVs the bootstrap spec did not mandate committing. Kept local by
+# default to avoid a >400 MB repo. To version them, use Git LFS and remove this.
+source/original-references/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.tmp

@@ -1,0 +1,89 @@
+{
+  "report": "test-signal validation",
+  "generated_utc": "2026-06-16T23:14:11+00:00",
+  "n_signals": 8,
+  "all_present": true,
+  "missing": [],
+  "overall_status": "PASS",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.2",
+    "scipy": "1.17.1",
+    "soundfile": "0.14.0",
+    "libsndfile": "1.2.2"
+  },
+  "methodology": {
+    "loudness": "EBU R128 / ITU-R BS.1770 integrated LUFS and LRA via pyloudnorm.",
+    "true_peak": "ITU-R BS.1770-style true peak via 4x polyphase oversampling (scipy.resample_poly).",
+    "spectral": "Welch PSD (Hann, nperseg=16384, 50% overlap); band energy = sum(PSD*df) per band.",
+    "slope": "Least-squares fit of PSD(dB) vs log-frequency over 50 Hz-16 kHz, reported per octave.",
+    "tone_detect": "Per-segment FFT peak with parabolic interpolation; level = segment RMS (guard-banded).",
+    "dbfs_convention": "20*log10(x), full scale = 1.0 (full-scale sine RMS = -3.01 dBFS)."
+  },
+  "signals": [
+    {
+      "file": "pink_noise_minus20.wav",
+      "role": "pink_noise",
+      "status": "PASS",
+      "n_checks": 8,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "pink_noise_minus14.wav",
+      "role": "pink_noise",
+      "status": "PASS",
+      "n_checks": 8,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "pink_noise_minus10.wav",
+      "role": "pink_noise",
+      "status": "PASS",
+      "n_checks": 8,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "sine_sweep_minus20.wav",
+      "role": "sweep",
+      "status": "PASS",
+      "n_checks": 9,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "click_track.wav",
+      "role": "click_track",
+      "status": "PASS",
+      "n_checks": 8,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "tone_ladder_minus20.wav",
+      "role": "tone_ladder",
+      "status": "PASS",
+      "n_checks": 8,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "dynamic_test_minus14.wav",
+      "role": "dynamic",
+      "status": "PASS",
+      "n_checks": 9,
+      "n_fail": 0,
+      "n_warn": 0
+    },
+    {
+      "file": "mid_side_test_minus20.wav",
+      "role": "mid_side",
+      "status": "PASS",
+      "n_checks": 8,
+      "n_fail": 0,
+      "n_warn": 0
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "file": "click_track.wav",
+  "role": "click_track",
+  "purpose": "Compressor timing. Attack, release, transient shaping.",
+  "priority": 2,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "sample_rate",
+      "measured": 44100,
+      "expected": 44100,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "channels",
+      "measured": 2,
+      "expected": 2,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "bit_depth",
+      "measured": "PCM_16",
+      "expected": "PCM_16",
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "frames",
+      "measured": 2646000,
+      "expected": 2646000,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "duration_sec",
+      "measured": 60.0,
+      "expected": 60.0,
+      "tolerance": 0.001,
+      "status": "PASS",
+      "note": "|\u0394|=0.000s"
+    },
+    {
+      "check": "rms_dbfs",
+      "measured": -43.88,
+      "expected": -44.0,
+      "tolerance": 1.5,
+      "status": "PASS",
+      "note": "|\u0394|=0.120dB"
+    },
+    {
+      "check": "n_impulses",
+      "measured": 120,
+      "expected": 120,
+      "tolerance": null,
+      "status": "PASS",
+      "note": ""
+    },
+    {
+      "check": "impulse_period_ms",
+      "measured": 500.0,
+      "expected": 500.0,
+      "tolerance": 1.0,
+      "status": "PASS",
+      "note": "|\u0394|=0.000ms"
+    }
+  ],
+  "measurement": {
+    "file": "click_track.wav",
+    "role": "click_track",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -0.446,
+      "true_peak_dbtp": -0.44,
+      "rms_dbfs": -43.88,
+      "crest_factor_db": 43.434
+    },
+    "loudness": {
+      "integrated_lufs": -36.824,
+      "lra_lu": 0.0
+    },
+    "spectral": {
+      "centroid_hz": 10010.25,
+      "slope_db_per_oct": 0.0,
+      "bands_dbfs": {
+        "20-60 Hz": -71.274,
+        "60-120 Hz": -69.611,
+        "120-250 Hz": -66.223,
+        "250-500 Hz": -63.35,
+        "500-1k Hz": -60.34,
+        "1-2k Hz": -57.33,
+        "2-4k Hz": -54.325,
+        "4-8k Hz": -51.315,
+        "8-16k Hz": -48.305
+      }
+    },
+    "stereo": {
+      "correlation": 1.0,
+      "mid_rms_dbfs": -43.8798,
+      "side_rms_dbfs": -400.0,
+      "side_minus_mid_db": -356.1202,
+      "mono": false
+    },
+    "signal_specific": {
+      "n_impulses": 120,
+      "mean_spacing_samples": 22050.0,
+      "mean_period_ms": 500.0,
+      "mean_width_samples": 1.0,
+      "mean_peak_dbfs": -0.446,
+      "first_onset_sample": 0
+    }
+  }
+}
