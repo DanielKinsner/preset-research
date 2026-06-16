@@ -328,8 +328,11 @@ def main():
                       f"tilt Δ {fp.get('spectral_tilt_change_db_per_oct','?')} dB/oct")
             else:
                 print(f"    {name:<12} {v['status']} (unmatched: {v.get('unmatched')})")
-        cpath = write_canonical(svc, presets_out)
-        print(f"    canonical -> {cpath.relative_to(ROOT)}")
+        if n_done:
+            cpath = write_canonical(svc, presets_out)
+            print(f"    canonical -> {cpath.relative_to(ROOT)}")
+        else:
+            print(f"    (no matched outputs yet - canonical not written)")
     return 0
 
 
