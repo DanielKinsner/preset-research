@@ -1,0 +1,133 @@
+{
+  "schema": "preset-fingerprint/v1",
+  "service": "bandlab",
+  "generated_utc": "2026-06-16T23:49:46+00:00",
+  "method": "Static-character isolation via spectrally-neutral test signals. Delta = output measurement - input measurement. EQ shape is makeup-gain-normalized band energy. See reports/ and tools/.",
+  "capture_protocol": {
+    "service": "bandlab",
+    "presets": [
+      "universal",
+      "clarity",
+      "oomph",
+      "tape"
+    ],
+    "protocol": {
+      "input_gain_db": 0.0,
+      "input_gain_policy": "Manual override of BandLab's suggested input gain. Fixed at 0 so the input level into the chain is exactly the known source level. Preserves the -20/-14/-10 level-dependence probe (accepting the adaptive suggestion would peak-normalize all three to a common level and collapse it).",
+      "intensity": "Normal (50%)",
+      "intensity_policy": "Preset default detent ('Normal' = 50% of range). Held constant across all uploads. Slider spans 0% (dry/min) to 100% (max); 50% is the canonical intended voice.",
+      "output_format": "WAV (actual bit depth/sample rate recorded per output by audio_metrics)",
+      "constant_across": "all 8 signals x 4 presets (32 masters)"
+    },
+    "auto_input_gain_finding": {
+      "model": "suggested_input_gain_db = -4.5 - input_peak_dbfs",
+      "target_peak_dbfs": -4.5,
+      "interpretation": "BandLab's suggested input gain is a PEAK normalizer: it pre-conditions every upload to ~-4.5 dBFS peak (fixed headroom), independent of loudness. Confirmed by 3 pink levels landing within 0.05 dB of -4.5 dBFS peak.",
+      "discriminator": "click_track is sparse (peak -0.45, RMS -44). Peak-target predicts ~-4.1 dB; a loudness-target would instead predict a large positive boost. Confirms peak-vs-loudness.",
+      "status": "hypothesis confirmed on 3 of 8 signals; remaining 5 to verify"
+    },
+    "per_signal": {
+      "pink_noise_minus20.wav": {
+        "input_peak_dbfs": -6.96,
+        "suggested_input_gain_db": 2.5,
+        "predicted_input_gain_db": 2.46,
+        "status": "confirmed"
+      },
+      "pink_noise_minus14.wav": {
+        "input_peak_dbfs": -0.61,
+        "suggested_input_gain_db": -3.9,
+        "predicted_input_gain_db": -3.89,
+        "status": "confirmed"
+      },
+      "pink_noise_minus10.wav": {
+        "input_peak_dbfs": -0.0,
+        "suggested_input_gain_db": -4.5,
+        "predicted_input_gain_db": -4.5,
+        "status": "confirmed"
+      },
+      "sine_sweep_minus20.wav": {
+        "input_peak_dbfs": -17.99,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": 13.49,
+        "status": "predicted"
+      },
+      "tone_ladder_minus20.wav": {
+        "input_peak_dbfs": -17.98,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": 13.48,
+        "status": "predicted"
+      },
+      "mid_side_test_minus20.wav": {
+        "input_peak_dbfs": -15.75,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": 11.25,
+        "status": "predicted"
+      },
+      "click_track.wav": {
+        "input_peak_dbfs": -0.45,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": -4.05,
+        "status": "predicted (acid test: peak-target => ~-4.1)"
+      },
+      "dynamic_test_minus14.wav": {
+        "input_peak_dbfs": -0.0,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": -4.5,
+        "status": "predicted"
+      }
+    },
+    "operator_notes": "Record the value BandLab SUGGESTS for each signal (then override to 0 before mastering). The suggestion is computed from the input file, so it should be identical across presets for a given signal -- confirm it does not change when you switch presets. Fill suggested_input_gain_db and set status=confirmed as you go."
+  },
+  "signal_provenance": {
+    "pink_noise_minus20.wav": {
+      "role": "pink_noise",
+      "purpose": "Primary tonal reference. Equal energy per octave; output delta IS the EQ curve."
+    },
+    "pink_noise_minus14.wav": {
+      "role": "pink_noise",
+      "purpose": "Level-dependent check. Spectral delta vs -20 reveals level-dependent processing."
+    },
+    "pink_noise_minus10.wav": {
+      "role": "pink_noise",
+      "purpose": "Hot-level behavior. Pushes compressor/limiter; reveals stand-down on loud material."
+    },
+    "sine_sweep_minus20.wav": {
+      "role": "sweep",
+      "purpose": "Precise frequency response. Reveals narrow-band features broadband noise misses."
+    },
+    "click_track.wav": {
+      "role": "click_track",
+      "purpose": "Compressor timing. Attack, release, transient shaping."
+    },
+    "tone_ladder_minus20.wav": {
+      "role": "tone_ladder",
+      "purpose": "Discrete per-frequency gain. Exact dB at known frequencies."
+    },
+    "dynamic_test_minus14.wav": {
+      "role": "dynamic",
+      "purpose": "Dynamic range preservation. Maintains 20 dB contrast or crushes it?"
+    },
+    "mid_side_test_minus20.wav": {
+      "role": "mid_side",
+      "purpose": "Stereo width. Narrowing, widening, or rebalancing?"
+    }
+  },
+  "presets": {
+    "clarity": {
+      "status": "empty",
+      "unmatched": []
+    },
+    "oomph": {
+      "status": "empty",
+      "unmatched": []
+    },
+    "tape": {
+      "status": "empty",
+      "unmatched": []
+    },
+    "universal": {
+      "status": "empty",
+      "unmatched": []
+    }
+  }
+}

@@ -26,6 +26,14 @@ _Last updated: 2026-06-16 · the single source of truth for "where are we."_
 - [ ] **BandLab masters.** Upload each of the 8 signals through the 4 BandLab
       presets (**Universal, Clarity, Oomph, Tape**) = 32 files. Download WAVs and
       drop them in `competitors/bandlab/<preset>/`.
+      - **LOCKED CAPTURE PROTOCOL (identical on every upload):**
+        **input gain = 0.0** (manual override of the suggestion) ·
+        **intensity = Normal (50%)** (the default detent). See
+        `competitors/bandlab/capture.json` — `fingerprint.py` reads it and stamps
+        every measurement with this provenance.
+      - **Also record the *suggested* input gain per signal** (the value BandLab
+        proposes before you zero it). It's a free readout of their input
+        conditioning. 3 of 8 recorded; predictions for the rest in capture.json.
       - Keep the source filename as a substring so auto-matching works
         (e.g. `pink_noise_minus20*.wav`). Unmatched files are reported, not guessed.
       - **Priority order if batching:** start with `pink_noise_minus20.wav`
@@ -42,6 +50,20 @@ _Last updated: 2026-06-16 · the single source of truth for "where are we."_
    spectrum overlays, per-preset EQ-curve charts, a 4-preset comparison matrix.
 3. Sanity-check deltas against expectation (BandLab presets are loud; expect
    large +makeup gain and a true-peak ceiling near −1 to −0.1 dBTP).
+
+## Findings so far (BandLab)
+
+- **Auto input-gain is a peak normalizer to ≈ −4.5 dBFS.** BandLab's "suggested
+  input gain" follows `suggested = −4.5 − input_peak_dbfs`. Confirmed on 3 pink
+  levels (−20→+2.5, −14→−3.9, −10→−4.5), all landing within 0.05 dB of −4.5 dBFS
+  peak. It conditions for **headroom, not loudness**. To verify: `click_track`
+  (sparse, peak −0.45) should suggest ≈ −4.1 if peak-targeted; a big positive
+  boost would mean loudness-aware gating instead. Full model + predictions in
+  `competitors/bandlab/capture.json`.
+- **Intensity default = "Normal" = 50%** of a 0–100% range (dry→max). We run v1
+  at this detent. Intensity sweep (0/50/100) is Phase 2 — and intensity-0 doubles
+  as a rig self-check (near-zero delta would validate the measurement; residual
+  loudness/limiting would expose the "always-on" part of the chain).
 
 ## Decisions / notes for future sessions
 

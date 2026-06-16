@@ -206,6 +206,39 @@ def aggregate_preset(pairs):
 
 
 # --------------------------------------------------------------------------- #
+# Capture provenance — the exact service settings each master was made under.
+# Lives in competitors/<service>/capture.json (committed; audio is gitignored).
+# --------------------------------------------------------------------------- #
+def load_capture(service):
+    p = COMP / service / "capture.json"
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def capture_for_signal(capture, source_file, in_rec):
+    """Attach the fixed protocol + this signal's recorded suggested input gain,
+    and cross-check that suggestion against the service's auto-gain model."""
+    if not capture:
+        return None
+    proto = capture.get("protocol", {})
+    block = {"input_gain_db": proto.get("input_gain_db"),
+             "intensity": proto.get("intensity")}
+    rec = capture.get("per_signal", {}).get(source_file)
+    if rec and rec.get("suggested_input_gain_db") is not None:
+        sug = rec["suggested_input_gain_db"]
+        block["suggested_input_gain_db"] = sug
+        block["suggested_status"] = rec.get("status")
+        # implied pre-chain peak target = input peak + suggested gain
+        peak = in_rec["levels"]["peak_dbfs"]
+        block["implied_target_peak_dbfs"] = round(peak + sug, 2)
+    return block
+
+
+# --------------------------------------------------------------------------- #
 # Driver
 # --------------------------------------------------------------------------- #
 def process_service(service):
@@ -213,6 +246,7 @@ def process_service(service):
     presets_out = {}
     if not sdir.exists():
         return None, f"no directory {sdir.relative_to(ROOT)}"
+    capture = load_capture(service)
     preset_dirs = [d for d in sdir.iterdir() if d.is_dir()]
     for pdir in sorted(preset_dirs):
         wavs = sorted(pdir.glob("*.wav")) + sorted(pdir.glob("*.WAV"))
@@ -223,7 +257,9 @@ def process_service(service):
             if src is None:
                 unmatched.append(w.name)
                 continue
-            pairs.append(fingerprint_pair(src, w))
+            pair = fingerprint_pair(src, w)
+            pair["capture"] = capture_for_signal(capture, src, pair["input"])
+            pairs.append(pair)
         if not pairs:
             presets_out[pdir.name] = {"status": "empty", "unmatched": unmatched}
             continue
@@ -251,6 +287,7 @@ def write_canonical(service, presets_out):
         "method": "Static-character isolation via spectrally-neutral test signals. "
                   "Delta = output measurement - input measurement. EQ shape is "
                   "makeup-gain-normalized band energy. See reports/ and tools/.",
+        "capture_protocol": load_capture(service),
         "signal_provenance": {fn: {"role": s["role"], "purpose": s["purpose"]}
                               for fn, s in sigreg.SIGNALS.items()},
         "presets": {name: doc.get("fingerprint", doc) for name, doc in presets_out.items()},
