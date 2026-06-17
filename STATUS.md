@@ -93,8 +93,9 @@ per-dimension skeptic re-deriving it from the raw per-pair JSONs.
 - **Level dependence is a loudness chase — measure it in LUFS, not RMS.** Across pink
   −20 → −14 → −10, every preset's loudness lift FALLS as the input gets hotter (it
   drives toward a loudness target rather than applying fixed gain). Net LUFS drop:
-  **punch −7.45 LU (hardest chaser)** … **warm −3.15 LU (least)**. Only **warm** is
-  genuinely non-monotonic in LUFS (small dip at −14). ⚠️ The `makeup_gain` field is an
+  **punch −7.45 LU (hardest chaser)** … **warm −3.15 LU (least)**. **warm and clarity**
+  are non-monotonic in LUFS (warm strongly, +1.25 LU rebound; clarity mildly, +0.34 LU;
+  others strictly monotonic). ⚠️ The `makeup_gain` field is an
   **RMS** delta, not loudness — on warm it reads +3.0/−1.4/+0.1 dB (looks like
   *attenuation*) while the true LUFS lift is +6.6/+2.2/+3.5 LU. warm trades sub for
   highs, so RMS falls while loudness rises. Use `loudness_lift_lufs_by_input_level`.

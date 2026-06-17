@@ -108,6 +108,7 @@
           "rms_dbfs": -33.589
         }
       ],
+      "onset_sec": 0.0,
       "loud_mean_dbfs": -14.33,
       "quiet_mean_dbfs": -34.059,
       "contrast_db": 19.728,
@@ -219,6 +220,7 @@
           "rms_dbfs": -16.889
         }
       ],
+      "onset_sec": 0.0,
       "loud_mean_dbfs": -9.674,
       "quiet_mean_dbfs": -17.512,
       "contrast_db": 7.838,

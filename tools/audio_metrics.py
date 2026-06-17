@@ -134,7 +134,11 @@ def loudness_metrics(data: np.ndarray, sr: int) -> dict:
     integrated = float(m.integrated_loudness(data))
     try:
         lra = float(m.loudness_range(data))
-    except Exception:
+    except (ValueError, IndexError) as e:
+        # pyloudnorm raises on sub-block-size / degenerate material. Record NaN but
+        # don't silently swallow unrelated failures (wrong rate, API change).
+        import warnings
+        warnings.warn(f"loudness_range failed ({type(e).__name__}: {e}); LRA set to NaN")
         lra = float("nan")
     return {"integrated_lufs": integrated, "lra_lu": lra}
 
@@ -153,8 +157,13 @@ def band_energy_dbfs(data: np.ndarray, sr: int,
                      bands=sig_registry.SPECTRAL_BANDS) -> dict:
     """
     Per-band energy as a dBFS-equivalent level: 10*log10 of each band's
-    contribution to mean-square (sum of PSD * df). Summing the linear band
-    powers recovers the broadband RMS, so these are directly interpretable.
+    contribution to mean-square (sum of PSD * df), on the MONO downmix over
+    20 Hz-16 kHz. NOTE: these absolute band levels do NOT sum to the full-file
+    stereo RMS — the mono downmix discards decorrelated side energy and the bands
+    omit sub-20 Hz and 16k-Nyquist, so the sum can sit ~6 dB below rms_dbfs on
+    decorrelated pink. Only the per-band DELTAS (output - input) are
+    makeup-gain-comparable: input and output pass the identical downmix so the
+    offset cancels.
     """
     mono = _mono(data)
     f, pxx = _welch_psd(mono, sr)
@@ -253,7 +262,9 @@ def analyze_tone_ladder(data: np.ndarray, sr: int,
     g = int(guard * sr)
     onset = content_onset(mono, sr)            # align to real content (services prepend lead-in)
     tones = []
-    n_seg = max(0, (len(mono) - onset) // seg)
+    # cap at the schedule length so a long trailing tail can't emit a spurious
+    # 21st (unscheduled) segment that would skew level_spread_db.
+    n_seg = min(max(0, (len(mono) - onset) // seg), reps * len(expected_freqs))
     schedule = (expected_freqs * reps)[:n_seg]
     for i in range(n_seg):
         chunk = mono[onset + i * seg + g: onset + (i + 1) * seg - g]
@@ -312,10 +323,11 @@ def analyze_dynamic(data: np.ndarray, sr: int, segment_sec: float = 5.0) -> dict
     """
     mono = _mono(data)
     seg = int(segment_sec * sr)
+    onset = content_onset(mono, sr)   # align to real content (services prepend lead-in)
     segs = []
-    for i in range(len(mono) // seg):
-        chunk = mono[i * seg:(i + 1) * seg]
-        segs.append({"index": i, "t_start_sec": round(i * segment_sec, 3),
+    for i in range((len(mono) - onset) // seg):
+        chunk = mono[onset + i * seg: onset + (i + 1) * seg]
+        segs.append({"index": i, "t_start_sec": round((onset + i * seg) / sr, 3),
                      "rms_dbfs": round(rms_dbfs(chunk), 3)})
     levels = np.array([s["rms_dbfs"] for s in segs])
     if len(levels) == 0:
@@ -327,6 +339,7 @@ def analyze_dynamic(data: np.ndarray, sr: int, segment_sec: float = 5.0) -> dict
     quiet_mean = float(np.mean(quiet)) if quiet.size else None
     contrast = (loud_mean - quiet_mean) if (loud_mean is not None and quiet_mean is not None) else None
     return {"segments": segs,
+            "onset_sec": round(onset / sr, 3),
             "loud_mean_dbfs": round(loud_mean, 3) if loud_mean is not None else None,
             "quiet_mean_dbfs": round(quiet_mean, 3) if quiet_mean is not None else None,
             "contrast_db": round(contrast, 3) if contrast is not None else None,

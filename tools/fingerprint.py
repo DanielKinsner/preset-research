@@ -67,11 +67,17 @@ def band_deltas(in_rec, out_rec):
 
 
 def tone_gains(in_rec, out_rec):
-    """Per-frequency gain (output - input level) at each ladder tone."""
-    it = {t["expected_hz"]: t["level_dbfs"]
-          for t in in_rec.get("signal_specific", {}).get("tones", []) if t["expected_hz"]}
-    ot = {t["expected_hz"]: t["level_dbfs"]
-          for t in out_rec.get("signal_specific", {}).get("tones", []) if t["expected_hz"]}
+    """Per-frequency gain (output - input level) at each ladder tone, averaged over
+    the ladder's repetitions (each frequency is held twice). Averaging both reps —
+    rather than keeping only the last — preserves the redundancy the 2x repeat was
+    designed for and would surface any drift between passes."""
+    def by_freq(rec):
+        acc = {}
+        for t in rec.get("signal_specific", {}).get("tones", []):
+            if t["expected_hz"]:
+                acc.setdefault(t["expected_hz"], []).append(t["level_dbfs"])
+        return {hz: float(np.mean(v)) for hz, v in acc.items()}
+    it, ot = by_freq(in_rec), by_freq(out_rec)
     return {f"{hz}Hz": _sub(ot.get(hz), it.get(hz)) for hz in sorted(it) if hz in ot}
 
 

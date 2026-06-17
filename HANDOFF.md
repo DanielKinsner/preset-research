@@ -133,8 +133,9 @@ level and collapse that experiment.
    operating-point snapshots, not constants. ⚠️ **Use LUFS, not RMS:** the
    `makeup_gain` field is an RMS delta — on **warm** it reads +3.0/−1.4/+0.1 dB (looks
    like attenuation!) while the true loudness lift is +6.6/+2.2/+3.5 LU (warm trades
-   sub for highs → RMS falls, loudness rises). `level_dependence` carries both metrics;
-   only warm is genuinely non-monotonic in LUFS.
+   sub for highs → RMS falls, loudness rises). `level_dependence` carries both metrics.
+   **warm and clarity** are non-monotonic in LUFS (warm strongly, +1.25 LU rebound at
+   −10; clarity mildly, +0.34 LU); the other six are strictly monotonic-decreasing.
 3. **Preset personalities (pink_−20, 8 presets):** loudest/brightest/most-limited
    **punch** (−7.4 LUFS, +12 dB makeup, crest −6.6, clips +1.1 dBTP); gentlest
    **warm** (−13.8 LUFS, +3 dB makeup); darkest-tilted **natural** (−0.5 dB/oct;
