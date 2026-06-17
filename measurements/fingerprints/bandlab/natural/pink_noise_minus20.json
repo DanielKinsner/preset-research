@@ -25,7 +25,7 @@
     },
     "spectral": {
       "centroid_hz": 2900.84,
-      "slope_db_per_oct": -3.008,
+      "slope_db_per_oct": -3.006,
       "bands_dbfs": {
         "20-60 Hz": -35.233,
         "60-120 Hz": -37.292,
@@ -68,7 +68,7 @@
     },
     "spectral": {
       "centroid_hz": 2092.44,
-      "slope_db_per_oct": -3.266,
+      "slope_db_per_oct": -3.527,
       "bands_dbfs": {
         "20-60 Hz": -25.719,
         "60-120 Hz": -27.329,
@@ -96,7 +96,7 @@
     "true_peak_dbtp": 6.902,
     "crest_factor_db": -1.995,
     "centroid_hz": -808.4,
-    "slope_db_per_oct": -0.258,
+    "slope_db_per_oct": -0.521,
     "correlation": -0.006,
     "side_minus_mid_db": 0.052,
     "band_energy_raw_db": {

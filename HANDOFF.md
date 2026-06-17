@@ -137,7 +137,8 @@ level and collapse that experiment.
    only warm is genuinely non-monotonic in LUFS.
 3. **Preset personalities (pink_−20, 8 presets):** loudest/brightest/most-limited
    **punch** (−7.4 LUFS, +12 dB makeup, crest −6.6, clips +1.1 dBTP); gentlest
-   **warm** (−13.8 LUFS, +3 dB makeup); only *darkening* preset **natural**;
+   **warm** (−13.8 LUFS, +3 dB makeup); darkest-tilted **natural** (−0.5 dB/oct;
+   **oomph** −0.24 and **warm** ≈0 also tilt dark, equal-octave metric);
    **oomph** = +9.7 dB sub (20–60 Hz), independently confirmed by the tone ladder
    at **+15 dB @ 40 Hz**; **clarity** mid-scoop "smile"; **spatial/tape** add air.
 4. **5 of 8 presets deliver masters that exceed 0 dBTP** (inter-sample clipping

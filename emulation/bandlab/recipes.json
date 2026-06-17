@@ -69,9 +69,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 0.917,
+        "tilt_db_per_oct": 0.217,
         "centroid_shift_hz": 862.26,
-        "multiband_density_index": 0.277
+        "multiband_density_index": 0.264
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -141,9 +141,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": -0.258,
+        "tilt_db_per_oct": -0.521,
         "centroid_shift_hz": -808.4,
-        "multiband_density_index": 0.018
+        "multiband_density_index": 0.365
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -213,9 +213,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 0.324,
+        "tilt_db_per_oct": -0.24,
         "centroid_shift_hz": -2026.93,
-        "multiband_density_index": 0.364
+        "multiband_density_index": 0.315
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -285,9 +285,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 2.182,
+        "tilt_db_per_oct": 1.147,
         "centroid_shift_hz": 3614.48,
-        "multiband_density_index": 1.378
+        "multiband_density_index": 1.01
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -357,9 +357,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 0.762,
+        "tilt_db_per_oct": 0.296,
         "centroid_shift_hz": 1218.76,
-        "multiband_density_index": 0.284
+        "multiband_density_index": 0.209
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -429,9 +429,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 1.219,
+        "tilt_db_per_oct": 0.21,
         "centroid_shift_hz": 1751.6,
-        "multiband_density_index": 0.617
+        "multiband_density_index": 0.35
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -501,9 +501,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 0.386,
+        "tilt_db_per_oct": 0.031,
         "centroid_shift_hz": 257.54,
-        "multiband_density_index": 0.27
+        "multiband_density_index": 0.13
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {
@@ -573,9 +573,9 @@
         "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
       },
       "tonal_summary": {
-        "tilt_db_per_oct": 0.412,
+        "tilt_db_per_oct": -0.014,
         "centroid_shift_hz": 743.24,
-        "multiband_density_index": 0.225
+        "multiband_density_index": 0.192
       },
       "level_dependence": {
         "makeup_gain_rms_by_input_level": {

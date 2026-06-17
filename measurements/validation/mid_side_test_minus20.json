@@ -92,7 +92,7 @@
     },
     "spectral": {
       "centroid_hz": 1032.61,
-      "slope_db_per_oct": -0.086,
+      "slope_db_per_oct": -0.011,
       "bands_dbfs": {
         "20-60 Hz": -72.362,
         "60-120 Hz": -70.678,

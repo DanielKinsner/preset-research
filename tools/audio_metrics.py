@@ -168,17 +168,28 @@ def band_energy_dbfs(data: np.ndarray, sr: int,
 
 
 def spectral_slope_db_per_oct(data: np.ndarray, sr: int,
-                              fmin: float = 50.0, fmax: float = 16000.0) -> float:
+                              fmin: float = 50.0, fmax: float = 16000.0,
+                              n_points: int = 96) -> float:
     """
     Least-squares slope of PSD (dB) vs log-frequency, expressed per octave.
     Pink noise -> ~-3.01 dB/oct; white -> 0; a brightening master -> less negative.
+
+    The PSD is resampled onto a LOG-UNIFORM frequency grid before fitting. Welch
+    bins are linearly spaced in Hz, so a raw log-f fit gives the top octaves ~2x
+    the bins and weights HF ~5-6x more than LF per dB — which made the tilt
+    understate bass moves relative to equal treble moves. Equal weight per octave
+    removes that bias (an ideal power law reads its true slope either way).
     """
     mono = _mono(data)
     f, pxx = _welch_psd(mono, sr)
-    mask = (f >= fmin) & (f <= fmax)
+    mask = (f >= fmin) & (f <= fmax) & (pxx > 0)
+    if int(mask.sum()) < 2:
+        return float("nan")
     logf = np.log10(f[mask])
-    ydb = 10.0 * np.log10(np.maximum(pxx[mask], EPS))
-    slope_per_decade, _ = np.polyfit(logf, ydb, 1)
+    ydb = 10.0 * np.log10(pxx[mask])
+    grid = np.linspace(logf.min(), logf.max(), n_points)   # uniform in log-frequency
+    ydb_u = np.interp(grid, logf, ydb)
+    slope_per_decade, _ = np.polyfit(grid, ydb_u, 1)
     return float(slope_per_decade * np.log10(2.0))  # per-decade -> per-octave
 
 

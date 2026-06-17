@@ -1,7 +1,7 @@
 {
   "service": "bandlab",
   "preset": "warm",
-  "generated_utc": "2026-06-17T02:43:20+00:00",
+  "generated_utc": "2026-06-17T03:56:35+00:00",
   "unmatched_files": [],
   "fingerprint": {
     "n_signals": 8,
@@ -55,7 +55,7 @@
       "4-8k Hz": 6.709,
       "8-16k Hz": 7.463
     },
-    "spectral_tilt_change_db_per_oct": 0.412,
+    "spectral_tilt_change_db_per_oct": -0.014,
     "centroid_shift_hz": 743.24,
     "tone_gain_db": {
       "40Hz": 2.068,
@@ -102,6 +102,6 @@
       },
       "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
     },
-    "multiband_density_index_db_per_oct": 0.225
+    "multiband_density_index_db_per_oct": 0.192
   }
 }

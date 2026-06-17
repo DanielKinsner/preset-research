@@ -1,7 +1,7 @@
 {
   "schema": "preset-fingerprint/v1",
   "service": "bandlab",
-  "generated_utc": "2026-06-17T02:43:20+00:00",
+  "generated_utc": "2026-06-17T03:56:35+00:00",
   "method": "Static-character isolation via spectrally-neutral test signals. Delta = output measurement - input measurement. EQ shape is makeup-gain-normalized band energy. See reports/ and tools/.",
   "capture_protocol": {
     "service": "bandlab",
@@ -169,7 +169,7 @@
         "4-8k Hz": 7.983,
         "8-16k Hz": 8.513
       },
-      "spectral_tilt_change_db_per_oct": 0.917,
+      "spectral_tilt_change_db_per_oct": 0.217,
       "centroid_shift_hz": 862.26,
       "tone_gain_db": {
         "40Hz": 8.318,
@@ -216,7 +216,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.277
+      "multiband_density_index_db_per_oct": 0.264
     },
     "natural": {
       "n_signals": 8,
@@ -270,7 +270,7 @@
         "4-8k Hz": 6.451,
         "8-16k Hz": 7.254
       },
-      "spectral_tilt_change_db_per_oct": -0.258,
+      "spectral_tilt_change_db_per_oct": -0.521,
       "centroid_shift_hz": -808.4,
       "tone_gain_db": {
         "40Hz": 10.603,
@@ -317,7 +317,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.018
+      "multiband_density_index_db_per_oct": 0.365
     },
     "oomph": {
       "n_signals": 8,
@@ -371,7 +371,7 @@
         "4-8k Hz": 8.141,
         "8-16k Hz": 7.146
       },
-      "spectral_tilt_change_db_per_oct": 0.324,
+      "spectral_tilt_change_db_per_oct": -0.24,
       "centroid_shift_hz": -2026.93,
       "tone_gain_db": {
         "40Hz": 14.954,
@@ -418,7 +418,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.364
+      "multiband_density_index_db_per_oct": 0.315
     },
     "punch": {
       "n_signals": 8,
@@ -472,7 +472,7 @@
         "4-8k Hz": 14.692,
         "8-16k Hz": 15.918
       },
-      "spectral_tilt_change_db_per_oct": 2.182,
+      "spectral_tilt_change_db_per_oct": 1.147,
       "centroid_shift_hz": 3614.48,
       "tone_gain_db": {
         "40Hz": 14.5,
@@ -519,7 +519,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 1.378
+      "multiband_density_index_db_per_oct": 1.01
     },
     "spatial": {
       "n_signals": 8,
@@ -573,7 +573,7 @@
         "4-8k Hz": 10.173,
         "8-16k Hz": 11.279
       },
-      "spectral_tilt_change_db_per_oct": 0.762,
+      "spectral_tilt_change_db_per_oct": 0.296,
       "centroid_shift_hz": 1218.76,
       "tone_gain_db": {
         "40Hz": 8.723,
@@ -620,7 +620,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.284
+      "multiband_density_index_db_per_oct": 0.209
     },
     "tape": {
       "n_signals": 8,
@@ -674,7 +674,7 @@
         "4-8k Hz": 9.302,
         "8-16k Hz": 12.075
       },
-      "spectral_tilt_change_db_per_oct": 1.219,
+      "spectral_tilt_change_db_per_oct": 0.21,
       "centroid_shift_hz": 1751.6,
       "tone_gain_db": {
         "40Hz": 8.13,
@@ -721,7 +721,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.617
+      "multiband_density_index_db_per_oct": 0.35
     },
     "universal": {
       "n_signals": 8,
@@ -775,7 +775,7 @@
         "4-8k Hz": 8.95,
         "8-16k Hz": 9.648
       },
-      "spectral_tilt_change_db_per_oct": 0.386,
+      "spectral_tilt_change_db_per_oct": 0.031,
       "centroid_shift_hz": 257.54,
       "tone_gain_db": {
         "40Hz": 9.149,
@@ -822,7 +822,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.27
+      "multiband_density_index_db_per_oct": 0.13
     },
     "warm": {
       "n_signals": 8,
@@ -876,7 +876,7 @@
         "4-8k Hz": 6.709,
         "8-16k Hz": 7.463
       },
-      "spectral_tilt_change_db_per_oct": 0.412,
+      "spectral_tilt_change_db_per_oct": -0.014,
       "centroid_shift_hz": 743.24,
       "tone_gain_db": {
         "40Hz": 2.068,
@@ -923,7 +923,7 @@
         },
         "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
       },
-      "multiband_density_index_db_per_oct": 0.225
+      "multiband_density_index_db_per_oct": 0.192
     }
   }
 }

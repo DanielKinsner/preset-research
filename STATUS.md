@@ -84,7 +84,9 @@ per-dimension skeptic re-deriving it from the raw per-pair JSONs.
 - **Tonal/loudness fingerprint (pink_−20, 8 presets) — confirmed unchanged.** Loudest
   **punch** (−7.4 LUFS, +12 dB RMS makeup, crest −6.6 = heaviest limiting, +1.1 dBTP);
   gentlest **warm** (−13.8 LUFS, +3 dB makeup, −3.6 dBTP). Brightest **punch**
-  (+2.18 dB/oct); only *darkening* preset on broadband signals **natural** (−0.26).
+  (+1.15 dB/oct — a mid-scoop + HF lift, not a uniform tilt); **natural** darkest
+  (−0.52), with **oomph** (−0.24) and **warm** (≈0) also tilting dark once each
+  octave is weighted equally (tilt metric corrected; see review P2).
   Signatures: **oomph** +9.7 dB sub (20–60 Hz), **clarity** mid-scoop "smile,"
   **spatial/tape** high-air lift, **universal** near-flat. **5 of 8 exceed 0 dBTP**
   on pink_−20 (inter-sample clipping): clarity, natural, spatial, universal, punch.
@@ -113,9 +115,10 @@ per-dimension skeptic re-deriving it from the raw per-pair JSONs.
   weakest (+0.69): the tone ladder shows a **U-shape** (sub boost @ 40 Hz *and* high
   rise) that the shape-normalized pink contour hides — the expected signature of
   **density-dependent / multiband** EQ, not a contradiction.
-- **Multiband-density index (pink tilt − sweep tilt):** punch 1.38 (most
-  density-dependent) → **natural 0.018 (essentially linear / transparent EQ)**. natural
-  is the only preset whose EQ doesn't change with broadband density.
+- **Multiband-density index (pink tilt − sweep tilt):** punch +1.01 (most
+  density-dependent) → **universal +0.13 (most linear / transparent EQ)**. (Recomputed
+  with the equal-octave tilt; the old "natural 0.018 / most-linear" was an HF-bias
+  artifact — natural's index is actually mid-pack at +0.37.)
 - **Auto input-gain is a peak normalizer to −4.5 dBFS — CONFIRMED on all 8 signals.**
   `suggested = −4.5 − input_peak_dbfs` (max error 0.05 dB). `click_track` acid test
   passed: −4.1 = peak-target, not loudness-aware → conditions for **headroom, not
@@ -125,14 +128,16 @@ per-dimension skeptic re-deriving it from the raw per-pair JSONs.
 
 ### Personalities at a glance (the surprises)
 
-- **warm is the opposite of its name on the numbers.** It *cuts* 20–60 Hz and lifts
-  everything above (biggest boosts 4–16 kHz): tilt +0.41 dB/oct, centroid +743 Hz. It
-  is the gentlest on loudness/limiting, but tonally it **brightens**, it doesn't warm.
-- **natural is the only "transparent" preset** — density-independent EQ (index 0.018),
-  consistently *darkening* on every broadband signal (−0.13…−0.28 dB/oct).
-- **oomph's two tonal metrics disagree by design:** tilt +0.32 dB/oct (slightly
-  brighter) but centroid −2027 Hz (much darker). Its +9.7 dB sub boost dominates the
-  energy-weighted centroid while the flat regression tilt doesn't see it. **Report both.**
+- **warm is roughly tonally neutral, not the warm-up its name implies.** It *cuts*
+  20–60 Hz and gently lifts everything above: tilt −0.01 dB/oct (≈flat), centroid
+  +743 Hz. Gentlest on loudness/limiting. (The earlier "warm brightens / +0.41 dB/oct"
+  read was the HF-weighting artifact the review fixed.)
+- **natural is the darkest preset** (tilt −0.52, centroid −808 Hz). It is *not* the
+  most "transparent" one — that is **universal** (lowest multiband-density index, +0.13);
+  natural's index is mid-pack (+0.37).
+- **oomph now reads dark on BOTH metrics** — tilt −0.24 dB/oct and centroid −2027 Hz
+  agree, both dominated by its +9.7 dB sub boost. (The earlier tilt/centroid
+  "disagreement" was the HF-weighting artifact; with equal-octave weighting they line up.)
 - **punch chases loudness on every axis:** loudest, most-compressing, brightest,
   hardest level-chaser, and the **only** preset that meaningfully lifts the sparse
   click track (+7.6 LU; next is +1.1).

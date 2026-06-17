@@ -1,7 +1,7 @@
 {
   "service": "bandlab",
   "preset": "oomph",
-  "generated_utc": "2026-06-17T02:40:43+00:00",
+  "generated_utc": "2026-06-17T03:54:08+00:00",
   "unmatched_files": [],
   "fingerprint": {
     "n_signals": 8,
@@ -55,7 +55,7 @@
       "4-8k Hz": 8.141,
       "8-16k Hz": 7.146
     },
-    "spectral_tilt_change_db_per_oct": 0.324,
+    "spectral_tilt_change_db_per_oct": -0.24,
     "centroid_shift_hz": -2026.93,
     "tone_gain_db": {
       "40Hz": 14.954,
@@ -102,6 +102,6 @@
       },
       "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
     },
-    "multiband_density_index_db_per_oct": 0.364
+    "multiband_density_index_db_per_oct": 0.315
   }
 }
