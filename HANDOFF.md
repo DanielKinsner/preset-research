@@ -134,6 +134,39 @@ level and collapse that experiment.
    on playback): clarity, natural, spatial, universal, punch. Only warm, tape,
    oomph stay under.
 
+### 5b. Implications (carry these into the final analysis)
+
+These are *what the findings mean*, not just the findings:
+
+- **BandLab normalizes at BOTH ends; the "preset" is what's in the middle.** Input
+  is peak-conditioned to ≈ −4.5 dBFS; output is driven toward a loudness target
+  (that's *why* makeup gain shrinks as the input gets louder — finding #2). The
+  preset's true *character* is the EQ / compression / saturation / stereo work
+  **between** those two normalizers. When interpreting, separate level-management
+  (input peak-cond + output loudness target) from tonal/dynamic character.
+- **Our fingerprints describe the chain's raw, level-dependent response — NOT what
+  a typical user gets.** A normal user accepts the suggestion, so their track is
+  peak-normalized to −4.5 dBFS *first*. We decline it to expose level-dependence.
+  Consequence: cross-preset comparisons are clean (same input, bypassed
+  uniformly), but absolute "what you'd hear as a user" is the −4.5-normalized
+  condition — which our −20/−14 levels **bracket** but don't hit exactly. To get
+  it directly, add a "gain-to-−4.5" run, or interpolate between −20 and −14.
+- **The −10 pink at gain 0 is an off-design stress test.** It enters at 0 dBFS
+  peak — ~4.5 dB hotter than BandLab's normalizer would ever feed the chain. So
+  −10 results show "how the preset survives an over-hot input," useful for
+  robustness but *not* normal operation. Label it as such in the writeup.
+- **To emulate a preset faithfully, the recipe includes the input stage:**
+  peak-normalize to −4.5 dBFS → apply the preset's EQ/comp/stereo fingerprint →
+  drive output to its loudness target. The input conditioning is part of the
+  chain, not a preamble to ignore.
+- **The click_track test decides how simple the input stage is.** Peak-confirmed →
+  input conditioning is a trivial, exactly-modelable gain. Loudness-aware → it's
+  input-content-dependent and the −4.5 model is only a first approximation.
+- **"Adaptive" has two layers here.** Even with neutral signals we've already
+  caught level-adaptivity (the normalizers). The *content*-adaptivity (track-aware
+  EQ/comp that reacts to real music) is the separate, future investigation — don't
+  conflate the two in the analysis.
+
 ## 6. Repo map
 
 ```
