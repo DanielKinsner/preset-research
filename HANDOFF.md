@@ -112,9 +112,15 @@ level and collapse that experiment.
 ## 5. Findings to date (all from `measurements/fingerprints/bandlab/`)
 
 1. **BandLab's suggested input gain is a peak normalizer to ≈ −4.5 dBFS**
-   (`suggested = −4.5 − input_peak_dbfs`). Confirmed on pink −20/−14/−10. It
-   conditions for headroom, not loudness. (Unverified on click_track — the
-   peak-vs-loudness acid test; predicts ≈ −4.1.)
+   (`suggested = −4.5 − input_peak_dbfs`). Confirmed on three pink levels —
+   **−20→+2.5, −14→−3.9, −10→−4.5 dB**, each landing within 0.05 dB of a −4.5 dBFS
+   peak target. It conditions for **headroom, not loudness**, and is computed from
+   the input file (so it should be identical across presets — worth confirming).
+   We **decline it (gain 0)** on every upload to keep input levels known; the
+   suggestions are logged separately in `capture.json`. Because the source signals
+   are all ≤ 0 dBFS, declining the gain can never clip the input. Unverified on
+   `click_track` — the peak-vs-loudness acid test (predicts ≈ −4.1; a large
+   positive value would instead mean loudness-aware gain).
 2. **Processing is level-dependent (adaptive).** Makeup gain differs by input
    level — e.g. oomph: **+8.2 dB @ −20 vs +3.4 dB @ −14**. So preset EQ curves
    are operating-point snapshots, not universal constants. The −10 pink (still to
