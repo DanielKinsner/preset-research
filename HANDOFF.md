@@ -45,6 +45,33 @@ The `.venv` is **not** committed (gitignored) — recreate it as above. The audi
 
 Then open `reports/fingerprints/bandlab/comparison.html`.
 
+### 2b. Completing the matrix (masters downloaded on this machine)
+
+The remaining signals are downloaded on whichever machine you're on now
+(`pink_noise_minus10`, `click_track`, `dynamic_test_minus14`,
+`mid_side_test_minus20` — each × 8 presets = 32 files). Drop each into
+`competitors/bandlab/<preset>/`, keeping the source stem in the filename
+(e.g. `click_track-oomph.wav`). Then:
+
+```bash
+.venv\Scripts\python tools\fingerprint.py --service bandlab   # ingests new files
+.venv\Scripts\python tools\compare.py  --service bandlab
+git add -A          # competitor WAVs are tracked now, so this sweeps them in
+git commit -m "Add <signal> masters"
+git push
+```
+
+**Pushing from a new machine needs GitHub auth set up** (PAT via Git Credential
+Manager, `gh auth login`, or an SSH remote). Verify first: `git ls-remote origin`
+should list refs without erroring. Without push access, new masters stay stranded
+locally — the same trap we hit on the first machine.
+
+Also: record the BandLab **suggested input gain** for each new signal before
+zeroing it, and add it to `competitors/bandlab/capture.json` under `per_signal`
+(set `status: confirmed`). `click_track` is the acid test — the −4.5 dBFS peak
+model predicts ≈ −4.1; a large positive value instead would mean loudness-aware
+gain.
+
 ## 3. Current state (2026-06-17)
 
 **Tooling: complete and verified.**
