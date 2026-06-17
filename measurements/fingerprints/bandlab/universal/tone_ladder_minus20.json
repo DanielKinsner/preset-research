@@ -17,6 +17,7 @@
       "peak_dbfs": -17.982,
       "true_peak_dbtp": -17.968,
       "rms_dbfs": -21.001,
+      "rms_mono_dbfs": -21.001,
       "crest_factor_db": 3.02
     },
     "loudness": {
@@ -207,6 +208,7 @@
       "peak_dbfs": -8.532,
       "true_peak_dbtp": -8.527,
       "rms_dbfs": -13.623,
+      "rms_mono_dbfs": -13.623,
       "crest_factor_db": 5.091
     },
     "loudness": {

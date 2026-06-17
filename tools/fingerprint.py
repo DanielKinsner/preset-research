@@ -59,9 +59,16 @@ def band_deltas(in_rec, out_rec):
     ib = in_rec["spectral"]["bands_dbfs"]
     ob = out_rec["spectral"]["bands_dbfs"]
     raw = {k: _sub(ob[k], ib[k]) for k in ib}
+    # makeup gain = stereo-pool RMS delta (the correct full-signal level change).
     rms_delta = _sub(out_rec["levels"]["rms_dbfs"], in_rec["levels"]["rms_dbfs"])
-    # Level-normalized = EQ *shape* independent of overall makeup gain.
-    norm = {k: (round(v - rms_delta, 3) if v is not None and rms_delta is not None else None)
+    # EQ *shape* must be normalized by the MONO RMS delta, since the bands are
+    # measured on the mono downmix. Using the stereo-pool RMS here would leak the
+    # input->output change in stereo decorrelation as a uniform offset into every
+    # band (up to ~0.22 dB; it cancels in eq_contour but biases eq_shape's zero).
+    mono_delta = _sub(out_rec["levels"].get("rms_mono_dbfs"),
+                      in_rec["levels"].get("rms_mono_dbfs"))
+    shape_ref = mono_delta if mono_delta is not None else rms_delta
+    norm = {k: (round(v - shape_ref, 3) if v is not None and shape_ref is not None else None)
             for k, v in raw.items()}
     return raw, norm, rms_delta
 

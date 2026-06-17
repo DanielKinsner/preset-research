@@ -96,6 +96,9 @@ def peak_dbfs(data: np.ndarray) -> float:
 
 
 def rms_dbfs(data: np.ndarray) -> float:
+    """Broadband RMS in dBFS, energy-POOLED across all channels (full-scale sine
+    reads -3.01 dBFS). For asymmetric stereo this sits up to 3 dB below the louder
+    channel; pass _mono(data) for a mono-downmix reference."""
     return db(np.sqrt(np.mean(np.square(data))))
 
 
@@ -408,6 +411,9 @@ def measure_file(path, role: str | None = None) -> dict:
             "peak_dbfs": round(peak_dbfs(data), 3),
             "true_peak_dbtp": round(true_peak_dbtp(data, sr), 3),
             "rms_dbfs": round(rms_dbfs(data), 3),
+            # mono-downmix RMS — the reference EQ-shape normalization must use so it
+            # matches the (mono) band energies; rms_dbfs above is the stereo pool.
+            "rms_mono_dbfs": round(rms_dbfs(_mono(data)), 3),
             "crest_factor_db": round(crest_factor_db(data), 3),
         },
         "loudness": {k: round(v, 3) for k, v in loudness_metrics(data, sr).items()},

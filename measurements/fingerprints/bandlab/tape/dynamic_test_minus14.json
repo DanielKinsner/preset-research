@@ -17,6 +17,7 @@
       "peak_dbfs": -0.0,
       "true_peak_dbtp": 1.236,
       "rms_dbfs": -14.029,
+      "rms_mono_dbfs": -17.287,
       "crest_factor_db": 14.029
     },
     "loudness": {
@@ -129,6 +130,7 @@
       "peak_dbfs": -0.252,
       "true_peak_dbtp": 1.059,
       "rms_dbfs": -10.132,
+      "rms_mono_dbfs": -13.347,
       "crest_factor_db": 9.88
     },
     "loudness": {
@@ -249,15 +251,15 @@
       "8-16k Hz": 6.228
     },
     "band_energy_shape_db": {
-      "20-60 Hz": 0.249,
-      "60-120 Hz": 0.289,
-      "120-250 Hz": 0.303,
-      "250-500 Hz": 0.308,
-      "500-1k Hz": -0.017,
-      "1-2k Hz": -1.111,
-      "2-4k Hz": -2.794,
-      "4-8k Hz": -0.164,
-      "8-16k Hz": 2.331
+      "20-60 Hz": 0.206,
+      "60-120 Hz": 0.246,
+      "120-250 Hz": 0.26,
+      "250-500 Hz": 0.265,
+      "500-1k Hz": -0.06,
+      "1-2k Hz": -1.154,
+      "2-4k Hz": -2.837,
+      "4-8k Hz": -0.207,
+      "8-16k Hz": 2.288
     },
     "dynamic_contrast_change_db": -5.394
   },
