@@ -1,5 +1,5 @@
 # bandlab preset comparison
-_Based on <b>1 signal</b> (pink_noise_minus20) so far — this is the tonal + loudness fingerprint. Dynamics, stereo width, per-frequency gain, and limiter timing fill in as the other 7 signals are added._
+_Based on signals: pink_noise_minus14.wav, pink_noise_minus20.wav, sine_sweep_minus20.wav, tone_ladder_minus20.wav._
 
 | Preset | Out LUFS | Makeup dB | True-peak dBTP | Crest Δ | Tilt Δ dB/oct |
 |---|---|---|---|---|---|

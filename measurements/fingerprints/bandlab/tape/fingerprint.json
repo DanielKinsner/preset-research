@@ -1,12 +1,15 @@
 {
   "service": "bandlab",
   "preset": "tape",
-  "generated_utc": "2026-06-16T23:59:21+00:00",
+  "generated_utc": "2026-06-17T00:18:46+00:00",
   "unmatched_files": [],
   "fingerprint": {
-    "n_signals": 1,
+    "n_signals": 4,
     "signals_present": [
-      "pink_noise_minus20.wav"
+      "pink_noise_minus14.wav",
+      "pink_noise_minus20.wav",
+      "sine_sweep_minus20.wav",
+      "tone_ladder_minus20.wav"
     ],
     "loudness": {
       "output_integrated_lufs": -10.708,
@@ -49,6 +52,25 @@
       "8-16k Hz": 12.075
     },
     "spectral_tilt_change_db_per_oct": 1.219,
-    "centroid_shift_hz": 1751.6
+    "centroid_shift_hz": 1751.6,
+    "tone_gain_db": {
+      "40Hz": 8.13,
+      "80Hz": 8.497,
+      "160Hz": 8.235,
+      "315Hz": 7.908,
+      "630Hz": 7.502,
+      "1250Hz": 6.323,
+      "2500Hz": 4.952,
+      "5000Hz": 6.945,
+      "10000Hz": 8.76,
+      "16000Hz": 8.699
+    },
+    "level_dependence": {
+      "makeup_gain_by_input_level": {
+        "pink_noise_minus14.wav": 3.723,
+        "pink_noise_minus20.wav": 8.176
+      },
+      "note": "differing gains => level-dependent (adaptive) processing"
+    }
   }
 }

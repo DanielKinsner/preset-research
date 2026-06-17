@@ -255,6 +255,7 @@
           "level_dbfs": -20.992
         }
       ],
+      "onset_sec": 0.0,
       "level_spread_db": 0.0,
       "n_segments": 20
     }

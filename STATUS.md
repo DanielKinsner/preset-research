@@ -1,6 +1,7 @@
 # STATUS — read this first
 
-_Last updated: 2026-06-16 · the single source of truth for "where are we."_
+_Last updated: 2026-06-17 · the single source of truth for "where are we."_
+_New machine? Read `HANDOFF.md` first._
 
 ## Done
 
@@ -21,10 +22,13 @@ _Last updated: 2026-06-16 · the single source of truth for "where are we."_
       per-preset aggregate, service `canonical.json`. **Self-test PASSES**:
       recovers a known injected +8 dB makeup + high-shelf brightening.
       (Fixed an NTFS `*.wav`/`*.WAV` glob double-count bug.)
-- [x] **First real fingerprints + comparison** — pink_noise_minus20 mastered
-      through all **8 BandLab presets**. `tools/compare.py` renders
-      `reports/fingerprints/bandlab/comparison.html` (EQ-contour overlay +
-      loudness/limiting ranking). Canonical: `measurements/fingerprints/bandlab/`.
+- [x] **Real fingerprints + comparison** — **4 signals** (pink_−20, pink_−14,
+      sine_sweep, tone_ladder) × **8 presets** = 32 masters measured.
+      `tools/compare.py` → `reports/fingerprints/bandlab/comparison.html`.
+      Canonical: `measurements/fingerprints/bandlab/canonical.json`.
+- [x] **Onset alignment** added to tone/dynamic analyzers
+      (`audio_metrics.content_onset`) — handles BandLab's 0.01–0.42 s lead-in.
+      Validation still 8/8 PASS.
 
 ## Scope: 8 BandLab presets
 
@@ -33,11 +37,11 @@ Full matrix = 8 signals × 8 presets = **64 masters**.
 
 ## Waiting on operator (Dan)
 
-- [x] **pink_noise_minus20 — all 8 presets done**, fingerprinted + compared.
-- [ ] **Remaining 7 signals × 8 presets = 56 masters.** Upload each remaining
-      signal (pink_noise_minus14, pink_noise_minus10, sine_sweep_minus20,
-      click_track, tone_ladder_minus20, dynamic_test_minus14, mid_side_test_minus20)
-      through all 8 presets; drop in `competitors/bandlab/<preset>/`.
+- [x] **4 signals × 8 presets done** (pink_−20, pink_−14, sine_sweep, tone_ladder)
+      — fingerprinted + compared + pushed.
+- [ ] **Remaining 4 signals × 8 presets = 32 masters** (Dan completing before the
+      machine move): `pink_noise_minus10`, `click_track`, `dynamic_test_minus14`,
+      `mid_side_test_minus20` through all 8 presets; drop in `competitors/bandlab/<preset>/`.
       - **LOCKED CAPTURE PROTOCOL (every upload):** input gain = 0.0 (decline the
         suggestion) · intensity = Normal. Stamped into every measurement from
         `competitors/bandlab/capture.json`.
@@ -61,6 +65,11 @@ Full matrix = 8 signals × 8 presets = **64 masters**.
 
 ## Findings so far (BandLab)
 
+- **Processing is level-dependent (adaptive) — confirmed.** Makeup gain differs by
+  input level (oomph: +8.2 dB @ −20 vs +3.4 dB @ −14). So per-preset EQ curves are
+  operating-point snapshots, not universal constants. pink_−10 adds the 3rd point.
+- **Tone ladder cross-validates pink:** oomph reads +15 dB @ 40 Hz, independently
+  confirming its +9.7 dB sub band. Two signals, one conclusion.
 - **First tonal/loudness fingerprint (pink_noise_minus20, 8 presets):** loudest
   **punch** (−7.4 LUFS, +12 dB makeup, crest −6.6 = heaviest limiting, true-peak
   +1.1 dBTP); gentlest **warm** (−13.8 LUFS, +3 dB makeup, true-peak −3.6).
@@ -83,9 +92,11 @@ Full matrix = 8 signals × 8 presets = **64 masters**.
 
 ## Decisions / notes for future sessions
 
-- `source/original-references/` (~344 MB real-music masters) is **gitignored** —
-  not part of the locked spec; it's future adaptive-profiling material. Use Git
-  LFS if you want it versioned.
+- **All audio is now committed** (competitor masters included) so the full dataset
+  travels with the repo — overrides the original spec's gitignore-competitors rule.
+  Migrate WAVs to Git LFS if the corpus grows large. See `HANDOFF.md` §8.
+- `source/original-references/` (~344 MB real-music masters) was **removed by the
+  operator**; the old gitignore rule is gone.
 - Outputs are assumed **time-aligned** with inputs (mastering doesn't
   time-stretch). `fingerprint.py` warns if duration differs by >0.1 s.
 - The 8 test-signal WAVs (~80 MB) **are** committed — they're the fixed constants.

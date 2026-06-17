@@ -69,6 +69,25 @@ def _mono(data: np.ndarray) -> np.ndarray:
     return data.mean(axis=1) if data.ndim > 1 and data.shape[1] > 1 else data.reshape(-1)
 
 
+def content_onset(mono: np.ndarray, sr: int, thresh_db: float = -50.0,
+                  win_ms: float = 10.0) -> int:
+    """
+    First sample index where audible content begins. Mastering services often
+    prepend a short lead-in/silence (BandLab outputs run up to ~0.4 s long), so
+    segment-timed analyses (tone ladder, dynamic) must align to real content,
+    not to t=0. Clean source signals return ~0 (no change).
+    """
+    win = max(1, int(win_ms / 1000 * sr))
+    n = len(mono) // win
+    if n == 0:
+        return 0
+    frames = mono[:n * win].reshape(n, win)
+    rms = np.sqrt(np.mean(np.square(frames), axis=1))
+    thr = 10 ** (thresh_db / 20)
+    hits = np.where(rms > thr)[0]
+    return int(hits[0] * win) if hits.size else 0
+
+
 # --------------------------------------------------------------------------- #
 # Level / loudness metrics
 # --------------------------------------------------------------------------- #
@@ -210,22 +229,24 @@ def analyze_tone_ladder(data: np.ndarray, sr: int,
     mono = _mono(data)
     seg = int(seg_sec * sr)
     g = int(guard * sr)
+    onset = content_onset(mono, sr)            # align to real content (services prepend lead-in)
     tones = []
-    n_seg = len(mono) // seg
+    n_seg = max(0, (len(mono) - onset) // seg)
     schedule = (expected_freqs * reps)[:n_seg]
     for i in range(n_seg):
-        chunk = mono[i * seg + g: (i + 1) * seg - g]
+        chunk = mono[onset + i * seg + g: onset + (i + 1) * seg - g]
         if len(chunk) < 64:
             continue
         tones.append({
             "index": i,
-            "t_start_sec": round(i * seg_sec, 3),
+            "t_start_sec": round((onset + i * seg) / sr, 3),
             "expected_hz": schedule[i] if i < len(schedule) else None,
             "measured_hz": round(_dominant_freq(chunk, sr), 2),
             "level_dbfs": round(rms_dbfs(chunk), 3),
         })
     levels = [t["level_dbfs"] for t in tones]
     return {"tones": tones,
+            "onset_sec": round(onset / sr, 3),
             "level_spread_db": round(max(levels) - min(levels), 3) if levels else None,
             "n_segments": len(tones)}
 
