@@ -111,3 +111,19 @@ python -m venv .venv
 3. Tell the agent; it runs `fingerprint.py` and updates the reports.
 4. If a service **rejects** a signal, that's data — note it; rejection reveals
    content-detection gating.
+
+## The payoff — designing your own distinct presets
+
+This research exists to inform an in-house mastering preset lineup. The validated
+fingerprints reveal which axes actually carry preset distinctiveness (loudness →
+stereo width → dynamics → tone) and where a competitor leaves room. That's distilled
+into concrete deliverables:
+
+- **[`docs/preset-design-spec.md`](docs/preset-design-spec.md)** — a buildable
+  7-preset lineup with target values per axis, designed to be *more* distinct than
+  BandLab's, plus how to verify it on your own renders.
+- **[`reports/validation/testing-verdict.md`](reports/validation/testing-verdict.md)** —
+  independent re-derivation of every measurement from the raw audio (without importing
+  the project's own code), confirming the fingerprints are sound to rounding.
+- **[`tools/emulate.py`](tools/emulate.py)** — turns any preset fingerprint into a
+  runnable EQ/stereo/loudness chain you can apply to real audio.

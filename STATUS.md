@@ -3,13 +3,16 @@
 _Last updated: 2026-06-16 · the single source of truth for "where are we."_
 _New machine? Read `HANDOFF.md` first._
 
-> **MILESTONE (2026-06-16): full 8×8 matrix complete + verified + emulator built.** All
-> 64 masters fingerprinted; `compare.py` extended with all 5 new sections; findings
-> adversarially re-checked (6 verifiers + critic, two pre-commit corrections); and
-> `tools/emulate.py` turns the fingerprints into an **applicable, self-validating
-> emulation recipe** — reconstructs masters to **0.23 dB tonal / 0.00 LU** at the
-> operating point, **0.72 dB cross-signal** tonal. See "Findings" / "Corrections" /
-> "Emulation".
+> **MILESTONE (2026-06-16): GOAL DELIVERED — measurements independently validated + preset
+> design blueprint shipped.** Full 8×8 BandLab matrix fingerprinted; `tools/emulate.py`
+> reconstructs masters to **0.23 dB tonal / 0.00 LU** at the operating point (0.72 dB
+> cross-signal). A multi-agent review fixed **2 P1 + several P2/P3** bugs (true-peak edge
+> phantom, inverted loudness chart, HF-biased tilt, eq-shape reference). The measurement
+> science was then **independently re-derived from the raw WAVs without importing the
+> project's code** and confirmed sound to rounding — `reports/validation/testing-verdict.md`.
+> **The payoff is shipped: [`docs/preset-design-spec.md`](docs/preset-design-spec.md)** —
+> a buildable, more-distinct preset lineup (7 presets, target values per axis) for the
+> operator's own mastering program. Remaining work is optional cosmetic cleanup only.
 
 ## Done
 

@@ -1,6 +1,6 @@
 # HANDOFF — preset-research
 
-_Written 2026-06-17 for picking the project up on a new machine / new agent session._
+_Written 2026-06-16 for picking the project up on a new machine / new agent session._
 
 This is the onboarding doc. After reading it, **`STATUS.md` is the live state**
 and `README.md` is the reference. Everything described here is committed and
@@ -155,15 +155,16 @@ level and collapse that experiment.
    floor. mid/side is the *only non-mono signal* in the battery.
 7. **Tone ladder cross-validates pink EQ** (r +0.69…+0.95). punch is the weakest
    (U-shaped: sub boost + high rise) — a **multiband / density-dependent** EQ signature,
-   quantified by the new **multiband-density index** (pink tilt − sweep tilt): punch 1.38
-   (most) → **natural 0.018 (linear / transparent EQ)**.
+   quantified by the **multiband-density index** (pink tilt − sweep tilt): punch 1.01
+   (most) → **universal 0.13 (most linear / transparent EQ)**; natural is mid-pack (0.37).
 8. **Click track REFUTED as a limiter-timing probe** (see §8). Honest click metrics:
    only **universal/warm clip** clicks (+0.87/+0.82 dBTP); **punch alone lifts the click
    +7.6 LU** (next +1.1) — "loud at any cost." Real limiter timing needs a dense source.
-9. **The surprises:** **warm is the opposite of its name** (cuts 20–60 Hz, brightens —
-   tilt +0.41, centroid +743 Hz); **natural** is the only density-independent EQ;
-   **oomph**'s tilt (+0.32) and centroid (−2027 Hz) disagree by sign (sub-boost dominates
-   the centroid) — always report both.
+9. **The surprises:** **warm** cuts 20–60 Hz and lifts the rest, landing roughly tonally
+   flat (tilt −0.01, centroid +743 Hz) — not the warm-up its name implies; **universal**
+   is the most density-independent (transparent) EQ; **oomph**'s tilt (−0.24) and centroid
+   (−2027 Hz) now **agree** (both dark) — the +9.7 dB sub dominates both. (Equal-octave
+   tilt; the earlier "+0.41 / +0.32 brighter" reads were the HF-weighting bug.)
 
 ### 5b. Implications (carry these into the final analysis)
 
