@@ -4,19 +4,14 @@ __pycache__/
 *.pyc
 *.pyo
 
-# --- Competitor / service audio (mastered outputs): NEVER committed ---
-# Only their measurements + fingerprints (under measurements/) are committed.
-competitors/**/*.wav
-competitors/**/*.WAV
-competitors/**/*.flac
-competitors/**/*.mp3
-competitors/**/*.aif
-competitors/**/*.aiff
-
-# --- Large real-music reference masters (future adaptive-profiling material) ---
-# ~344 MB of WAVs the bootstrap spec did not mandate committing. Kept local by
-# default to avoid a >400 MB repo. To version them, use Git LFS and remove this.
-source/original-references/
+# --- Audio policy ---
+# ALL audio is committed (source test signals AND competitor masters) so the full
+# dataset travels with the repo: a fresh clone has everything needed to continue.
+# The bootstrap spec gitignored competitor masters for leanness; we override that
+# to keep the corpus portable across machines. If the audio corpus grows large
+# (full 64-master matrix + more services), migrate WAVs to Git LFS.
+#
+# source/original-references/ was removed by the operator; no rule needed.
 
 # --- OS / editor cruft ---
 .DS_Store
