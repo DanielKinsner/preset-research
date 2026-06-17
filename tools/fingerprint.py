@@ -201,15 +201,44 @@ def aggregate_preset(pairs):
                         "width_change_db": d["side_minus_mid_db"],
                         "note": "positive width_change = wider; correlation up = narrower"}
     if "click_track" in by_role:
-        fp["limiter_timing"] = by_role["click_track"]["delta"].get("limiter_timing")
-
-    # Level-dependence: compare makeup gain across pink levels if multiple present.
-    pinks = {p["source_file"]: p["delta"]["rms_db"] for p in pairs if "pink" in p["source_file"]}
-    if len(pinks) > 1:
-        fp["level_dependence"] = {
-            "makeup_gain_by_input_level": pinks,
-            "note": "differing gains => level-dependent (adaptive) processing",
+        cp = by_role["click_track"]
+        fp["click_response"] = {
+            "loudness_lift_lufs": cp["delta"]["integrated_lufs"],
+            "output_true_peak_dbtp": cp["output"]["levels"]["true_peak_dbtp"],
+            "output_peak_dbfs": cp["output"]["levels"]["peak_dbfs"],
+            "reshaping_raw": cp["delta"].get("limiter_timing"),
+            "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw "
+                    "transient_peak/release values (reshaping_raw) are confounded by per-preset click "
+                    "WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially "
+                    "verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and "
+                    "loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing "
+                    "needs a dense-transient source (drum loop / shaped bursts).",
         }
+
+    # Level-dependence across pink input levels. TWO companion metrics because they
+    # can diverge: makeup_gain is an RMS delta (raw amplitude), loudness_lift is a
+    # LUFS delta (perceived loudness). A preset that trades sub energy for HF (e.g.
+    # warm cuts 20-60 Hz, lifts 4-16 kHz) can DROP RMS while LUFS RISES, so the
+    # "loudness chase" is only honest in LUFS terms. (Adversarially verified.)
+    pink_pairs = [p for p in pairs if "pink" in p["source_file"]]
+    if len(pink_pairs) > 1:
+        fp["level_dependence"] = {
+            "makeup_gain_rms_by_input_level": {p["source_file"]: p["delta"]["rms_db"] for p in pink_pairs},
+            "loudness_lift_lufs_by_input_level": {p["source_file"]: p["delta"]["integrated_lufs"] for p in pink_pairs},
+            "note": "Values falling as the input gets louder => adaptive loudness-targeting. "
+                    "makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). "
+                    "They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises).",
+        }
+
+    # Multiband-density signature: tilt on broadband pink minus tilt on the single-tone
+    # sweep. Large positive => the EQ depends on broadband density (multiband-compressor
+    # behavior — a lone tone isn't masked the way pink's same band is). ~0 => the EQ is
+    # density-independent (linear-EQ-like). Exploratory; needs both signals present.
+    if pink and "sweep" in by_role:
+        pt = pink["delta"]["slope_db_per_oct"]
+        st = by_role["sweep"]["delta"]["slope_db_per_oct"]
+        if pt is not None and st is not None:
+            fp["multiband_density_index_db_per_oct"] = round(pt - st, 3)
     return fp
 
 

@@ -1,11 +1,15 @@
 {
   "service": "bandlab",
   "preset": "punch",
-  "generated_utc": "2026-06-17T02:03:17+00:00",
+  "generated_utc": "2026-06-17T02:41:14+00:00",
   "unmatched_files": [],
   "fingerprint": {
-    "n_signals": 4,
+    "n_signals": 8,
     "signals_present": [
+      "click_track.wav",
+      "dynamic_test_minus14.wav",
+      "mid_side_test_minus20.wav",
+      "pink_noise_minus10.wav",
       "pink_noise_minus14.wav",
       "pink_noise_minus20.wav",
       "sine_sweep_minus20.wav",
@@ -65,12 +69,39 @@
       "10000Hz": 10.976,
       "16000Hz": 11.167
     },
+    "dynamics": {
+      "contrast_change_db": -11.89,
+      "note": "negative = preset compresses loud/quiet contrast"
+    },
+    "stereo": {
+      "correlation_change": -0.124,
+      "width_change_db": 12.685,
+      "note": "positive width_change = wider; correlation up = narrower"
+    },
+    "click_response": {
+      "loudness_lift_lufs": 7.638,
+      "output_true_peak_dbtp": -1.226,
+      "output_peak_dbfs": -1.5,
+      "reshaping_raw": {
+        "median_release_ms_to_-20dB": 0.61,
+        "median_transient_peak_dbfs": -9.29,
+        "n_impulses_analyzed": 118
+      },
+      "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+    },
     "level_dependence": {
-      "makeup_gain_by_input_level": {
+      "makeup_gain_rms_by_input_level": {
+        "pink_noise_minus10.wav": 4.885,
         "pink_noise_minus14.wav": 6.945,
         "pink_noise_minus20.wav": 12.075
       },
-      "note": "differing gains => level-dependent (adaptive) processing"
-    }
+      "loudness_lift_lufs_by_input_level": {
+        "pink_noise_minus10.wav": 5.554,
+        "pink_noise_minus14.wav": 7.757,
+        "pink_noise_minus20.wav": 13.004
+      },
+      "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+    },
+    "multiband_density_index_db_per_oct": 1.378
   }
 }

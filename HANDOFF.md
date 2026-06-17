@@ -86,16 +86,17 @@ gain.
 - `tools/compare.py` — preset comparison HTML (EQ-contour overlay + loudness/
   limiting ranking).
 
-**Data captured so far: 4 of 8 signals × 8 presets = 32 masters.**
-- Signals done (all 8 presets): `pink_noise_minus20`, `pink_noise_minus14`,
-  `sine_sweep_minus20`, `tone_ladder_minus20`.
-- Signals still to upload (Dan finishing before handoff): `pink_noise_minus10`,
-  `click_track`, `tone…` done, `dynamic_test_minus14`, `mid_side_test_minus20`.
+**Data captured: the full matrix is COMPLETE — 8 of 8 signals × 8 presets = 64 masters**
+(completed 2026-06-16). All 64 are fingerprinted, compared, and the findings were
+adversarially verified against the raw per-pair JSONs.
+- All 8 signals (each × 8 presets): `pink_noise_minus20/14/10`, `sine_sweep_minus20`,
+  `tone_ladder_minus20`, `click_track`, `dynamic_test_minus14`, `mid_side_test_minus20`.
 - Presets (8): `universal · clarity · oomph · tape · spatial · natural · warm · punch`.
-- Full target matrix: 8 signals × 8 presets = **64 masters**.
+- `compare.py` now renders all 8 sections; canonical.json carries every dimension.
 
-> **If 64 masters are present when you start:** just re-run the three commands in
-> §2 — `fingerprint.py` ingests whatever is there; nothing else needed.
+> **The matrix is done.** Re-running the three commands in §2 just reproduces the current
+> outputs (deterministic). The next real work is *analysis depth / other services*, not
+> more BandLab capture — see §7.
 
 ## 4. The locked capture protocol (do not change without recording it)
 
@@ -121,10 +122,15 @@ level and collapse that experiment.
    computed from the input file (same across presets), and we **decline it (gain 0)**
    on every upload. Because the source signals are all ≤ 0 dBFS, declining the gain
    can never clip the input.
-2. **Processing is level-dependent (adaptive).** Makeup gain differs by input
-   level — e.g. oomph: **+8.2 dB @ −20 vs +3.4 dB @ −14**. So preset EQ curves
-   are operating-point snapshots, not universal constants. The −10 pink (still to
-   come) adds the third point.
+2. **Processing is level-dependent — a loudness chase, measured in LUFS (3-point
+   curve complete).** Across pink −20 → −14 → −10, every preset's *loudness lift*
+   FALLS as the input gets hotter (drives toward a target, not fixed gain): **punch
+   −7.45 LU (hardest)** … **warm −3.15 LU (least)**. Preset EQ curves are therefore
+   operating-point snapshots, not constants. ⚠️ **Use LUFS, not RMS:** the
+   `makeup_gain` field is an RMS delta — on **warm** it reads +3.0/−1.4/+0.1 dB (looks
+   like attenuation!) while the true loudness lift is +6.6/+2.2/+3.5 LU (warm trades
+   sub for highs → RMS falls, loudness rises). `level_dependence` carries both metrics;
+   only warm is genuinely non-monotonic in LUFS.
 3. **Preset personalities (pink_−20, 8 presets):** loudest/brightest/most-limited
    **punch** (−7.4 LUFS, +12 dB makeup, crest −6.6, clips +1.1 dBTP); gentlest
    **warm** (−13.8 LUFS, +3 dB makeup); only *darkening* preset **natural**;
@@ -133,6 +139,25 @@ level and collapse that experiment.
 4. **5 of 8 presets deliver masters that exceed 0 dBTP** (inter-sample clipping
    on playback): clarity, natural, spatial, universal, punch. Only warm, tape,
    oomph stay under.
+5. **Dynamics — all 8 compress; correlated with loudness but not a mirror.** Every
+   `contrast_change_db` < 0; punch crushes most (−11.9 dB), warm least (−3.7). Strongly
+   but imperfectly tied to loudness (r ≈ −0.79). Endpoints match; the middle diverges
+   (**oomph** is 2nd-most-compressing yet ~6th by loudness).
+6. **Stereo — spatial is the widener, punch second (both metrics).** spatial corr
+   −0.315 / width +16.8 dB; punch −0.124 / +12.7. ⚠️ `correlation_change` is the
+   trustworthy metric — the mid/side source is near-mono so width-in-dB rides a low
+   floor. mid/side is the *only non-mono signal* in the battery.
+7. **Tone ladder cross-validates pink EQ** (r +0.69…+0.95). punch is the weakest
+   (U-shaped: sub boost + high rise) — a **multiband / density-dependent** EQ signature,
+   quantified by the new **multiband-density index** (pink tilt − sweep tilt): punch 1.38
+   (most) → **natural 0.018 (linear / transparent EQ)**.
+8. **Click track REFUTED as a limiter-timing probe** (see §8). Honest click metrics:
+   only **universal/warm clip** clicks (+0.87/+0.82 dBTP); **punch alone lifts the click
+   +7.6 LU** (next +1.1) — "loud at any cost." Real limiter timing needs a dense source.
+9. **The surprises:** **warm is the opposite of its name** (cuts 20–60 Hz, brightens —
+   tilt +0.41, centroid +743 Hz); **natural** is the only density-independent EQ;
+   **oomph**'s tilt (+0.32) and centroid (−2027 Hz) disagree by sign (sub-boost dominates
+   the centroid) — always report both.
 
 ### 5b. Implications (carry these into the final analysis)
 
@@ -191,18 +216,21 @@ in one file. Read it to make DSP decisions without re-analyzing audio.
 
 ## 7. What's next (priority order)
 
-1. **Finish the matrix** — fingerprint the remaining signals once present
-   (pink_−10, click_track, dynamic_test, mid_side_test × 8 presets), then re-run
-   compare. (pink_−10 completes the 3-point level-dependence curve;
-   mid_side reveals the stereo-width behavior — esp. for `spatial`; click reveals
-   limiter attack/release.)
-2. **Extend `compare.py`** with sections for the data already captured but not yet
-   visualized: per-frequency gain (tone ladder), level-dependence overlay
-   (−20/−14/−10 contours per preset), dynamics, stereo width, limiter timing.
-   Sections are gated on signal presence, so they activate automatically.
-3. **Other services** (LANDR, eMastered, CloudBounce) — registry/engine are
+1. ~~**Finish the matrix**~~ — **DONE (2026-06-16).** All 64 masters fingerprinted;
+   3-point level curve, stereo, dynamics, tone, and click all measured.
+2. ~~**Extend `compare.py`**~~ — **DONE.** All 5 new sections render (per-frequency tone
+   gain, level-dependence in LUFS, dynamics, stereo width, click-track transient
+   handling), each gated on signal presence.
+3. **Capture gaps the verification exposed** (operator, when convenient): a
+   **dense-transient signal** for real limiter timing (the click train can't do it —
+   §8), **more non-mono signals** (stereo rests on one input), and the **intensity
+   sweep** (0/50/100%).
+4. **Other services** (LANDR, eMastered, CloudBounce) — registry/engine are
    service-agnostic; just add `competitors/<service>/` and a `capture.json`.
    (The −4.5 dBFS auto-gain model is confirmed on all 8 signals — done.)
+5. **Final analysis / emulation** — canonical.json now has every dimension; build the
+   per-preset emulation recipe (peak-norm to −4.5 → EQ/comp/stereo fingerprint → loudness
+   target). Carry the §5b implications + the LUFS-vs-RMS and click caveats into it.
 
 ## 8. Key decisions & gotchas
 
@@ -221,4 +249,17 @@ in one file. Read it to make DSP decisions without re-analyzing audio.
   `newline="\n"`. Keep it that way.
 - **EQ views:** `eq_contour_db` (mean-centered, the readable "EQ curve"),
   `eq_shape_db` (makeup-gain-relative), `eq_band_delta_raw_db` (raw) all stored.
+- **`makeup_gain` is RMS, not loudness.** It's `output_rms − input_rms`. A preset that
+  reshapes spectrum (warm: −sub, +highs) can drop RMS while LUFS rises. For the loudness
+  story always use `level_dependence.loudness_lift_lufs_by_input_level` (LUFS), not the
+  RMS field. (Found by the 2026-06-16 adversarial verification.)
+- **The click track CANNOT measure limiter timing.** 1-sample impulses every 500 ms:
+  the old transient-peak/release metric tracked per-preset *click widening* through the
+  1 ms envelope, not limiting (the metric was refuted and replaced by `click_response`
+  with `output_true_peak`/`loudness_lift`; raw timing kept as `reshaping_raw` with a
+  warning). For real attack/release, capture a **dense-transient source**.
+- **Stereo rests on one signal.** Every input except `mid_side_test` is effectively mono,
+  so width/correlation findings come from a single non-mono input — undersampled.
+- **`multiband_density_index_db_per_oct`** (pink tilt − sweep tilt) is exploratory: high
+  = density-dependent (multiband-like), ~0 = linear EQ. Needs pink_−20 + sweep present.
 ```

@@ -1,0 +1,269 @@
+{
+  "source_file": "dynamic_test_minus14.wav",
+  "output_file": "dynamic_test_minus14-warm.wav",
+  "role": "dynamic",
+  "warnings": [],
+  "input": {
+    "file": "dynamic_test_minus14.wav",
+    "role": "dynamic",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -0.0,
+      "true_peak_dbtp": 1.236,
+      "rms_dbfs": -14.029,
+      "crest_factor_db": 14.029
+    },
+    "loudness": {
+      "integrated_lufs": -9.921,
+      "lra_lu": 20.249
+    },
+    "spectral": {
+      "centroid_hz": 2897.35,
+      "slope_db_per_oct": -3.009,
+      "bands_dbfs": {
+        "20-60 Hz": -27.44,
+        "60-120 Hz": -29.471,
+        "120-250 Hz": -29.269,
+        "250-500 Hz": -29.474,
+        "500-1k Hz": -29.467,
+        "1-2k Hz": -29.466,
+        "2-4k Hz": -29.457,
+        "4-8k Hz": -29.459,
+        "8-16k Hz": -29.45
+      }
+    },
+    "stereo": {
+      "correlation": -0.0554,
+      "mid_rms_dbfs": -17.2868,
+      "side_rms_dbfs": -16.8047,
+      "side_minus_mid_db": 0.4821,
+      "mono": false
+    },
+    "signal_specific": {
+      "segments": [
+        {
+          "index": 0,
+          "t_start_sec": 0.0,
+          "rms_dbfs": -13.882
+        },
+        {
+          "index": 1,
+          "t_start_sec": 5.0,
+          "rms_dbfs": -34.002
+        },
+        {
+          "index": 2,
+          "t_start_sec": 10.0,
+          "rms_dbfs": -14.651
+        },
+        {
+          "index": 3,
+          "t_start_sec": 15.0,
+          "rms_dbfs": -34.299
+        },
+        {
+          "index": 4,
+          "t_start_sec": 20.0,
+          "rms_dbfs": -14.264
+        },
+        {
+          "index": 5,
+          "t_start_sec": 25.0,
+          "rms_dbfs": -34.049
+        },
+        {
+          "index": 6,
+          "t_start_sec": 30.0,
+          "rms_dbfs": -14.238
+        },
+        {
+          "index": 7,
+          "t_start_sec": 35.0,
+          "rms_dbfs": -34.188
+        },
+        {
+          "index": 8,
+          "t_start_sec": 40.0,
+          "rms_dbfs": -14.337
+        },
+        {
+          "index": 9,
+          "t_start_sec": 45.0,
+          "rms_dbfs": -34.225
+        },
+        {
+          "index": 10,
+          "t_start_sec": 50.0,
+          "rms_dbfs": -14.61
+        },
+        {
+          "index": 11,
+          "t_start_sec": 55.0,
+          "rms_dbfs": -33.589
+        }
+      ],
+      "loud_mean_dbfs": -14.33,
+      "quiet_mean_dbfs": -34.059,
+      "contrast_db": 19.728,
+      "n_segments": 12
+    }
+  },
+  "output": {
+    "file": "dynamic_test_minus14-warm.wav",
+    "role": "dynamic",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646935,
+      "duration_sec": 60.0212
+    },
+    "levels": {
+      "peak_dbfs": 0.0,
+      "true_peak_dbtp": 2.116,
+      "rms_dbfs": -13.558,
+      "crest_factor_db": 13.558
+    },
+    "loudness": {
+      "integrated_lufs": -6.706,
+      "lra_lu": 16.15
+    },
+    "spectral": {
+      "centroid_hz": 3637.09,
+      "slope_db_per_oct": -2.56,
+      "bands_dbfs": {
+        "20-60 Hz": -28.43,
+        "60-120 Hz": -25.054,
+        "120-250 Hz": -25.688,
+        "250-500 Hz": -26.606,
+        "500-1k Hz": -26.962,
+        "1-2k Hz": -27.211,
+        "2-4k Hz": -27.221,
+        "4-8k Hz": -26.282,
+        "8-16k Hz": -25.304
+      }
+    },
+    "stereo": {
+      "correlation": 0.0026,
+      "mid_rms_dbfs": -16.5565,
+      "side_rms_dbfs": -16.5795,
+      "side_minus_mid_db": -0.023,
+      "mono": false
+    },
+    "signal_specific": {
+      "segments": [
+        {
+          "index": 0,
+          "t_start_sec": 0.0,
+          "rms_dbfs": -13.94
+        },
+        {
+          "index": 1,
+          "t_start_sec": 5.0,
+          "rms_dbfs": -29.601
+        },
+        {
+          "index": 2,
+          "t_start_sec": 10.0,
+          "rms_dbfs": -13.765
+        },
+        {
+          "index": 3,
+          "t_start_sec": 15.0,
+          "rms_dbfs": -30.07
+        },
+        {
+          "index": 4,
+          "t_start_sec": 20.0,
+          "rms_dbfs": -13.414
+        },
+        {
+          "index": 5,
+          "t_start_sec": 25.0,
+          "rms_dbfs": -29.611
+        },
+        {
+          "index": 6,
+          "t_start_sec": 30.0,
+          "rms_dbfs": -13.405
+        },
+        {
+          "index": 7,
+          "t_start_sec": 35.0,
+          "rms_dbfs": -29.509
+        },
+        {
+          "index": 8,
+          "t_start_sec": 40.0,
+          "rms_dbfs": -13.463
+        },
+        {
+          "index": 9,
+          "t_start_sec": 45.0,
+          "rms_dbfs": -29.271
+        },
+        {
+          "index": 10,
+          "t_start_sec": 50.0,
+          "rms_dbfs": -13.969
+        },
+        {
+          "index": 11,
+          "t_start_sec": 55.0,
+          "rms_dbfs": -29.846
+        }
+      ],
+      "loud_mean_dbfs": -13.659,
+      "quiet_mean_dbfs": -29.651,
+      "contrast_db": 15.992,
+      "n_segments": 12
+    }
+  },
+  "delta": {
+    "rms_db": 0.471,
+    "integrated_lufs": 3.215,
+    "lra_lu": -4.099,
+    "true_peak_dbtp": 0.88,
+    "crest_factor_db": -0.471,
+    "centroid_hz": 739.74,
+    "slope_db_per_oct": 0.449,
+    "correlation": 0.058,
+    "side_minus_mid_db": -0.505,
+    "band_energy_raw_db": {
+      "20-60 Hz": -0.99,
+      "60-120 Hz": 4.417,
+      "120-250 Hz": 3.581,
+      "250-500 Hz": 2.868,
+      "500-1k Hz": 2.505,
+      "1-2k Hz": 2.255,
+      "2-4k Hz": 2.236,
+      "4-8k Hz": 3.177,
+      "8-16k Hz": 4.146
+    },
+    "band_energy_shape_db": {
+      "20-60 Hz": -1.461,
+      "60-120 Hz": 3.946,
+      "120-250 Hz": 3.11,
+      "250-500 Hz": 2.397,
+      "500-1k Hz": 2.034,
+      "1-2k Hz": 1.784,
+      "2-4k Hz": 1.765,
+      "4-8k Hz": 2.706,
+      "8-16k Hz": 3.675
+    },
+    "dynamic_contrast_change_db": -3.736
+  },
+  "capture": {
+    "input_gain_db": 0.0,
+    "intensity": "Normal (50%)",
+    "suggested_input_gain_db": -4.5,
+    "suggested_status": "confirmed",
+    "implied_target_peak_dbfs": -4.5
+  }
+}

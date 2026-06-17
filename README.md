@@ -21,7 +21,7 @@ test signal  ──upload──►  mastering preset  ──download──►  m
 ```
 
 Eight neutral signals each probe a different dimension (tonal balance,
-level-dependence, dynamics, stereo, transient/limiter timing). See
+level-dependence, dynamics, stereo, transient handling). See
 [`source/test-signals`](source/test-signals) and the registry in
 [`tools/signals.py`](tools/signals.py) for the exact ground-truth spec of each.
 
@@ -89,10 +89,10 @@ python -m venv .venv
 | Spectral tilt / centroid shift | pink noise | brightening vs darkening |
 | Per-frequency gain | tone ladder | exact dB at 40 Hz … 16 kHz |
 | Level-dependence | pink −20/−14/−10 | whether processing adapts to input level |
-| Loudness target + makeup gain | pink noise | how loud the preset pushes (LUFS) |
+| Loudness target + makeup gain | pink noise | how loud the preset pushes (LUFS; `makeup_gain` is RMS — use the LUFS field) |
 | Dynamics / crest / LRA change | dynamic test, pink | how much it compresses |
-| Limiter timing (release, transient grab) | click track | attack/release character |
-| Stereo width / correlation change | mid/side test | narrowing vs widening |
+| Click transient handling (true-peak, loudness lift) | click track | do clicks clip; how hard sparse transients are pulled up |
+| Stereo width / correlation change | mid/side test | narrowing vs widening (correlation is the trustworthy metric) |
 | True-peak ceiling | all | inter-sample clipping headroom |
 
 ## Measurement methods

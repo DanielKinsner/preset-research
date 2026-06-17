@@ -1,0 +1,134 @@
+{
+  "source_file": "pink_noise_minus10.wav",
+  "output_file": "pink_noise_minus10-oomph.wav",
+  "role": "pink_noise",
+  "warnings": [
+    "duration mismatch 0.396s - outputs assumed time-aligned"
+  ],
+  "input": {
+    "file": "pink_noise_minus10.wav",
+    "role": "pink_noise",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -0.0,
+      "true_peak_dbtp": 0.978,
+      "rms_dbfs": -11.004,
+      "crest_factor_db": 11.004
+    },
+    "loudness": {
+      "integrated_lufs": -10.216,
+      "lra_lu": 0.076
+    },
+    "spectral": {
+      "centroid_hz": 2906.24,
+      "slope_db_per_oct": -3.009,
+      "bands_dbfs": {
+        "20-60 Hz": -25.086,
+        "60-120 Hz": -27.246,
+        "120-250 Hz": -26.748,
+        "250-500 Hz": -26.967,
+        "500-1k Hz": -27.041,
+        "1-2k Hz": -27.014,
+        "2-4k Hz": -27.043,
+        "4-8k Hz": -27.038,
+        "8-16k Hz": -27.027
+      }
+    },
+    "stereo": {
+      "correlation": -0.0121,
+      "mid_rms_dbfs": -14.067,
+      "side_rms_dbfs": -13.9621,
+      "side_minus_mid_db": 0.1048,
+      "mono": false
+    }
+  },
+  "output": {
+    "file": "pink_noise_minus10-oomph.wav",
+    "role": "pink_noise",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2663444,
+      "duration_sec": 60.3956
+    },
+    "levels": {
+      "peak_dbfs": -0.3,
+      "true_peak_dbtp": 0.4,
+      "rms_dbfs": -7.921,
+      "crest_factor_db": 7.621
+    },
+    "loudness": {
+      "integrated_lufs": -8.652,
+      "lra_lu": 0.139
+    },
+    "spectral": {
+      "centroid_hz": 732.19,
+      "slope_db_per_oct": -2.606,
+      "bands_dbfs": {
+        "20-60 Hz": -12.175,
+        "60-120 Hz": -22.206,
+        "120-250 Hz": -26.339,
+        "250-500 Hz": -29.522,
+        "500-1k Hz": -29.095,
+        "1-2k Hz": -28.826,
+        "2-4k Hz": -28.122,
+        "4-8k Hz": -25.273,
+        "8-16k Hz": -25.795
+      }
+    },
+    "stereo": {
+      "correlation": -0.003,
+      "mid_rms_dbfs": -10.9443,
+      "side_rms_dbfs": -10.9187,
+      "side_minus_mid_db": 0.0256,
+      "mono": false
+    }
+  },
+  "delta": {
+    "rms_db": 3.083,
+    "integrated_lufs": 1.564,
+    "lra_lu": 0.063,
+    "true_peak_dbtp": -0.578,
+    "crest_factor_db": -3.383,
+    "centroid_hz": -2174.05,
+    "slope_db_per_oct": 0.403,
+    "correlation": 0.009,
+    "side_minus_mid_db": -0.079,
+    "band_energy_raw_db": {
+      "20-60 Hz": 12.911,
+      "60-120 Hz": 5.04,
+      "120-250 Hz": 0.409,
+      "250-500 Hz": -2.555,
+      "500-1k Hz": -2.054,
+      "1-2k Hz": -1.812,
+      "2-4k Hz": -1.079,
+      "4-8k Hz": 1.765,
+      "8-16k Hz": 1.232
+    },
+    "band_energy_shape_db": {
+      "20-60 Hz": 9.828,
+      "60-120 Hz": 1.957,
+      "120-250 Hz": -2.674,
+      "250-500 Hz": -5.638,
+      "500-1k Hz": -5.137,
+      "1-2k Hz": -4.895,
+      "2-4k Hz": -4.162,
+      "4-8k Hz": -1.318,
+      "8-16k Hz": -1.851
+    }
+  },
+  "capture": {
+    "input_gain_db": 0.0,
+    "intensity": "Normal (50%)",
+    "suggested_input_gain_db": -4.5,
+    "suggested_status": "confirmed",
+    "implied_target_peak_dbfs": -4.5
+  }
+}
