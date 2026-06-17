@@ -99,16 +99,27 @@ def rms_dbfs(data: np.ndarray) -> float:
     return db(np.sqrt(np.mean(np.square(data))))
 
 
-def true_peak_dbtp(data: np.ndarray, sr: int, oversample: int = 4) -> float:
+def true_peak_dbtp(data: np.ndarray, sr: int, oversample: int = 4, pad: int = 64) -> float:
     """
     ITU-R BS.1770-style true (inter-sample) peak via Nx polyphase oversampling.
     Catches reconstruction overshoots that sample-peak misses — critical for
     judging whether a mastering limiter actually clips on playback.
+
+    The signal is edge-padded before resampling so the polyphase FIR does not ring
+    against the implicit zero-padding at the file boundaries — that boundary ringing
+    injects a phantom overshoot of up to ~1 dB on material whose first/last sample
+    sits near full scale (abrupt start/end, fade-less cut, DC offset). The pad
+    region is discarded before taking the max; genuine edge peaks survive because
+    edge-padding places them in the interior. Interior inter-sample overshoots
+    (e.g. Gibbs at a real step) are unaffected, as intended.
     """
     peak = 0.0
+    guard = pad * oversample
     for ch in range(data.shape[1]):
-        up = signal.resample_poly(data[:, ch], oversample, 1)
-        peak = max(peak, float(np.max(np.abs(up))))
+        x = np.pad(data[:, ch], pad, mode="edge")
+        up = signal.resample_poly(x, oversample, 1)
+        core = up[guard:-guard] if up.shape[0] > 2 * guard else up
+        peak = max(peak, float(np.max(np.abs(core))))
     return db(peak)
 
 
