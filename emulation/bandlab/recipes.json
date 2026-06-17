@@ -1,0 +1,595 @@
+{
+  "schema": "preset-emulation/v1",
+  "service": "bandlab",
+  "generated_from": "measurements/fingerprints/bandlab/canonical.json",
+  "input_peak_target_dbfs": -4.5,
+  "chain": [
+    "peak-norm -4.5 dBFS (user-mode)",
+    "EQ shape",
+    "stereo width",
+    "drive into brickwall limiter (loudness target + true-peak ceiling)"
+  ],
+  "caveats": [
+    "EQ/loudness/stereo are well-grounded; compression DYNAMICS are a target only (no attack/release data).",
+    "Recipe operating point is pink_-20; processing is level-dependent, so see level_dependence for how loudness lift changes with input level.",
+    "makeup is RMS; the loudness target (LUFS) is the field to drive to."
+  ],
+  "presets": {
+    "clarity": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.524,
+        "60-120 Hz": -0.709,
+        "120-250 Hz": -2.09,
+        "250-500 Hz": -3.162,
+        "500-1k Hz": -3.339,
+        "1-2k Hz": -3.489,
+        "2-4k Hz": -2.027,
+        "4-8k Hz": 0.171,
+        "8-16k Hz": 0.701
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 8.336,
+        "60-120 Hz": 7.103,
+        "120-250 Hz": 5.722,
+        "250-500 Hz": 4.65,
+        "500-1k Hz": 4.473,
+        "1-2k Hz": 4.323,
+        "2-4k Hz": 5.785,
+        "4-8k Hz": 7.983,
+        "8-16k Hz": 8.513
+      },
+      "tone_gain_db": {
+        "40Hz": 8.318,
+        "80Hz": 6.575,
+        "160Hz": 5.135,
+        "315Hz": 4.912,
+        "630Hz": 4.603,
+        "1250Hz": 3.2,
+        "2500Hz": 3.174,
+        "5000Hz": 5.606,
+        "10000Hz": 6.603,
+        "16000Hz": 6.132
+      },
+      "loudness": {
+        "target_lufs": -13.42,
+        "rms_makeup_db": 7.812,
+        "true_peak_ceiling_dbtp": 0.219
+      },
+      "stereo": {
+        "correlation_change": -0.013,
+        "width_change_db": 4.267
+      },
+      "dynamics_target": {
+        "crest_change_db": -1.066,
+        "contrast_change_db": -4.067,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 0.917,
+        "centroid_shift_hz": 862.26,
+        "multiband_density_index": 0.277
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 4.071,
+          "pink_noise_minus14.wav": 3.613,
+          "pink_noise_minus20.wav": 7.812
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 2.908,
+          "pink_noise_minus14.wav": 2.568,
+          "pink_noise_minus20.wav": 6.972
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "natural": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.863,
+        "60-120 Hz": 1.312,
+        "120-250 Hz": 1.726,
+        "250-500 Hz": 0.55,
+        "500-1k Hz": 0.526,
+        "1-2k Hz": -0.435,
+        "2-4k Hz": -1.847,
+        "4-8k Hz": -2.2,
+        "8-16k Hz": -1.397
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 9.514,
+        "60-120 Hz": 9.963,
+        "120-250 Hz": 10.377,
+        "250-500 Hz": 9.201,
+        "500-1k Hz": 9.177,
+        "1-2k Hz": 8.216,
+        "2-4k Hz": 6.804,
+        "4-8k Hz": 6.451,
+        "8-16k Hz": 7.254
+      },
+      "tone_gain_db": {
+        "40Hz": 10.603,
+        "80Hz": 9.795,
+        "160Hz": 9.404,
+        "315Hz": 8.23,
+        "630Hz": 7.145,
+        "1250Hz": 5.674,
+        "2500Hz": 3.986,
+        "5000Hz": 3.602,
+        "10000Hz": 4.692,
+        "16000Hz": 5.348
+      },
+      "loudness": {
+        "target_lufs": -12.341,
+        "rms_makeup_db": 8.651,
+        "true_peak_ceiling_dbtp": 0.082
+      },
+      "stereo": {
+        "correlation_change": -0.003,
+        "width_change_db": 1.366
+      },
+      "dynamics_target": {
+        "crest_change_db": -1.995,
+        "contrast_change_db": -6.925,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": -0.258,
+        "centroid_shift_hz": -808.4,
+        "multiband_density_index": 0.018
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 3.637,
+          "pink_noise_minus14.wav": 3.946,
+          "pink_noise_minus20.wav": 8.651
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 2.963,
+          "pink_noise_minus14.wav": 3.312,
+          "pink_noise_minus20.wav": 8.051
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "oomph": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 9.703,
+        "60-120 Hz": 2.085,
+        "120-250 Hz": -2.177,
+        "250-500 Hz": -4.866,
+        "500-1k Hz": -4.264,
+        "1-2k Hz": -3.952,
+        "2-4k Hz": -2.97,
+        "4-8k Hz": -0.094,
+        "8-16k Hz": -1.089
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 17.938,
+        "60-120 Hz": 10.32,
+        "120-250 Hz": 6.058,
+        "250-500 Hz": 3.369,
+        "500-1k Hz": 3.971,
+        "1-2k Hz": 4.283,
+        "2-4k Hz": 5.265,
+        "4-8k Hz": 8.141,
+        "8-16k Hz": 7.146
+      },
+      "tone_gain_db": {
+        "40Hz": 14.954,
+        "80Hz": 9.258,
+        "160Hz": 5.508,
+        "315Hz": 3.141,
+        "630Hz": 3.349,
+        "1250Hz": 3.308,
+        "2500Hz": 3.125,
+        "5000Hz": 4.612,
+        "10000Hz": 4.879,
+        "16000Hz": 0.5
+      },
+      "loudness": {
+        "target_lufs": -13.041,
+        "rms_makeup_db": 8.235,
+        "true_peak_ceiling_dbtp": -0.139
+      },
+      "stereo": {
+        "correlation_change": -0.006,
+        "width_change_db": 2.372
+      },
+      "dynamics_target": {
+        "crest_change_db": -1.579,
+        "contrast_change_db": -8.31,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 0.324,
+        "centroid_shift_hz": -2026.93,
+        "multiband_density_index": 0.364
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 3.083,
+          "pink_noise_minus14.wav": 3.446,
+          "pink_noise_minus20.wav": 8.235
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 1.564,
+          "pink_noise_minus14.wav": 2.464,
+          "pink_noise_minus20.wav": 7.351
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "punch": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -0.586,
+        "60-120 Hz": -2.549,
+        "120-250 Hz": -5.736,
+        "250-500 Hz": -7.632,
+        "500-1k Hz": -6.757,
+        "1-2k Hz": -3.973,
+        "2-4k Hz": -0.746,
+        "4-8k Hz": 2.617,
+        "8-16k Hz": 3.843
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 11.489,
+        "60-120 Hz": 9.526,
+        "120-250 Hz": 6.339,
+        "250-500 Hz": 4.443,
+        "500-1k Hz": 5.318,
+        "1-2k Hz": 8.102,
+        "2-4k Hz": 11.329,
+        "4-8k Hz": 14.692,
+        "8-16k Hz": 15.918
+      },
+      "tone_gain_db": {
+        "40Hz": 14.5,
+        "80Hz": 11.347,
+        "160Hz": 8.37,
+        "315Hz": 6.538,
+        "630Hz": 6.419,
+        "1250Hz": 7.69,
+        "2500Hz": 9.085,
+        "5000Hz": 10.383,
+        "10000Hz": 10.976,
+        "16000Hz": 11.167
+      },
+      "loudness": {
+        "target_lufs": -7.388,
+        "rms_makeup_db": 12.075,
+        "true_peak_ceiling_dbtp": 1.109
+      },
+      "stereo": {
+        "correlation_change": -0.124,
+        "width_change_db": 12.685
+      },
+      "dynamics_target": {
+        "crest_change_db": -6.618,
+        "contrast_change_db": -11.89,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 2.182,
+        "centroid_shift_hz": 3614.48,
+        "multiband_density_index": 1.378
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 4.885,
+          "pink_noise_minus14.wav": 6.945,
+          "pink_noise_minus20.wav": 12.075
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 5.554,
+          "pink_noise_minus14.wav": 7.757,
+          "pink_noise_minus20.wav": 13.004
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "spatial": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -0.374,
+        "60-120 Hz": -0.362,
+        "120-250 Hz": -0.327,
+        "250-500 Hz": -0.3,
+        "500-1k Hz": -0.331,
+        "1-2k Hz": -0.517,
+        "2-4k Hz": -0.443,
+        "4-8k Hz": 1.251,
+        "8-16k Hz": 2.357
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 8.548,
+        "60-120 Hz": 8.56,
+        "120-250 Hz": 8.595,
+        "250-500 Hz": 8.622,
+        "500-1k Hz": 8.591,
+        "1-2k Hz": 8.405,
+        "2-4k Hz": 8.479,
+        "4-8k Hz": 10.173,
+        "8-16k Hz": 11.279
+      },
+      "tone_gain_db": {
+        "40Hz": 8.723,
+        "80Hz": 8.167,
+        "160Hz": 8.006,
+        "315Hz": 7.789,
+        "630Hz": 7.488,
+        "1250Hz": 7.392,
+        "2500Hz": 7.09,
+        "5000Hz": 8.386,
+        "10000Hz": 9.354,
+        "16000Hz": 9.086
+      },
+      "loudness": {
+        "target_lufs": -10.325,
+        "rms_makeup_db": 8.922,
+        "true_peak_ceiling_dbtp": 1.201
+      },
+      "stereo": {
+        "correlation_change": -0.315,
+        "width_change_db": 16.847
+      },
+      "dynamics_target": {
+        "crest_change_db": -1.966,
+        "contrast_change_db": -6.305,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 0.762,
+        "centroid_shift_hz": 1218.76,
+        "multiband_density_index": 0.284
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 3.536,
+          "pink_noise_minus14.wav": 4.424,
+          "pink_noise_minus20.wav": 8.922
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 4.381,
+          "pink_noise_minus14.wav": 5.388,
+          "pink_noise_minus20.wav": 10.067
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "tape": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -0.391,
+        "60-120 Hz": 0.021,
+        "120-250 Hz": 0.629,
+        "250-500 Hz": 1.068,
+        "500-1k Hz": 0.797,
+        "1-2k Hz": -0.469,
+        "2-4k Hz": -2.355,
+        "4-8k Hz": 1.126,
+        "8-16k Hz": 3.899
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 7.785,
+        "60-120 Hz": 8.197,
+        "120-250 Hz": 8.805,
+        "250-500 Hz": 9.244,
+        "500-1k Hz": 8.973,
+        "1-2k Hz": 7.707,
+        "2-4k Hz": 5.821,
+        "4-8k Hz": 9.302,
+        "8-16k Hz": 12.075
+      },
+      "tone_gain_db": {
+        "40Hz": 8.13,
+        "80Hz": 8.497,
+        "160Hz": 8.235,
+        "315Hz": 7.908,
+        "630Hz": 7.502,
+        "1250Hz": 6.323,
+        "2500Hz": 4.952,
+        "5000Hz": 6.945,
+        "10000Hz": 8.76,
+        "16000Hz": 8.699
+      },
+      "loudness": {
+        "target_lufs": -10.708,
+        "rms_makeup_db": 8.176,
+        "true_peak_ceiling_dbtp": -0.955
+      },
+      "stereo": {
+        "correlation_change": -0.028,
+        "width_change_db": 6.559
+      },
+      "dynamics_target": {
+        "crest_change_db": -2.391,
+        "contrast_change_db": -5.394,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 1.219,
+        "centroid_shift_hz": 1751.6,
+        "multiband_density_index": 0.617
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 3.882,
+          "pink_noise_minus14.wav": 3.723,
+          "pink_noise_minus20.wav": 8.176
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 4.366,
+          "pink_noise_minus14.wav": 4.942,
+          "pink_noise_minus20.wav": 9.684
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "universal": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.219,
+        "60-120 Hz": 0.067,
+        "120-250 Hz": -0.266,
+        "250-500 Hz": -1.184,
+        "500-1k Hz": -0.983,
+        "1-2k Hz": -0.541,
+        "2-4k Hz": -1.345,
+        "4-8k Hz": -0.125,
+        "8-16k Hz": 0.573
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 9.294,
+        "60-120 Hz": 9.142,
+        "120-250 Hz": 8.809,
+        "250-500 Hz": 7.891,
+        "500-1k Hz": 8.092,
+        "1-2k Hz": 8.534,
+        "2-4k Hz": 7.73,
+        "4-8k Hz": 8.95,
+        "8-16k Hz": 9.648
+      },
+      "tone_gain_db": {
+        "40Hz": 9.149,
+        "80Hz": 7.867,
+        "160Hz": 7.463,
+        "315Hz": 6.961,
+        "630Hz": 6.727,
+        "1250Hz": 6.919,
+        "2500Hz": 6.492,
+        "5000Hz": 6.913,
+        "10000Hz": 7.174,
+        "16000Hz": 7.463
+      },
+      "loudness": {
+        "target_lufs": -11.634,
+        "rms_makeup_db": 9.075,
+        "true_peak_ceiling_dbtp": 0.612
+      },
+      "stereo": {
+        "correlation_change": -0.008,
+        "width_change_db": 3.075
+      },
+      "dynamics_target": {
+        "crest_change_db": -2.179,
+        "contrast_change_db": -6.08,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 0.386,
+        "centroid_shift_hz": 257.54,
+        "multiband_density_index": 0.27
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 4.243,
+          "pink_noise_minus14.wav": 4.516,
+          "pink_noise_minus20.wav": 9.075
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 4.159,
+          "pink_noise_minus14.wav": 4.197,
+          "pink_noise_minus20.wav": 8.758
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    },
+    "warm": {
+      "input_stage": {
+        "peak_normalize_dbfs": -4.5,
+        "note": "User-mode only. Our masters were captured at gain 0 (suggestion declined), so reconstruction skips this."
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -1.001,
+        "60-120 Hz": 4.519,
+        "120-250 Hz": 3.771,
+        "250-500 Hz": 3.194,
+        "500-1k Hz": 2.934,
+        "1-2k Hz": 2.713,
+        "2-4k Hz": 2.719,
+        "4-8k Hz": 3.695,
+        "8-16k Hz": 4.449
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 2.013,
+        "60-120 Hz": 7.533,
+        "120-250 Hz": 6.785,
+        "250-500 Hz": 6.208,
+        "500-1k Hz": 5.948,
+        "1-2k Hz": 5.727,
+        "2-4k Hz": 5.733,
+        "4-8k Hz": 6.709,
+        "8-16k Hz": 7.463
+      },
+      "tone_gain_db": {
+        "40Hz": 2.068,
+        "80Hz": 6.893,
+        "160Hz": 6.048,
+        "315Hz": 5.423,
+        "630Hz": 4.779,
+        "1250Hz": 4.63,
+        "2500Hz": 4.451,
+        "5000Hz": 4.67,
+        "10000Hz": 5.364,
+        "16000Hz": 5.743
+      },
+      "loudness": {
+        "target_lufs": -13.771,
+        "rms_makeup_db": 3.014,
+        "true_peak_ceiling_dbtp": -3.633
+      },
+      "stereo": {
+        "correlation_change": -0.008,
+        "width_change_db": 3.023
+      },
+      "dynamics_target": {
+        "crest_change_db": -0.056,
+        "contrast_change_db": -3.736,
+        "note": "Target only \u2014 emulator does NOT model attack/release (no timing data; click track can't measure it)."
+      },
+      "tonal_summary": {
+        "tilt_db_per_oct": 0.412,
+        "centroid_shift_hz": 743.24,
+        "multiband_density_index": 0.225
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": 0.078,
+          "pink_noise_minus14.wav": -1.402,
+          "pink_noise_minus20.wav": 3.014
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 3.471,
+          "pink_noise_minus14.wav": 2.225,
+          "pink_noise_minus20.wav": 6.621
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      }
+    }
+  }
+}

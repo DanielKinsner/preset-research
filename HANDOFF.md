@@ -72,7 +72,7 @@ zeroing it, and add it to `competitors/bandlab/capture.json` under `per_signal`
 model predicts ≈ −4.1; a large positive value instead would mean loudness-aware
 gain.
 
-## 3. Current state (2026-06-17)
+## 3. Current state (2026-06-16)
 
 **Tooling: complete and verified.**
 - `tools/signals.py` — ground-truth registry for the 8 test signals.
@@ -83,8 +83,12 @@ gain.
 - `tools/fingerprint.py` — Step 3, input→output deltas + per-preset aggregate +
   service `canonical.json`. Self-test passes.
 - `tools/report.py` — validation HTML report.
-- `tools/compare.py` — preset comparison HTML (EQ-contour overlay + loudness/
-  limiting ranking).
+- `tools/compare.py` — preset comparison HTML (8 sections: EQ contour, loudness,
+  tilt, per-frequency tone gain, level-dependence LUFS, dynamics, stereo, click).
+- `tools/emulate.py` — Step 4: distils canonical into an applicable per-preset
+  **emulation recipe**, applies it to arbitrary audio (`--apply [--user-mode]`),
+  and self-validates by reconstruction error (`--validate`). Recipe chain:
+  peak-norm −4.5 → FFT EQ shape → stereo width → drive into a brickwall limiter.
 
 **Data captured: the full matrix is COMPLETE — 8 of 8 signals × 8 presets = 64 masters**
 (completed 2026-06-16). All 64 are fingerprinted, compared, and the findings were
@@ -205,8 +209,9 @@ measurements/
 reports/
   validation/            validation-report.html
   fingerprints/bandlab/  comparison.html + comparison.md
+emulation/bandlab/       recipes.json + recipes.md + validation.md (Step 4)
 tools/                   signals, audio_metrics, validate_signals, fingerprint,
-                         report, compare
+                         report, compare, emulate
 requirements.txt · README.md · STATUS.md · HANDOFF.md
 ```
 
@@ -228,9 +233,15 @@ in one file. Read it to make DSP decisions without re-analyzing audio.
 4. **Other services** (LANDR, eMastered, CloudBounce) — registry/engine are
    service-agnostic; just add `competitors/<service>/` and a `capture.json`.
    (The −4.5 dBFS auto-gain model is confirmed on all 8 signals — done.)
-5. **Final analysis / emulation** — canonical.json now has every dimension; build the
-   per-preset emulation recipe (peak-norm to −4.5 → EQ/comp/stereo fingerprint → loudness
-   target). Carry the §5b implications + the LUFS-vs-RMS and click caveats into it.
+5. ~~**Emulation recipe**~~ — **DONE (2026-06-16):** `tools/emulate.py` +
+   `emulation/bandlab/{recipes,validation}.{json,md}`. Tone reconstructs to 0.23 dB
+   (operating point) / 0.72 dB (cross-signal); loudness is operating-point-specific;
+   transients unmodeled. **Still open:** a faithful **limiter** (needs the dense-transient
+   capture in #3) and a **level-aware loudness target** (drive emulation loudness from the
+   `level_dependence` curve instead of the fixed pink_−20 value).
+6. **Final written analysis** — pull §5b implications + verified findings + the emulation
+   results into one report ("what BandLab presets actually do, and how faithfully we can
+   rebuild them").
 
 ## 8. Key decisions & gotchas
 

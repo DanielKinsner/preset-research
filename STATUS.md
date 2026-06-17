@@ -3,10 +3,13 @@
 _Last updated: 2026-06-16 · the single source of truth for "where are we."_
 _New machine? Read `HANDOFF.md` first._
 
-> **MILESTONE (2026-06-16): the full 8×8 matrix is complete and verified.** All 64
-> masters fingerprinted; `compare.py` extended with all 5 new sections; findings
-> adversarially re-checked against the raw per-pair JSONs (6 verifiers + critic).
-> Two pre-commit corrections came out of that pass — see "Findings" and "Corrections".
+> **MILESTONE (2026-06-16): full 8×8 matrix complete + verified + emulator built.** All
+> 64 masters fingerprinted; `compare.py` extended with all 5 new sections; findings
+> adversarially re-checked (6 verifiers + critic, two pre-commit corrections); and
+> `tools/emulate.py` turns the fingerprints into an **applicable, self-validating
+> emulation recipe** — reconstructs masters to **0.23 dB tonal / 0.00 LU** at the
+> operating point, **0.72 dB cross-signal** tonal. See "Findings" / "Corrections" /
+> "Emulation".
 
 ## Done
 
@@ -40,6 +43,11 @@ _New machine? Read `HANDOFF.md` first._
 - [x] **Findings adversarially verified** (2026-06-16) against the raw per-pair JSONs:
       6 per-dimension skeptics + a completeness critic. Caught & fixed two issues before
       commit (see **Corrections** below).
+- [x] **Emulation recipe + emulator** (`tools/emulate.py`, 2026-06-16) — distils canonical
+      into a per-preset applicable recipe (`emulation/bandlab/recipes.{json,md}`), applies
+      it to arbitrary audio (`--apply`, with `--user-mode` for the −4.5 dBFS input stage),
+      and self-validates by reconstruction error (`emulation/bandlab/validation.md`).
+      Chain: peak-norm → FFT EQ shape → stereo width → drive into a brickwall limiter.
 
 ## Scope: 8 BandLab presets
 
@@ -142,6 +150,25 @@ per-dimension skeptic re-deriving it from the raw per-pair JSONs.
 2. **`makeup_gain_db` is RMS, not loudness.** Documented inline in `canonical.json`;
    `level_dependence` now carries both `makeup_gain_rms_by_input_level` and
    `loudness_lift_lufs_by_input_level`. Narrative + the level-dependence chart now use LUFS.
+
+## Emulation — what's reproducible (`tools/emulate.py`)
+
+The recipe per preset: peak-norm to −4.5 dBFS (user-mode) → FFT EQ shape → stereo
+width → drive into a brickwall limiter (loudness target + ceiling at once).
+Reconstruction error vs the real masters (`emulation/bandlab/validation.md`):
+
+- **TONE is the solid, transferable dimension.** At the pink_−20 operating point the
+  emulator reconstructs the master to **0.23 dB** tonal RMS and **0.00 LU** loudness;
+  the EQ shape transfers across signal types at **0.72 dB** mean cross-signal error.
+- **LOUDNESS is operating-point-specific.** The recipe's loudness target is the pink_−20
+  value; applied to hotter inputs it over-drives (pink_−10 off by ~5 LU) — that's the
+  measured level-dependence, not a bug. Use the `level_dependence` LUFS curve to pick
+  the target for the actual operating point.
+- **TRANSIENTS/limiting are not modeled** (click error 12+ dB): the brickwall is a
+  stand-in. Faithful limiting needs a dense-transient capture.
+- **Emulability ranks the presets — and matches the multiband index.** punch is hardest
+  to emulate (most density-dependent EQ); universal/spatial/warm easiest. Two independent
+  methods, one ordering.
 
 ## Decisions / notes for future sessions
 
