@@ -149,7 +149,8 @@ def chart_level_dependence(presets):
     if not any_data:
         plt.close(fig)
         return None
-    ax.set_xlabel("Input level (dBFS RMS, nominal)  —  quiet to loud")
+    ax.set_xlabel("Input level (dBFS RMS, nominal) — quiet to loud  (note: -14/-10 inputs peak near 0 dBFS,\n"
+                  "so part of the lift drop at hot input is headroom-limited, not purely adaptive)")
     ax.set_ylabel("Loudness lift (LU, output - input)")
     ax.set_title("Level dependence — loudness lift vs input level  (falling = adaptive loudness chase)")
     ax.set_xticks([-20, -14, -10])  # quiet -> loud, left -> right; lift falls = chasing a target
@@ -171,14 +172,15 @@ def chart_tone_gain(presets):
             continue
         any_data = True
         xs, ys = zip(*items)
+        ys = np.array(ys) - float(np.mean(ys))   # mean-center to match eq_contour_db (drops the makeup offset)
         ax.semilogx(xs, ys, "o-", color=c, lw=1.6, ms=4, label=name)
     if not any_data:
         plt.close(fig)
         return None
     ax.axhline(0, color="#111", lw=1, alpha=0.4)
     ax.set_xlabel("Tone frequency (Hz)")
-    ax.set_ylabel("Per-frequency gain (dB, output - input)")
-    ax.set_title("Per-frequency gain from the tone ladder  —  cross-validates the pink-noise EQ contour")
+    ax.set_ylabel("Per-frequency gain (dB, mean-centered)")
+    ax.set_title("Per-frequency gain (tone ladder, mean-centered) — same convention as the EQ contour, so the shapes overlay")
     ax.legend(fontsize=8, ncol=2)
     return _b64(fig)
 
@@ -205,8 +207,10 @@ def chart_stereo(presets):
     width = [presets[n]["stereo"]["width_change_db"] for n in names]
     corr = [presets[n]["stereo"].get("correlation_change") or 0.0 for n in names]
     fig, axes = plt.subplots(1, 2, figsize=(9.5, 3.8))
-    _hbar(axes[0], names, width, "Stereo width change (+ = wider)", "dB (side - mid)", fmt="{:+.1f}")
-    _hbar(axes[1], names, corr, "L/R correlation change (- = more decorrelated)", "", fmt="{:+.3f}")
+    # correlation_change is the trustworthy metric -> left (read first). width-dB rides a
+    # near-mono floor (side ~24 dB below mid) and overstates swings -> right, secondary.
+    _hbar(axes[0], names, corr, "L/R correlation change (- = wider/decorrelated) — trusted", "", fmt="{:+.3f}")
+    _hbar(axes[1], names, width, "Stereo width change in dB — inflated by near-mono floor", "dB (side - mid)", fmt="{:+.1f}")
     fig.tight_layout()
     return _b64(fig)
 
@@ -296,9 +300,13 @@ def main():
            if (presets[n].get("dynamics") or {}).get("contrast_change_db") is not None}
     wid = {n: presets[n]["stereo"]["width_change_db"] for n in presets
            if (presets[n].get("stereo") or {}).get("width_change_db") is not None}
+    corr_ch = {n: presets[n]["stereo"]["correlation_change"] for n in presets
+               if (presets[n].get("stereo") or {}).get("correlation_change") is not None}
     hardest_chase = min(level_slopes, key=level_slopes.get) if level_slopes else None
     most_crushed = min(dyn, key=dyn.get) if dyn else None
-    widest = max(wid, key=wid.get) if wid else None
+    # widest = most-negative correlation change (the trusted metric); NOT width-dB,
+    # which rides a near-mono floor and overstates swings.
+    widest = min(corr_ch, key=corr_ch.get) if corr_ch else None
 
     # table
     cols = ["Preset", "Out LUFS", "Makeup dB", "True-peak dBTP", "Crest Δ dB", "Tilt Δ dB/oct", "Centroid Δ Hz"]
@@ -326,7 +334,8 @@ def main():
                   f"(20 dB loud/quiet contrast cut by {dyn[most_crushed]:+.1f} dB).</li>")
     if widest:
         extra += (f"<li><b>Widest stereo:</b> {widest} "
-                  f"(side energy {wid[widest]:+.1f} dB vs mid on the mid/side test).</li>")
+                  f"(correlation change {corr_ch[widest]:+.3f} — the trusted metric; "
+                  f"width {wid.get(widest, float('nan')):+.1f} dB rides a near-mono floor).</li>")
     findings = f"""
       <li><b>Loudest:</b> {loudest} ({L[loudest]['output_integrated_lufs']:.1f} LUFS) ·
           <b>Quietest:</b> {quietest} ({L[quietest]['output_integrated_lufs']:.1f} LUFS)
