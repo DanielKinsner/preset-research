@@ -72,20 +72,25 @@ def chart_eq_overlay(presets) -> str:
     return _b64(fig)
 
 
-def _hbar(ax, names, vals, title, xlabel, danger=None, fmt="{:.1f}"):
+def _hbar(ax, names, vals, title, xlabel, danger=None, fmt="{:.1f}", labels=None):
+    # `labels` lets the bar TEXT show a different value than the plotted length
+    # (used when a panel plots a transformed quantity, e.g. LU-below-loudest, but
+    # should annotate the true absolute value).
     order = np.argsort(vals)
     names = [names[i] for i in order]
     vals = [vals[i] for i in order]
+    txt = [labels[i] for i in order] if labels is not None else vals
     cols = ["#dc2626" if (danger is not None and v > danger) else "#2563eb" for v in vals]
     ax.barh(range(len(names)), vals, color=cols, alpha=0.85)
     ax.set_yticks(range(len(names)))
     ax.set_yticklabels(names, fontsize=9)
     ax.set_title(title)
     ax.set_xlabel(xlabel)
+    ax.margins(x=0.18)  # headroom so value labels don't collide with axis/ticks
     if danger is not None:
         ax.axvline(danger, color="#dc2626", ls="--", lw=1)
     for i, v in enumerate(vals):
-        ax.text(v, i, " " + fmt.format(v), va="center",
+        ax.text(v, i, " " + fmt.format(txt[i]) + " ", va="center",
                 ha="left" if v >= 0 else "right", fontsize=8)
 
 
@@ -95,8 +100,15 @@ def chart_loudness_grid(presets) -> str:
     makeup = [presets[n]["loudness"]["makeup_gain_db"] for n in names]
     tp = [presets[n]["loudness"]["true_peak_ceiling_dbtp"] for n in names]
     crest = [presets[n]["loudness"]["crest_change_db"] for n in names]
+    # Plot loudness as LU-below-loudest (0 = loudest), NOT absolute LUFS: absolute
+    # values are all negative, so a bar drawn from 0 would make the loudest preset
+    # the SHORTEST bar (inverted). Length now = how much quieter than the loudest;
+    # labels still show the true LUFS.
+    lmax = max(lufs)
+    lufs_below = [v - lmax for v in lufs]
     fig, axes = plt.subplots(2, 2, figsize=(9.5, 6.2))
-    _hbar(axes[0, 0], names, lufs, "Output loudness (louder = up)", "LUFS")
+    _hbar(axes[0, 0], names, lufs_below, "Output loudness — LU below loudest (0 = loudest)",
+          "LU below loudest", labels=lufs)
     _hbar(axes[0, 1], names, makeup, "Makeup gain applied (RMS delta)", "dB")
     _hbar(axes[1, 0], names, tp, "True-peak ceiling (>0 = clips)", "dBTP", danger=0.0)
     _hbar(axes[1, 1], names, crest, "Crest-factor change (more neg = more compressed)", "dB")
