@@ -4,6 +4,22 @@ _Generated 2026-06-16. Review-only: no source files were modified. All findings 
 
 ---
 
+## Status — fixes applied (post-review)
+
+The findings below are the original review output; most have since been fixed on `main`:
+
+- **P1 true-peak boundary phantom** — fixed (`a00cb10`): edge-pad before oversampling. Proven 0.0000 dB change to the real masters; DC/edge case corrected.
+- **P1 inverted loudness chart** — fixed (`226401d`): plot LU-below-loudest with true-value labels; also fixed `_hbar` label collisions.
+- **P2 spectral-tilt HF bias** — fixed (`ec10a38`): equal-octave (log-uniform) weighting. All artifacts regenerated; rankings corrected — punch +1.15 (was inflated +2.18), and natural/oomph/warm all darken (not natural alone).
+- **P2 report integrity** — fixed (`513a871`): tone-gain overlay mean-centered, stereo "widest" headline now uses the trusted `correlation_change`, level-dependence headroom caveat added.
+- **P2/P3 robustness** — fixed (`6b8ea17`): tone-gain rep averaging, dynamic-test onset alignment, tone-ladder segment cap, band-energy docstring corrected, narrowed LRA except; doc "only warm non-monotonic" → warm + clarity.
+
+**Still open (lower-priority; none affect committed numbers):** the "loudness chase" label nuance (prefer output-LUFS flatness), click-detection global-threshold fragility, `content_onset` confidence flag, chart KeyError guards on partial captures, pooled-RMS convention doc, and output-timestamp determinism.
+
+The static-vs-adaptive and distinctiveness analyses (§3) are unaffected by the fixes and stand.
+
+---
+
 ## 1. Executive Summary
 
 The instrument is **fundamentally sound and trustworthy for its core job** — the input→output delta methodology, the per-preset EQ/loudness/dynamics/stereo fingerprints, and the headline DSP conclusions are correct. The project's strongest claim (BandLab is a peak-normalizer to **-4.5 dBFS**, confirmed on all 8 signals to within 0.05 dB) is verified, and the methodology's main limitation (dual-normalizer chain measured at gain 0) is honestly disclosed by the authors themselves.
