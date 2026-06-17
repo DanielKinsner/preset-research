@@ -1,13 +1,13 @@
 {
   "service": "bandlab",
-  "presets": ["universal", "clarity", "oomph", "tape"],
+  "presets": ["universal", "clarity", "oomph", "tape", "spatial", "natural", "warm", "punch"],
   "protocol": {
     "input_gain_db": 0.0,
     "input_gain_policy": "Manual override of BandLab's suggested input gain. Fixed at 0 so the input level into the chain is exactly the known source level. Preserves the -20/-14/-10 level-dependence probe (accepting the adaptive suggestion would peak-normalize all three to a common level and collapse it).",
     "intensity": "Normal (50%)",
     "intensity_policy": "Preset default detent ('Normal' = 50% of range). Held constant across all uploads. Slider spans 0% (dry/min) to 100% (max); 50% is the canonical intended voice.",
     "output_format": "WAV (actual bit depth/sample rate recorded per output by audio_metrics)",
-    "constant_across": "all 8 signals x 4 presets (32 masters)"
+    "constant_across": "all 8 signals x 8 presets (64 masters)"
   },
   "auto_input_gain_finding": {
     "model": "suggested_input_gain_db = -4.5 - input_peak_dbfs",

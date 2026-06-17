@@ -20,39 +20,55 @@ _Last updated: 2026-06-16 · the single source of truth for "where are we."_
 - [x] **Fingerprint engine** (`tools/fingerprint.py`) — input→output deltas,
       per-preset aggregate, service `canonical.json`. **Self-test PASSES**:
       recovers a known injected +8 dB makeup + high-shelf brightening.
+      (Fixed an NTFS `*.wav`/`*.WAV` glob double-count bug.)
+- [x] **First real fingerprints + comparison** — pink_noise_minus20 mastered
+      through all **8 BandLab presets**. `tools/compare.py` renders
+      `reports/fingerprints/bandlab/comparison.html` (EQ-contour overlay +
+      loudness/limiting ranking). Canonical: `measurements/fingerprints/bandlab/`.
+
+## Scope: 8 BandLab presets
+
+`universal · clarity · oomph · tape · spatial · natural · warm · punch`
+Full matrix = 8 signals × 8 presets = **64 masters**.
 
 ## Waiting on operator (Dan)
 
-- [ ] **BandLab masters.** Upload each of the 8 signals through the 4 BandLab
-      presets (**Universal, Clarity, Oomph, Tape**) = 32 files. Download WAVs and
-      drop them in `competitors/bandlab/<preset>/`.
-      - **LOCKED CAPTURE PROTOCOL (identical on every upload):**
-        **input gain = 0.0** (manual override of the suggestion) ·
-        **intensity = Normal (50%)** (the default detent). See
-        `competitors/bandlab/capture.json` — `fingerprint.py` reads it and stamps
-        every measurement with this provenance.
-      - **Also record the *suggested* input gain per signal** (the value BandLab
-        proposes before you zero it). It's a free readout of their input
-        conditioning. 3 of 8 recorded; predictions for the rest in capture.json.
-      - Keep the source filename as a substring so auto-matching works
-        (e.g. `pink_noise_minus20*.wav`). Unmatched files are reported, not guessed.
-      - **Priority order if batching:** start with `pink_noise_minus20.wav`
-        (primary tonal reference) through all 4 presets — that alone yields a
-        first comparative EQ fingerprint.
-      - If BandLab **rejects** any signal, record which one(s) — rejection is data.
+- [x] **pink_noise_minus20 — all 8 presets done**, fingerprinted + compared.
+- [ ] **Remaining 7 signals × 8 presets = 56 masters.** Upload each remaining
+      signal (pink_noise_minus14, pink_noise_minus10, sine_sweep_minus20,
+      click_track, tone_ladder_minus20, dynamic_test_minus14, mid_side_test_minus20)
+      through all 8 presets; drop in `competitors/bandlab/<preset>/`.
+      - **LOCKED CAPTURE PROTOCOL (every upload):** input gain = 0.0 (decline the
+        suggestion) · intensity = Normal. Stamped into every measurement from
+        `competitors/bandlab/capture.json`.
+      - Record the *suggested* input gain per signal before zeroing (free auto-gain
+        data; 3 of 8 recorded — predictions for the rest in capture.json, esp.
+        `click_track`, the peak-vs-loudness acid test).
+      - Keep the source filename as a substring (e.g. `tone_ladder_minus20*.wav`).
+      - **Suggested next batch:** the two other pink levels (−14, −10) → unlocks the
+        level-dependence fingerprint; then `tone_ladder` (exact per-frequency gain).
+      - If BandLab **rejects** any signal, record which — rejection is data.
 
-## Next (agent, once data lands)
+## Next (agent, as signals arrive)
 
-1. Run `tools/fingerprint.py --service bandlab`. Verify per-preset
-   `fingerprint.json` + `canonical.json` are written.
-2. **Build the fingerprint HTML report** (not yet built — deferred until real
-   output shapes are known). Reuse `report.py` chart helpers: input-vs-output
-   spectrum overlays, per-preset EQ-curve charts, a 4-preset comparison matrix.
-3. Sanity-check deltas against expectation (BandLab presets are loud; expect
-   large +makeup gain and a true-peak ceiling near −1 to −0.1 dBTP).
+1. `tools/fingerprint.py --service bandlab` then `tools/compare.py --service bandlab`.
+2. **Add onset alignment** to the tone/click/dynamic *output* analyzers — BandLab
+   outputs run 0.01–0.42 s long (lead-in/tail), harmless for pink/broadband but it
+   offsets segment-timed analyses. Detect content start before windowing.
+3. `compare.py` already gates sections on signal presence — per-frequency gain,
+   dynamics, stereo width, and limiter timing light up automatically as their
+   signals land.
 
 ## Findings so far (BandLab)
 
+- **First tonal/loudness fingerprint (pink_noise_minus20, 8 presets):** loudest
+  **punch** (−7.4 LUFS, +12 dB makeup, crest −6.6 = heaviest limiting, true-peak
+  +1.1 dBTP); gentlest **warm** (−13.8 LUFS, +3 dB makeup, true-peak −3.6).
+  Brightest **punch** (+2.18 dB/oct); only *darkening* preset **natural** (−0.26).
+  Signature shapes: **oomph** +9.7 dB sub (20–60 Hz), **clarity** mid-scoop
+  "smile," **spatial**/**tape** high-air lift, **universal** near-flat/safe.
+  **5 of 8 exceed 0 dBTP** (inter-sample clipping): clarity, natural, spatial,
+  universal, punch. Chart: `reports/fingerprints/bandlab/comparison.html`.
 - **Auto input-gain is a peak normalizer to ≈ −4.5 dBFS.** BandLab's "suggested
   input gain" follows `suggested = −4.5 − input_peak_dbfs`. Confirmed on 3 pink
   levels (−20→+2.5, −14→−3.9, −10→−4.5), all landing within 0.05 dB of −4.5 dBFS

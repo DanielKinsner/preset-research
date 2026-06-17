@@ -1,0 +1,54 @@
+{
+  "service": "bandlab",
+  "preset": "warm",
+  "generated_utc": "2026-06-16T23:59:28+00:00",
+  "unmatched_files": [],
+  "fingerprint": {
+    "n_signals": 1,
+    "signals_present": [
+      "pink_noise_minus20.wav"
+    ],
+    "loudness": {
+      "output_integrated_lufs": -13.771,
+      "makeup_gain_db": 3.014,
+      "true_peak_ceiling_dbtp": -3.633,
+      "lra_change_lu": -0.003,
+      "crest_change_db": -0.056
+    },
+    "eq_shape_db": {
+      "20-60 Hz": -1.001,
+      "60-120 Hz": 4.519,
+      "120-250 Hz": 3.771,
+      "250-500 Hz": 3.194,
+      "500-1k Hz": 2.934,
+      "1-2k Hz": 2.713,
+      "2-4k Hz": 2.719,
+      "4-8k Hz": 3.695,
+      "8-16k Hz": 4.449
+    },
+    "eq_contour_db": {
+      "20-60 Hz": -4.0,
+      "60-120 Hz": 1.52,
+      "120-250 Hz": 0.772,
+      "250-500 Hz": 0.195,
+      "500-1k Hz": -0.065,
+      "1-2k Hz": -0.286,
+      "2-4k Hz": -0.28,
+      "4-8k Hz": 0.696,
+      "8-16k Hz": 1.45
+    },
+    "eq_band_delta_raw_db": {
+      "20-60 Hz": 2.013,
+      "60-120 Hz": 7.533,
+      "120-250 Hz": 6.785,
+      "250-500 Hz": 6.208,
+      "500-1k Hz": 5.948,
+      "1-2k Hz": 5.727,
+      "2-4k Hz": 5.733,
+      "4-8k Hz": 6.709,
+      "8-16k Hz": 7.463
+    },
+    "spectral_tilt_change_db_per_oct": 0.412,
+    "centroid_shift_hz": 743.24
+  }
+}

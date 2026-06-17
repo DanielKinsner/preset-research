@@ -1,0 +1,505 @@
+{
+  "schema": "preset-fingerprint/v1",
+  "service": "bandlab",
+  "generated_utc": "2026-06-16T23:59:28+00:00",
+  "method": "Static-character isolation via spectrally-neutral test signals. Delta = output measurement - input measurement. EQ shape is makeup-gain-normalized band energy. See reports/ and tools/.",
+  "capture_protocol": {
+    "service": "bandlab",
+    "presets": [
+      "universal",
+      "clarity",
+      "oomph",
+      "tape",
+      "spatial",
+      "natural",
+      "warm",
+      "punch"
+    ],
+    "protocol": {
+      "input_gain_db": 0.0,
+      "input_gain_policy": "Manual override of BandLab's suggested input gain. Fixed at 0 so the input level into the chain is exactly the known source level. Preserves the -20/-14/-10 level-dependence probe (accepting the adaptive suggestion would peak-normalize all three to a common level and collapse it).",
+      "intensity": "Normal (50%)",
+      "intensity_policy": "Preset default detent ('Normal' = 50% of range). Held constant across all uploads. Slider spans 0% (dry/min) to 100% (max); 50% is the canonical intended voice.",
+      "output_format": "WAV (actual bit depth/sample rate recorded per output by audio_metrics)",
+      "constant_across": "all 8 signals x 8 presets (64 masters)"
+    },
+    "auto_input_gain_finding": {
+      "model": "suggested_input_gain_db = -4.5 - input_peak_dbfs",
+      "target_peak_dbfs": -4.5,
+      "interpretation": "BandLab's suggested input gain is a PEAK normalizer: it pre-conditions every upload to ~-4.5 dBFS peak (fixed headroom), independent of loudness. Confirmed by 3 pink levels landing within 0.05 dB of -4.5 dBFS peak.",
+      "discriminator": "click_track is sparse (peak -0.45, RMS -44). Peak-target predicts ~-4.1 dB; a loudness-target would instead predict a large positive boost. Confirms peak-vs-loudness.",
+      "status": "hypothesis confirmed on 3 of 8 signals; remaining 5 to verify"
+    },
+    "per_signal": {
+      "pink_noise_minus20.wav": {
+        "input_peak_dbfs": -6.96,
+        "suggested_input_gain_db": 2.5,
+        "predicted_input_gain_db": 2.46,
+        "status": "confirmed"
+      },
+      "pink_noise_minus14.wav": {
+        "input_peak_dbfs": -0.61,
+        "suggested_input_gain_db": -3.9,
+        "predicted_input_gain_db": -3.89,
+        "status": "confirmed"
+      },
+      "pink_noise_minus10.wav": {
+        "input_peak_dbfs": -0.0,
+        "suggested_input_gain_db": -4.5,
+        "predicted_input_gain_db": -4.5,
+        "status": "confirmed"
+      },
+      "sine_sweep_minus20.wav": {
+        "input_peak_dbfs": -17.99,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": 13.49,
+        "status": "predicted"
+      },
+      "tone_ladder_minus20.wav": {
+        "input_peak_dbfs": -17.98,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": 13.48,
+        "status": "predicted"
+      },
+      "mid_side_test_minus20.wav": {
+        "input_peak_dbfs": -15.75,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": 11.25,
+        "status": "predicted"
+      },
+      "click_track.wav": {
+        "input_peak_dbfs": -0.45,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": -4.05,
+        "status": "predicted (acid test: peak-target => ~-4.1)"
+      },
+      "dynamic_test_minus14.wav": {
+        "input_peak_dbfs": -0.0,
+        "suggested_input_gain_db": null,
+        "predicted_input_gain_db": -4.5,
+        "status": "predicted"
+      }
+    },
+    "operator_notes": "Record the value BandLab SUGGESTS for each signal (then override to 0 before mastering). The suggestion is computed from the input file, so it should be identical across presets for a given signal -- confirm it does not change when you switch presets. Fill suggested_input_gain_db and set status=confirmed as you go."
+  },
+  "signal_provenance": {
+    "pink_noise_minus20.wav": {
+      "role": "pink_noise",
+      "purpose": "Primary tonal reference. Equal energy per octave; output delta IS the EQ curve."
+    },
+    "pink_noise_minus14.wav": {
+      "role": "pink_noise",
+      "purpose": "Level-dependent check. Spectral delta vs -20 reveals level-dependent processing."
+    },
+    "pink_noise_minus10.wav": {
+      "role": "pink_noise",
+      "purpose": "Hot-level behavior. Pushes compressor/limiter; reveals stand-down on loud material."
+    },
+    "sine_sweep_minus20.wav": {
+      "role": "sweep",
+      "purpose": "Precise frequency response. Reveals narrow-band features broadband noise misses."
+    },
+    "click_track.wav": {
+      "role": "click_track",
+      "purpose": "Compressor timing. Attack, release, transient shaping."
+    },
+    "tone_ladder_minus20.wav": {
+      "role": "tone_ladder",
+      "purpose": "Discrete per-frequency gain. Exact dB at known frequencies."
+    },
+    "dynamic_test_minus14.wav": {
+      "role": "dynamic",
+      "purpose": "Dynamic range preservation. Maintains 20 dB contrast or crushes it?"
+    },
+    "mid_side_test_minus20.wav": {
+      "role": "mid_side",
+      "purpose": "Stereo width. Narrowing, widening, or rebalancing?"
+    }
+  },
+  "presets": {
+    "clarity": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -13.42,
+        "makeup_gain_db": 7.812,
+        "true_peak_ceiling_dbtp": 0.219,
+        "lra_change_lu": -0.006,
+        "crest_change_db": -1.066
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.524,
+        "60-120 Hz": -0.709,
+        "120-250 Hz": -2.09,
+        "250-500 Hz": -3.162,
+        "500-1k Hz": -3.339,
+        "1-2k Hz": -3.489,
+        "2-4k Hz": -2.027,
+        "4-8k Hz": 0.171,
+        "8-16k Hz": 0.701
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 2.015,
+        "60-120 Hz": 0.782,
+        "120-250 Hz": -0.599,
+        "250-500 Hz": -1.671,
+        "500-1k Hz": -1.848,
+        "1-2k Hz": -1.998,
+        "2-4k Hz": -0.536,
+        "4-8k Hz": 1.662,
+        "8-16k Hz": 2.192
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 8.336,
+        "60-120 Hz": 7.103,
+        "120-250 Hz": 5.722,
+        "250-500 Hz": 4.65,
+        "500-1k Hz": 4.473,
+        "1-2k Hz": 4.323,
+        "2-4k Hz": 5.785,
+        "4-8k Hz": 7.983,
+        "8-16k Hz": 8.513
+      },
+      "spectral_tilt_change_db_per_oct": 0.917,
+      "centroid_shift_hz": 862.26
+    },
+    "natural": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -12.341,
+        "makeup_gain_db": 8.651,
+        "true_peak_ceiling_dbtp": 0.082,
+        "lra_change_lu": 0.06,
+        "crest_change_db": -1.995
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.863,
+        "60-120 Hz": 1.312,
+        "120-250 Hz": 1.726,
+        "250-500 Hz": 0.55,
+        "500-1k Hz": 0.526,
+        "1-2k Hz": -0.435,
+        "2-4k Hz": -1.847,
+        "4-8k Hz": -2.2,
+        "8-16k Hz": -1.397
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 0.963,
+        "60-120 Hz": 1.412,
+        "120-250 Hz": 1.826,
+        "250-500 Hz": 0.65,
+        "500-1k Hz": 0.626,
+        "1-2k Hz": -0.335,
+        "2-4k Hz": -1.747,
+        "4-8k Hz": -2.1,
+        "8-16k Hz": -1.297
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 9.514,
+        "60-120 Hz": 9.963,
+        "120-250 Hz": 10.377,
+        "250-500 Hz": 9.201,
+        "500-1k Hz": 9.177,
+        "1-2k Hz": 8.216,
+        "2-4k Hz": 6.804,
+        "4-8k Hz": 6.451,
+        "8-16k Hz": 7.254
+      },
+      "spectral_tilt_change_db_per_oct": -0.258,
+      "centroid_shift_hz": -808.4
+    },
+    "oomph": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -13.041,
+        "makeup_gain_db": 8.235,
+        "true_peak_ceiling_dbtp": -0.139,
+        "lra_change_lu": 0.108,
+        "crest_change_db": -1.579
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 9.703,
+        "60-120 Hz": 2.085,
+        "120-250 Hz": -2.177,
+        "250-500 Hz": -4.866,
+        "500-1k Hz": -4.264,
+        "1-2k Hz": -3.952,
+        "2-4k Hz": -2.97,
+        "4-8k Hz": -0.094,
+        "8-16k Hz": -1.089
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 10.55,
+        "60-120 Hz": 2.932,
+        "120-250 Hz": -1.33,
+        "250-500 Hz": -4.019,
+        "500-1k Hz": -3.417,
+        "1-2k Hz": -3.105,
+        "2-4k Hz": -2.123,
+        "4-8k Hz": 0.753,
+        "8-16k Hz": -0.242
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 17.938,
+        "60-120 Hz": 10.32,
+        "120-250 Hz": 6.058,
+        "250-500 Hz": 3.369,
+        "500-1k Hz": 3.971,
+        "1-2k Hz": 4.283,
+        "2-4k Hz": 5.265,
+        "4-8k Hz": 8.141,
+        "8-16k Hz": 7.146
+      },
+      "spectral_tilt_change_db_per_oct": 0.324,
+      "centroid_shift_hz": -2026.93
+    },
+    "punch": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -7.388,
+        "makeup_gain_db": 12.075,
+        "true_peak_ceiling_dbtp": 1.109,
+        "lra_change_lu": 0.1,
+        "crest_change_db": -6.618
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -0.586,
+        "60-120 Hz": -2.549,
+        "120-250 Hz": -5.736,
+        "250-500 Hz": -7.632,
+        "500-1k Hz": -6.757,
+        "1-2k Hz": -3.973,
+        "2-4k Hz": -0.746,
+        "4-8k Hz": 2.617,
+        "8-16k Hz": 3.843
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 1.805,
+        "60-120 Hz": -0.158,
+        "120-250 Hz": -3.345,
+        "250-500 Hz": -5.241,
+        "500-1k Hz": -4.366,
+        "1-2k Hz": -1.582,
+        "2-4k Hz": 1.645,
+        "4-8k Hz": 5.008,
+        "8-16k Hz": 6.234
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 11.489,
+        "60-120 Hz": 9.526,
+        "120-250 Hz": 6.339,
+        "250-500 Hz": 4.443,
+        "500-1k Hz": 5.318,
+        "1-2k Hz": 8.102,
+        "2-4k Hz": 11.329,
+        "4-8k Hz": 14.692,
+        "8-16k Hz": 15.918
+      },
+      "spectral_tilt_change_db_per_oct": 2.182,
+      "centroid_shift_hz": 3614.48
+    },
+    "spatial": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -10.325,
+        "makeup_gain_db": 8.922,
+        "true_peak_ceiling_dbtp": 1.201,
+        "lra_change_lu": 0.022,
+        "crest_change_db": -1.966
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -0.374,
+        "60-120 Hz": -0.362,
+        "120-250 Hz": -0.327,
+        "250-500 Hz": -0.3,
+        "500-1k Hz": -0.331,
+        "1-2k Hz": -0.517,
+        "2-4k Hz": -0.443,
+        "4-8k Hz": 1.251,
+        "8-16k Hz": 2.357
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -0.48,
+        "60-120 Hz": -0.468,
+        "120-250 Hz": -0.433,
+        "250-500 Hz": -0.406,
+        "500-1k Hz": -0.437,
+        "1-2k Hz": -0.623,
+        "2-4k Hz": -0.549,
+        "4-8k Hz": 1.145,
+        "8-16k Hz": 2.251
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 8.548,
+        "60-120 Hz": 8.56,
+        "120-250 Hz": 8.595,
+        "250-500 Hz": 8.622,
+        "500-1k Hz": 8.591,
+        "1-2k Hz": 8.405,
+        "2-4k Hz": 8.479,
+        "4-8k Hz": 10.173,
+        "8-16k Hz": 11.279
+      },
+      "spectral_tilt_change_db_per_oct": 0.762,
+      "centroid_shift_hz": 1218.76
+    },
+    "tape": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -10.708,
+        "makeup_gain_db": 8.176,
+        "true_peak_ceiling_dbtp": -0.955,
+        "lra_change_lu": 0.043,
+        "crest_change_db": -2.391
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -0.391,
+        "60-120 Hz": 0.021,
+        "120-250 Hz": 0.629,
+        "250-500 Hz": 1.068,
+        "500-1k Hz": 0.797,
+        "1-2k Hz": -0.469,
+        "2-4k Hz": -2.355,
+        "4-8k Hz": 1.126,
+        "8-16k Hz": 3.899
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -0.872,
+        "60-120 Hz": -0.46,
+        "120-250 Hz": 0.148,
+        "250-500 Hz": 0.587,
+        "500-1k Hz": 0.316,
+        "1-2k Hz": -0.95,
+        "2-4k Hz": -2.836,
+        "4-8k Hz": 0.645,
+        "8-16k Hz": 3.418
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 7.785,
+        "60-120 Hz": 8.197,
+        "120-250 Hz": 8.805,
+        "250-500 Hz": 9.244,
+        "500-1k Hz": 8.973,
+        "1-2k Hz": 7.707,
+        "2-4k Hz": 5.821,
+        "4-8k Hz": 9.302,
+        "8-16k Hz": 12.075
+      },
+      "spectral_tilt_change_db_per_oct": 1.219,
+      "centroid_shift_hz": 1751.6
+    },
+    "universal": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -11.634,
+        "makeup_gain_db": 9.075,
+        "true_peak_ceiling_dbtp": 0.612,
+        "lra_change_lu": -0.009,
+        "crest_change_db": -2.179
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.219,
+        "60-120 Hz": 0.067,
+        "120-250 Hz": -0.266,
+        "250-500 Hz": -1.184,
+        "500-1k Hz": -0.983,
+        "1-2k Hz": -0.541,
+        "2-4k Hz": -1.345,
+        "4-8k Hz": -0.125,
+        "8-16k Hz": 0.573
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 0.617,
+        "60-120 Hz": 0.465,
+        "120-250 Hz": 0.132,
+        "250-500 Hz": -0.786,
+        "500-1k Hz": -0.585,
+        "1-2k Hz": -0.143,
+        "2-4k Hz": -0.947,
+        "4-8k Hz": 0.273,
+        "8-16k Hz": 0.971
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 9.294,
+        "60-120 Hz": 9.142,
+        "120-250 Hz": 8.809,
+        "250-500 Hz": 7.891,
+        "500-1k Hz": 8.092,
+        "1-2k Hz": 8.534,
+        "2-4k Hz": 7.73,
+        "4-8k Hz": 8.95,
+        "8-16k Hz": 9.648
+      },
+      "spectral_tilt_change_db_per_oct": 0.386,
+      "centroid_shift_hz": 257.54
+    },
+    "warm": {
+      "n_signals": 1,
+      "signals_present": [
+        "pink_noise_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -13.771,
+        "makeup_gain_db": 3.014,
+        "true_peak_ceiling_dbtp": -3.633,
+        "lra_change_lu": -0.003,
+        "crest_change_db": -0.056
+      },
+      "eq_shape_db": {
+        "20-60 Hz": -1.001,
+        "60-120 Hz": 4.519,
+        "120-250 Hz": 3.771,
+        "250-500 Hz": 3.194,
+        "500-1k Hz": 2.934,
+        "1-2k Hz": 2.713,
+        "2-4k Hz": 2.719,
+        "4-8k Hz": 3.695,
+        "8-16k Hz": 4.449
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -4.0,
+        "60-120 Hz": 1.52,
+        "120-250 Hz": 0.772,
+        "250-500 Hz": 0.195,
+        "500-1k Hz": -0.065,
+        "1-2k Hz": -0.286,
+        "2-4k Hz": -0.28,
+        "4-8k Hz": 0.696,
+        "8-16k Hz": 1.45
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 2.013,
+        "60-120 Hz": 7.533,
+        "120-250 Hz": 6.785,
+        "250-500 Hz": 6.208,
+        "500-1k Hz": 5.948,
+        "1-2k Hz": 5.727,
+        "2-4k Hz": 5.733,
+        "4-8k Hz": 6.709,
+        "8-16k Hz": 7.463
+      },
+      "spectral_tilt_change_db_per_oct": 0.412,
+      "centroid_shift_hz": 743.24
+    }
+  }
+}

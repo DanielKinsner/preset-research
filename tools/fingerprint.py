@@ -175,8 +175,16 @@ def aggregate_preset(pairs):
             "lra_change_lu": pink["delta"]["lra_lu"],
             "crest_change_db": pink["delta"]["crest_factor_db"],
         }
-        # EQ shape from the primary pink reference (makeup-gain removed).
+        # EQ shape from the primary pink reference, two views:
+        #  - eq_shape_db: each band relative to broadband makeup gain (0 = moved with level)
+        #  - eq_contour_db: mean-centered tonal contour (0 = average band) -- the "EQ curve"
         fp["eq_shape_db"] = pink["delta"]["band_energy_shape_db"]
+        raw = pink["delta"]["band_energy_raw_db"]
+        _vals = [v for v in raw.values() if v is not None]
+        _mean = sum(_vals) / len(_vals) if _vals else 0.0
+        fp["eq_contour_db"] = {k: (round(v - _mean, 3) if v is not None else None)
+                               for k, v in raw.items()}
+        fp["eq_band_delta_raw_db"] = raw
         fp["spectral_tilt_change_db_per_oct"] = pink["delta"]["slope_db_per_oct"]
         fp["centroid_shift_hz"] = pink["delta"]["centroid_hz"]
 
@@ -249,7 +257,8 @@ def process_service(service):
     capture = load_capture(service)
     preset_dirs = [d for d in sdir.iterdir() if d.is_dir()]
     for pdir in sorted(preset_dirs):
-        wavs = sorted(pdir.glob("*.wav")) + sorted(pdir.glob("*.WAV"))
+        # case-insensitive, dedup-safe: NTFS matches *.wav and *.WAV to the same file
+        wavs = sorted(p for p in pdir.iterdir() if p.is_file() and p.suffix.lower() == ".wav")
         pairs = []
         unmatched = []
         for w in wavs:
