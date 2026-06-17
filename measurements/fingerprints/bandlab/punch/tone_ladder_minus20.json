@@ -430,6 +430,9 @@
   },
   "capture": {
     "input_gain_db": 0.0,
-    "intensity": "Normal (50%)"
+    "intensity": "Normal (50%)",
+    "suggested_input_gain_db": 13.5,
+    "suggested_status": "confirmed",
+    "implied_target_peak_dbfs": -4.48
   }
 }

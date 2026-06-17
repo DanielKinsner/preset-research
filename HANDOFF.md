@@ -111,16 +111,16 @@ level and collapse that experiment.
 
 ## 5. Findings to date (all from `measurements/fingerprints/bandlab/`)
 
-1. **BandLab's suggested input gain is a peak normalizer to ≈ −4.5 dBFS**
-   (`suggested = −4.5 − input_peak_dbfs`). Confirmed on three pink levels —
-   **−20→+2.5, −14→−3.9, −10→−4.5 dB**, each landing within 0.05 dB of a −4.5 dBFS
-   peak target. It conditions for **headroom, not loudness**, and is computed from
-   the input file (so it should be identical across presets — worth confirming).
-   We **decline it (gain 0)** on every upload to keep input levels known; the
-   suggestions are logged separately in `capture.json`. Because the source signals
-   are all ≤ 0 dBFS, declining the gain can never clip the input. Unverified on
-   `click_track` — the peak-vs-loudness acid test (predicts ≈ −4.1; a large
-   positive value would instead mean loudness-aware gain).
+1. **BandLab's suggested input gain is a peak normalizer to ≈ −4.5 dBFS —
+   CONFIRMED on all 8 signals** (`suggested = −4.5 − input_peak_dbfs`, max error
+   0.05 dB; full table in `capture.json`). The decisive `click_track` acid test
+   passed: sparse signal (peak −0.45, RMS −44), suggestion **−4.1** = peak-target —
+   a loudness target would have demanded ~+30 dB. Recorded suggestions:
+   −20→+2.5, −14→−3.9, −10→−4.5, sweep→+13.5, tone→+13.5, mid/side→+11.3,
+   click→−4.1, dynamic→−4.5. It conditions for **headroom, not loudness**, is
+   computed from the input file (same across presets), and we **decline it (gain 0)**
+   on every upload. Because the source signals are all ≤ 0 dBFS, declining the gain
+   can never clip the input.
 2. **Processing is level-dependent (adaptive).** Makeup gain differs by input
    level — e.g. oomph: **+8.2 dB @ −20 vs +3.4 dB @ −14**. So preset EQ curves
    are operating-point snapshots, not universal constants. The −10 pink (still to
@@ -159,9 +159,10 @@ These are *what the findings mean*, not just the findings:
   peak-normalize to −4.5 dBFS → apply the preset's EQ/comp/stereo fingerprint →
   drive output to its loudness target. The input conditioning is part of the
   chain, not a preamble to ignore.
-- **The click_track test decides how simple the input stage is.** Peak-confirmed →
-  input conditioning is a trivial, exactly-modelable gain. Loudness-aware → it's
-  input-content-dependent and the −4.5 model is only a first approximation.
+- **The input stage is now fully pinned down.** The click_track acid test returned
+  −4.1 → the input conditioning is a pure, exactly-modelable peak normalizer to
+  −4.5 dBFS (not content-dependent). In any emulation it's a deterministic pre-gain,
+  not an approximation.
 - **"Adaptive" has two layers here.** Even with neutral signals we've already
   caught level-adaptivity (the normalizers). The *content*-adaptivity (track-aware
   EQ/comp that reacts to real music) is the separate, future investigation — don't
@@ -199,9 +200,9 @@ in one file. Read it to make DSP decisions without re-analyzing audio.
    visualized: per-frequency gain (tone ladder), level-dependence overlay
    (−20/−14/−10 contours per preset), dynamics, stereo width, limiter timing.
    Sections are gated on signal presence, so they activate automatically.
-3. **Verify the −4.5 dBFS auto-gain model on click_track** (the acid test).
-4. **Then other services** (LANDR, eMastered, CloudBounce) — registry/engine are
+3. **Other services** (LANDR, eMastered, CloudBounce) — registry/engine are
    service-agnostic; just add `competitors/<service>/` and a `capture.json`.
+   (The −4.5 dBFS auto-gain model is confirmed on all 8 signals — done.)
 
 ## 8. Key decisions & gotchas
 

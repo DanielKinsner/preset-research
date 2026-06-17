@@ -1,7 +1,7 @@
 {
   "schema": "preset-fingerprint/v1",
   "service": "bandlab",
-  "generated_utc": "2026-06-17T00:19:10+00:00",
+  "generated_utc": "2026-06-17T02:04:12+00:00",
   "method": "Static-character isolation via spectrally-neutral test signals. Delta = output measurement - input measurement. EQ shape is makeup-gain-normalized band energy. See reports/ and tools/.",
   "capture_protocol": {
     "service": "bandlab",
@@ -26,9 +26,9 @@
     "auto_input_gain_finding": {
       "model": "suggested_input_gain_db = -4.5 - input_peak_dbfs",
       "target_peak_dbfs": -4.5,
-      "interpretation": "BandLab's suggested input gain is a PEAK normalizer: it pre-conditions every upload to ~-4.5 dBFS peak (fixed headroom), independent of loudness. Confirmed by 3 pink levels landing within 0.05 dB of -4.5 dBFS peak.",
-      "discriminator": "click_track is sparse (peak -0.45, RMS -44). Peak-target predicts ~-4.1 dB; a loudness-target would instead predict a large positive boost. Confirms peak-vs-loudness.",
-      "status": "hypothesis confirmed on 3 of 8 signals; remaining 5 to verify"
+      "interpretation": "BandLab's suggested input gain is a PEAK normalizer: it pre-conditions every upload to ~-4.5 dBFS peak (fixed headroom), independent of loudness. Implied target peaks across all 8 signals span -4.45 to -4.55 dBFS (mean ~-4.49).",
+      "discriminator": "click_track is sparse (peak -0.45, RMS -44). Peak-target predicts ~-4.1 dB; a loudness-target would instead predict a large positive boost. RESULT: -4.1 (peak-target confirmed; not loudness-aware).",
+      "status": "CONFIRMED on all 8 signals (max error 0.05 dB), including the click_track acid test. Input conditioning is a pure peak normalizer to -4.5 dBFS."
     },
     "per_signal": {
       "pink_noise_minus20.wav": {
@@ -51,33 +51,33 @@
       },
       "sine_sweep_minus20.wav": {
         "input_peak_dbfs": -17.99,
-        "suggested_input_gain_db": null,
+        "suggested_input_gain_db": 13.5,
         "predicted_input_gain_db": 13.49,
-        "status": "predicted"
+        "status": "confirmed"
       },
       "tone_ladder_minus20.wav": {
         "input_peak_dbfs": -17.98,
-        "suggested_input_gain_db": null,
+        "suggested_input_gain_db": 13.5,
         "predicted_input_gain_db": 13.48,
-        "status": "predicted"
+        "status": "confirmed"
       },
       "mid_side_test_minus20.wav": {
         "input_peak_dbfs": -15.75,
-        "suggested_input_gain_db": null,
+        "suggested_input_gain_db": 11.3,
         "predicted_input_gain_db": 11.25,
-        "status": "predicted"
+        "status": "confirmed"
       },
       "click_track.wav": {
         "input_peak_dbfs": -0.45,
-        "suggested_input_gain_db": null,
+        "suggested_input_gain_db": -4.1,
         "predicted_input_gain_db": -4.05,
-        "status": "predicted (acid test: peak-target => ~-4.1)"
+        "status": "confirmed (ACID TEST PASSED: peak-target, not loudness-aware)"
       },
       "dynamic_test_minus14.wav": {
         "input_peak_dbfs": -0.0,
-        "suggested_input_gain_db": null,
+        "suggested_input_gain_db": -4.5,
         "predicted_input_gain_db": -4.5,
-        "status": "predicted"
+        "status": "confirmed"
       }
     },
     "operator_notes": "Record the value BandLab SUGGESTS for each signal (then override to 0 before mastering). The suggestion is computed from the input file, so it should be identical across presets for a given signal -- confirm it does not change when you switch presets. Fill suggested_input_gain_db and set status=confirmed as you go."

@@ -78,13 +78,10 @@ Full matrix = 8 signals × 8 presets = **64 masters**.
   "smile," **spatial**/**tape** high-air lift, **universal** near-flat/safe.
   **5 of 8 exceed 0 dBTP** (inter-sample clipping): clarity, natural, spatial,
   universal, punch. Chart: `reports/fingerprints/bandlab/comparison.html`.
-- **Auto input-gain is a peak normalizer to ≈ −4.5 dBFS.** BandLab's "suggested
-  input gain" follows `suggested = −4.5 − input_peak_dbfs`. Confirmed on 3 pink
-  levels (−20→+2.5, −14→−3.9, −10→−4.5), all landing within 0.05 dB of −4.5 dBFS
-  peak. It conditions for **headroom, not loudness**. To verify: `click_track`
-  (sparse, peak −0.45) should suggest ≈ −4.1 if peak-targeted; a big positive
-  boost would mean loudness-aware gating instead. Full model + predictions in
-  `competitors/bandlab/capture.json`.
+- **Auto input-gain is a peak normalizer to −4.5 dBFS — CONFIRMED on all 8 signals.**
+  `suggested = −4.5 − input_peak_dbfs` (max error 0.05 dB). The `click_track` acid
+  test passed: −4.1 = peak-target, not loudness-aware. Conditions for **headroom,
+  not loudness**. Full per-signal table in `competitors/bandlab/capture.json`.
 - **Intensity default = "Normal" = 50%** of a 0–100% range (dry→max). We run v1
   at this detent. Intensity sweep (0/50/100) is Phase 2 — and intensity-0 doubles
   as a rig self-check (near-zero delta would validate the measurement; residual
