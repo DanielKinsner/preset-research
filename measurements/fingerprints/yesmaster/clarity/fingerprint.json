@@ -1,0 +1,107 @@
+{
+  "service": "yesmaster",
+  "preset": "clarity",
+  "generated_utc": "2026-06-18T16:46:14+00:00",
+  "unmatched_files": [],
+  "fingerprint": {
+    "n_signals": 8,
+    "signals_present": [
+      "click_track.wav",
+      "dynamic_test_minus14.wav",
+      "mid_side_test_minus20.wav",
+      "pink_noise_minus10.wav",
+      "pink_noise_minus14.wav",
+      "pink_noise_minus20.wav",
+      "sine_sweep_minus20.wav",
+      "tone_ladder_minus20.wav"
+    ],
+    "loudness": {
+      "output_integrated_lufs": -14.046,
+      "makeup_gain_db": 2.668,
+      "true_peak_ceiling_dbtp": -4.298,
+      "lra_change_lu": -0.009,
+      "crest_change_db": -0.178
+    },
+    "eq_shape_db": {
+      "20-60 Hz": 0.961,
+      "60-120 Hz": 3.8,
+      "120-250 Hz": 3.508,
+      "250-500 Hz": 2.628,
+      "500-1k Hz": 2.685,
+      "1-2k Hz": 2.658,
+      "2-4k Hz": 3.241,
+      "4-8k Hz": 4.145,
+      "8-16k Hz": 4.937
+    },
+    "eq_contour_db": {
+      "20-60 Hz": -2.213,
+      "60-120 Hz": 0.626,
+      "120-250 Hz": 0.334,
+      "250-500 Hz": -0.546,
+      "500-1k Hz": -0.489,
+      "1-2k Hz": -0.516,
+      "2-4k Hz": 0.067,
+      "4-8k Hz": 0.971,
+      "8-16k Hz": 1.763
+    },
+    "eq_band_delta_raw_db": {
+      "20-60 Hz": 3.439,
+      "60-120 Hz": 6.278,
+      "120-250 Hz": 5.986,
+      "250-500 Hz": 5.106,
+      "500-1k Hz": 5.163,
+      "1-2k Hz": 5.136,
+      "2-4k Hz": 5.719,
+      "4-8k Hz": 6.623,
+      "8-16k Hz": 7.415
+    },
+    "spectral_tilt_change_db_per_oct": 0.142,
+    "centroid_shift_hz": 972.84,
+    "tone_gain_db": {
+      "40Hz": 1.189,
+      "80Hz": 2.832,
+      "160Hz": 2.609,
+      "315Hz": 1.712,
+      "630Hz": 1.702,
+      "1250Hz": 1.641,
+      "2500Hz": 2.106,
+      "5000Hz": 2.927,
+      "10000Hz": 3.79,
+      "16000Hz": 4.011
+    },
+    "dynamics": {
+      "contrast_change_db": -1.662,
+      "note": "negative = preset compresses loud/quiet contrast"
+    },
+    "stereo": {
+      "correlation_change": -0.005,
+      "width_change_db": 1.997,
+      "note": "positive width_change = wider; correlation up = narrower"
+    },
+    "click_response": {
+      "loudness_lift_lufs": 3.299,
+      "output_true_peak_dbtp": -0.536,
+      "output_peak_dbfs": -1.0,
+      "reshaping_raw": {
+        "median_release_ms_to_-20dB": 0.73,
+        "median_transient_peak_dbfs": -19.42,
+        "n_impulses_analyzed": 118
+      },
+      "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+    },
+    "level_dependence": {
+      "makeup_gain_rms_by_input_level": {
+        "pink_noise_minus10.wav": -7.35,
+        "pink_noise_minus14.wav": -3.332,
+        "pink_noise_minus20.wav": 2.668
+      },
+      "loudness_lift_lufs_by_input_level": {
+        "pink_noise_minus10.wav": -3.83,
+        "pink_noise_minus14.wav": 0.381,
+        "pink_noise_minus20.wav": 6.346
+      },
+      "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+    },
+    "multiband_density_index_db_per_oct": -0.001
+  }
+}

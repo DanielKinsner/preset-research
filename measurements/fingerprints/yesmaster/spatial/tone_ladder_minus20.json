@@ -1,0 +1,437 @@
+{
+  "source_file": "tone_ladder_minus20.wav",
+  "output_file": "tone_ladder_minus20.wav",
+  "role": "tone_ladder",
+  "warnings": [],
+  "input": {
+    "file": "tone_ladder_minus20.wav",
+    "role": "tone_ladder",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -17.982,
+      "true_peak_dbtp": -17.968,
+      "rms_dbfs": -21.001,
+      "rms_mono_dbfs": -21.001,
+      "crest_factor_db": 3.02
+    },
+    "loudness": {
+      "integrated_lufs": -16.931,
+      "lra_lu": 6.025
+    },
+    "spectral": {
+      "centroid_hz": 3545.57,
+      "slope_db_per_oct": -11.135,
+      "bands_dbfs": {
+        "20-60 Hz": -31.037,
+        "60-120 Hz": -30.975,
+        "120-250 Hz": -30.973,
+        "250-500 Hz": -30.975,
+        "500-1k Hz": -30.974,
+        "1-2k Hz": -30.974,
+        "2-4k Hz": -30.974,
+        "4-8k Hz": -30.974,
+        "8-16k Hz": -28.905
+      }
+    },
+    "stereo": {
+      "correlation": 1.0,
+      "mid_rms_dbfs": -21.0013,
+      "side_rms_dbfs": -400.0,
+      "side_minus_mid_db": -378.9987,
+      "mono": false
+    },
+    "signal_specific": {
+      "tones": [
+        {
+          "index": 0,
+          "t_start_sec": 0.0,
+          "expected_hz": 40,
+          "measured_hz": 40.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 1,
+          "t_start_sec": 3.0,
+          "expected_hz": 80,
+          "measured_hz": 80.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 2,
+          "t_start_sec": 6.0,
+          "expected_hz": 160,
+          "measured_hz": 160.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 3,
+          "t_start_sec": 9.0,
+          "expected_hz": 315,
+          "measured_hz": 315.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 4,
+          "t_start_sec": 12.0,
+          "expected_hz": 630,
+          "measured_hz": 630.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 5,
+          "t_start_sec": 15.0,
+          "expected_hz": 1250,
+          "measured_hz": 1250.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 6,
+          "t_start_sec": 18.0,
+          "expected_hz": 2500,
+          "measured_hz": 2500.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 7,
+          "t_start_sec": 21.0,
+          "expected_hz": 5000,
+          "measured_hz": 5000.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 8,
+          "t_start_sec": 24.0,
+          "expected_hz": 10000,
+          "measured_hz": 10000.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 9,
+          "t_start_sec": 27.0,
+          "expected_hz": 16000,
+          "measured_hz": 16000.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 10,
+          "t_start_sec": 30.0,
+          "expected_hz": 40,
+          "measured_hz": 40.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 11,
+          "t_start_sec": 33.0,
+          "expected_hz": 80,
+          "measured_hz": 80.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 12,
+          "t_start_sec": 36.0,
+          "expected_hz": 160,
+          "measured_hz": 160.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 13,
+          "t_start_sec": 39.0,
+          "expected_hz": 315,
+          "measured_hz": 315.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 14,
+          "t_start_sec": 42.0,
+          "expected_hz": 630,
+          "measured_hz": 630.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 15,
+          "t_start_sec": 45.0,
+          "expected_hz": 1250,
+          "measured_hz": 1250.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 16,
+          "t_start_sec": 48.0,
+          "expected_hz": 2500,
+          "measured_hz": 2500.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 17,
+          "t_start_sec": 51.0,
+          "expected_hz": 5000,
+          "measured_hz": 5000.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 18,
+          "t_start_sec": 54.0,
+          "expected_hz": 10000,
+          "measured_hz": 10000.0,
+          "level_dbfs": -20.992
+        },
+        {
+          "index": 19,
+          "t_start_sec": 57.0,
+          "expected_hz": 16000,
+          "measured_hz": 16000.0,
+          "level_dbfs": -20.992
+        }
+      ],
+      "onset_sec": 0.0,
+      "level_spread_db": 0.0,
+      "n_segments": 20
+    }
+  },
+  "output": {
+    "file": "tone_ladder_minus20.wav",
+    "role": "tone_ladder",
+    "format": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_depth": "PCM_16",
+      "frames": 2646000,
+      "duration_sec": 60.0
+    },
+    "levels": {
+      "peak_dbfs": -14.263,
+      "true_peak_dbtp": -14.217,
+      "rms_dbfs": -18.406,
+      "rms_mono_dbfs": -18.406,
+      "crest_factor_db": 4.143
+    },
+    "loudness": {
+      "integrated_lufs": -14.046,
+      "lra_lu": 7.163
+    },
+    "spectral": {
+      "centroid_hz": 4272.98,
+      "slope_db_per_oct": -10.004,
+      "bands_dbfs": {
+        "20-60 Hz": -29.395,
+        "60-120 Hz": -28.425,
+        "120-250 Hz": -28.537,
+        "250-500 Hz": -29.079,
+        "500-1k Hz": -28.949,
+        "1-2k Hz": -28.773,
+        "2-4k Hz": -28.52,
+        "4-8k Hz": -28.026,
+        "8-16k Hz": -25.27
+      }
+    },
+    "stereo": {
+      "correlation": 1.0,
+      "mid_rms_dbfs": -18.4058,
+      "side_rms_dbfs": -99.344,
+      "side_minus_mid_db": -80.9382,
+      "mono": false
+    },
+    "signal_specific": {
+      "tones": [
+        {
+          "index": 0,
+          "t_start_sec": 0.0,
+          "expected_hz": 40,
+          "measured_hz": 40.0,
+          "level_dbfs": -19.364
+        },
+        {
+          "index": 1,
+          "t_start_sec": 3.0,
+          "expected_hz": 80,
+          "measured_hz": 80.0,
+          "level_dbfs": -18.442
+        },
+        {
+          "index": 2,
+          "t_start_sec": 6.0,
+          "expected_hz": 160,
+          "measured_hz": 160.0,
+          "level_dbfs": -18.556
+        },
+        {
+          "index": 3,
+          "t_start_sec": 9.0,
+          "expected_hz": 315,
+          "measured_hz": 315.0,
+          "level_dbfs": -19.097
+        },
+        {
+          "index": 4,
+          "t_start_sec": 12.0,
+          "expected_hz": 630,
+          "measured_hz": 630.0,
+          "level_dbfs": -18.967
+        },
+        {
+          "index": 5,
+          "t_start_sec": 15.0,
+          "expected_hz": 1250,
+          "measured_hz": 1250.0,
+          "level_dbfs": -18.791
+        },
+        {
+          "index": 6,
+          "t_start_sec": 18.0,
+          "expected_hz": 2500,
+          "measured_hz": 2500.0,
+          "level_dbfs": -18.538
+        },
+        {
+          "index": 7,
+          "t_start_sec": 21.0,
+          "expected_hz": 5000,
+          "measured_hz": 5000.0,
+          "level_dbfs": -18.044
+        },
+        {
+          "index": 8,
+          "t_start_sec": 24.0,
+          "expected_hz": 10000,
+          "measured_hz": 10000.0,
+          "level_dbfs": -17.419
+        },
+        {
+          "index": 9,
+          "t_start_sec": 27.0,
+          "expected_hz": 16000,
+          "measured_hz": 16000.0,
+          "level_dbfs": -17.256
+        },
+        {
+          "index": 10,
+          "t_start_sec": 30.0,
+          "expected_hz": 40,
+          "measured_hz": 40.0,
+          "level_dbfs": -19.364
+        },
+        {
+          "index": 11,
+          "t_start_sec": 33.0,
+          "expected_hz": 80,
+          "measured_hz": 80.0,
+          "level_dbfs": -18.442
+        },
+        {
+          "index": 12,
+          "t_start_sec": 36.0,
+          "expected_hz": 160,
+          "measured_hz": 160.0,
+          "level_dbfs": -18.556
+        },
+        {
+          "index": 13,
+          "t_start_sec": 39.0,
+          "expected_hz": 315,
+          "measured_hz": 315.0,
+          "level_dbfs": -19.097
+        },
+        {
+          "index": 14,
+          "t_start_sec": 42.0,
+          "expected_hz": 630,
+          "measured_hz": 630.0,
+          "level_dbfs": -18.967
+        },
+        {
+          "index": 15,
+          "t_start_sec": 45.0,
+          "expected_hz": 1250,
+          "measured_hz": 1250.0,
+          "level_dbfs": -18.791
+        },
+        {
+          "index": 16,
+          "t_start_sec": 48.0,
+          "expected_hz": 2500,
+          "measured_hz": 2500.0,
+          "level_dbfs": -18.538
+        },
+        {
+          "index": 17,
+          "t_start_sec": 51.0,
+          "expected_hz": 5000,
+          "measured_hz": 5000.0,
+          "level_dbfs": -18.044
+        },
+        {
+          "index": 18,
+          "t_start_sec": 54.0,
+          "expected_hz": 10000,
+          "measured_hz": 10000.0,
+          "level_dbfs": -17.419
+        },
+        {
+          "index": 19,
+          "t_start_sec": 57.0,
+          "expected_hz": 16000,
+          "measured_hz": 16000.0,
+          "level_dbfs": -17.256
+        }
+      ],
+      "onset_sec": 0.0,
+      "level_spread_db": 2.108,
+      "n_segments": 20
+    }
+  },
+  "delta": {
+    "rms_db": 2.595,
+    "integrated_lufs": 2.885,
+    "lra_lu": 1.138,
+    "true_peak_dbtp": 3.751,
+    "crest_factor_db": 1.123,
+    "centroid_hz": 727.41,
+    "slope_db_per_oct": 1.131,
+    "correlation": 0.0,
+    "side_minus_mid_db": 298.06,
+    "band_energy_raw_db": {
+      "20-60 Hz": 1.642,
+      "60-120 Hz": 2.55,
+      "120-250 Hz": 2.436,
+      "250-500 Hz": 1.896,
+      "500-1k Hz": 2.025,
+      "1-2k Hz": 2.201,
+      "2-4k Hz": 2.454,
+      "4-8k Hz": 2.948,
+      "8-16k Hz": 3.635
+    },
+    "band_energy_shape_db": {
+      "20-60 Hz": -0.953,
+      "60-120 Hz": -0.045,
+      "120-250 Hz": -0.159,
+      "250-500 Hz": -0.699,
+      "500-1k Hz": -0.57,
+      "1-2k Hz": -0.394,
+      "2-4k Hz": -0.141,
+      "4-8k Hz": 0.353,
+      "8-16k Hz": 1.04
+    },
+    "tone_gain_db": {
+      "40Hz": 1.628,
+      "80Hz": 2.55,
+      "160Hz": 2.436,
+      "315Hz": 1.895,
+      "630Hz": 2.025,
+      "1250Hz": 2.201,
+      "2500Hz": 2.454,
+      "5000Hz": 2.948,
+      "10000Hz": 3.573,
+      "16000Hz": 3.736
+    }
+  },
+  "capture": {
+    "input_gain_db": 0.0,
+    "intensity": "Default / Moderate (0.5)"
+  }
+}

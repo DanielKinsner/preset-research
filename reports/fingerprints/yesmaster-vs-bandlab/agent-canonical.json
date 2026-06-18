@@ -1,0 +1,1543 @@
+{
+  "schema": "yesmaster_vs_bandlab_gap.v1",
+  "generated_utc": "2026-06-18T16:53:32.139030Z",
+  "purpose": "Empirical comparison of current YES Master preset render fingerprints against the existing BandLab fingerprint corpus. This file is evidence for future discussion, not an applied retune.",
+  "production_change_applied": false,
+  "source_artifacts": {
+    "bandlab_canonical": "measurements/fingerprints/bandlab/canonical.json",
+    "yesmaster_canonical": "measurements/fingerprints/yesmaster/canonical.json",
+    "yesmaster_capture_manifest": "competitors/yesmaster/capture.json",
+    "yesmaster_capture_wav_count": 72,
+    "yesmaster_capture_preset_counts": {
+      "clarity": 8,
+      "custom": 8,
+      "loud": 8,
+      "oomph": 8,
+      "punch": 8,
+      "spatial": 8,
+      "tape": 8,
+      "universal": 8,
+      "warmth": 8
+    }
+  },
+  "protocol_notes": {
+    "test_signals": [
+      "click_track.wav",
+      "dynamic_test_minus14.wav",
+      "mid_side_test_minus20.wav",
+      "pink_noise_minus10.wav",
+      "pink_noise_minus14.wav",
+      "pink_noise_minus20.wav",
+      "sine_sweep_minus20.wav",
+      "tone_ladder_minus20.wav"
+    ],
+    "yesmaster_render_protocol": "YES Master Rust backend; input gain 0 dB; intensity 0.5; volume_match false; DeliveryProfile::Custom; target -14 LUFS; -1 dBTP ceiling; source sample rate and source bit depth for the 44.1 kHz/16-bit corpus.",
+    "bandlab_protocol": "Existing BandLab captures from the preset-research corpus; BandLab output loudness is whatever the service rendered for each preset.",
+    "loudness_caveat": "YES was deliberately held to -14 LUFS for this measurement. Loudness gaps are real output deltas under this protocol, but they are not by themselves proof that YES presets should be retuned louder."
+  },
+  "distance_formula": {
+    "summary": "overall_character_distance is sqrt(sum(component^2)); it is a ranking heuristic, not an auditory truth metric.",
+    "components": {
+      "eq_rmse_db": "RMSE across mean-centered pink-noise EQ contour bands.",
+      "tone_rmse_db": "RMSE across tone-ladder gains.",
+      "loudness_gap_lu": "Absolute integrated LUFS gap.",
+      "makeup_gap_db": "Absolute RMS makeup gain gap.",
+      "crest_gap_db": "Absolute crest-factor change gap.",
+      "dynamics_gap_db": "Absolute dynamic-test contrast-change gap.",
+      "stereo_corr_gap_scaled": "Absolute L/R correlation-change gap multiplied by 10.",
+      "stereo_width_gap_scaled": "Absolute width-dB gap multiplied by 0.15 because width dB rides a near-mono floor.",
+      "click_lift_gap_scaled": "Absolute sparse-click loudness-lift gap multiplied by 0.35.",
+      "tilt_gap_scaled": "Absolute spectral tilt gap multiplied by 1.2.",
+      "density_gap_scaled": "Absolute multiband density index gap multiplied by 3."
+    }
+  },
+  "nearest_measured_neighbors": {
+    "clarity": {
+      "yes_preset_constant": "PRESET_CLARITY",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 3.734,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 3.734,
+          "components": {
+            "eq_rmse_db": 0.765,
+            "tone_rmse_db": 2.744,
+            "loudness_gap_lu": 0.275,
+            "makeup_gap_db": 0.346,
+            "crest_gap_db": 0.122,
+            "dynamics_gap_db": 2.074,
+            "stereo_corr_gap_scaled": 0.03,
+            "stereo_width_gap_scaled": 0.154,
+            "click_lift_gap_scaled": 0.96,
+            "tilt_gap_scaled": 0.187,
+            "density_gap_scaled": 0.579
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 7.031,
+          "components": {
+            "eq_rmse_db": 1.67,
+            "tone_rmse_db": 3.362,
+            "loudness_gap_lu": 0.626,
+            "makeup_gap_db": 5.144,
+            "crest_gap_db": 0.888,
+            "dynamics_gap_db": 2.405,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.341,
+            "click_lift_gap_scaled": 1.076,
+            "tilt_gap_scaled": 0.09,
+            "density_gap_scaled": 0.795
+          }
+        },
+        {
+          "bandlab_preset": "tape",
+          "overall_character_distance": 9.594,
+          "components": {
+            "eq_rmse_db": 1.35,
+            "tone_rmse_db": 5.261,
+            "loudness_gap_lu": 3.338,
+            "makeup_gap_db": 5.508,
+            "crest_gap_db": 2.213,
+            "dynamics_gap_db": 3.732,
+            "stereo_corr_gap_scaled": 0.23,
+            "stereo_width_gap_scaled": 0.684,
+            "click_lift_gap_scaled": 0.776,
+            "tilt_gap_scaled": 0.082,
+            "density_gap_scaled": 1.053
+          }
+        }
+      ]
+    },
+    "custom": {
+      "yes_preset_constant": "PRESET_CUSTOM_NEUTRAL",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 4.759,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 4.759,
+          "components": {
+            "eq_rmse_db": 1.553,
+            "tone_rmse_db": 2.444,
+            "loudness_gap_lu": 0.773,
+            "makeup_gap_db": 2.834,
+            "crest_gap_db": 0.056,
+            "dynamics_gap_db": 2.221,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.453,
+            "click_lift_gap_scaled": 0.389,
+            "tilt_gap_scaled": 0.017,
+            "density_gap_scaled": 0.579
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 5.025,
+          "components": {
+            "eq_rmse_db": 1.602,
+            "tone_rmse_db": 2.952,
+            "loudness_gap_lu": 1.124,
+            "makeup_gap_db": 1.964,
+            "crest_gap_db": 1.066,
+            "dynamics_gap_db": 2.552,
+            "stereo_corr_gap_scaled": 0.13,
+            "stereo_width_gap_scaled": 0.64,
+            "click_lift_gap_scaled": 0.273,
+            "tilt_gap_scaled": 0.26,
+            "density_gap_scaled": 0.795
+          }
+        },
+        {
+          "bandlab_preset": "universal",
+          "overall_character_distance": 8.092,
+          "components": {
+            "eq_rmse_db": 0.624,
+            "tone_rmse_db": 4.485,
+            "loudness_gap_lu": 2.91,
+            "makeup_gap_db": 3.227,
+            "crest_gap_db": 2.179,
+            "dynamics_gap_db": 4.565,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.461,
+            "click_lift_gap_scaled": 0.357,
+            "tilt_gap_scaled": 0.037,
+            "density_gap_scaled": 0.393
+          }
+        }
+      ]
+    },
+    "loud": {
+      "yes_preset_constant": "PRESET_LOUD",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 7.194,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 7.194,
+          "components": {
+            "eq_rmse_db": 1.056,
+            "tone_rmse_db": 2.878,
+            "loudness_gap_lu": 0.275,
+            "makeup_gap_db": 0.409,
+            "crest_gap_db": 1.063,
+            "dynamics_gap_db": 6.176,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.427,
+            "click_lift_gap_scaled": 1.5,
+            "tilt_gap_scaled": 0.283,
+            "density_gap_scaled": 0.564
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 9.204,
+          "components": {
+            "eq_rmse_db": 2.301,
+            "tone_rmse_db": 3.758,
+            "loudness_gap_lu": 0.626,
+            "makeup_gap_db": 5.207,
+            "crest_gap_db": 0.053,
+            "dynamics_gap_db": 5.845,
+            "stereo_corr_gap_scaled": 0.13,
+            "stereo_width_gap_scaled": 0.614,
+            "click_lift_gap_scaled": 1.616,
+            "tilt_gap_scaled": 0.006,
+            "density_gap_scaled": 0.78
+          }
+        },
+        {
+          "bandlab_preset": "natural",
+          "overall_character_distance": 9.506,
+          "components": {
+            "eq_rmse_db": 2.376,
+            "tone_rmse_db": 5.527,
+            "loudness_gap_lu": 1.705,
+            "makeup_gap_db": 6.046,
+            "crest_gap_db": 0.876,
+            "dynamics_gap_db": 2.987,
+            "stereo_corr_gap_scaled": 0.03,
+            "stereo_width_gap_scaled": 0.178,
+            "click_lift_gap_scaled": 1.739,
+            "tilt_gap_scaled": 0.892,
+            "density_gap_scaled": 1.083
+          }
+        }
+      ]
+    },
+    "oomph": {
+      "yes_preset_constant": "PRESET_OOMPH",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 4.592,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 4.592,
+          "components": {
+            "eq_rmse_db": 2.814,
+            "tone_rmse_db": 3.062,
+            "loudness_gap_lu": 0.273,
+            "makeup_gap_db": 1.176,
+            "crest_gap_db": 0.449,
+            "dynamics_gap_db": 0.11,
+            "stereo_corr_gap_scaled": 0.07,
+            "stereo_width_gap_scaled": 0.343,
+            "click_lift_gap_scaled": 1.073,
+            "tilt_gap_scaled": 0.665,
+            "density_gap_scaled": 0.636
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 5.459,
+          "components": {
+            "eq_rmse_db": 1.864,
+            "tone_rmse_db": 2.679,
+            "loudness_gap_lu": 0.624,
+            "makeup_gap_db": 3.622,
+            "crest_gap_db": 1.459,
+            "dynamics_gap_db": 0.441,
+            "stereo_corr_gap_scaled": 0.12,
+            "stereo_width_gap_scaled": 0.53,
+            "click_lift_gap_scaled": 1.189,
+            "tilt_gap_scaled": 0.942,
+            "density_gap_scaled": 0.852
+          }
+        },
+        {
+          "bandlab_preset": "natural",
+          "overall_character_distance": 7.838,
+          "components": {
+            "eq_rmse_db": 1.781,
+            "tone_rmse_db": 3.976,
+            "loudness_gap_lu": 1.703,
+            "makeup_gap_db": 4.461,
+            "crest_gap_db": 2.388,
+            "dynamics_gap_db": 3.299,
+            "stereo_corr_gap_scaled": 0.02,
+            "stereo_width_gap_scaled": 0.095,
+            "click_lift_gap_scaled": 1.312,
+            "tilt_gap_scaled": 0.056,
+            "density_gap_scaled": 1.155
+          }
+        }
+      ]
+    },
+    "punch": {
+      "yes_preset_constant": "PRESET_PUNCH",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 4.655,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 4.655,
+          "components": {
+            "eq_rmse_db": 1.093,
+            "tone_rmse_db": 2.707,
+            "loudness_gap_lu": 0.275,
+            "makeup_gap_db": 0.26,
+            "crest_gap_db": 0.568,
+            "dynamics_gap_db": 3.229,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.423,
+            "click_lift_gap_scaled": 1.305,
+            "tilt_gap_scaled": 0.169,
+            "density_gap_scaled": 0.585
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 7.338,
+          "components": {
+            "eq_rmse_db": 2.047,
+            "tone_rmse_db": 3.467,
+            "loudness_gap_lu": 0.626,
+            "makeup_gap_db": 5.058,
+            "crest_gap_db": 0.442,
+            "dynamics_gap_db": 2.898,
+            "stereo_corr_gap_scaled": 0.13,
+            "stereo_width_gap_scaled": 0.609,
+            "click_lift_gap_scaled": 1.421,
+            "tilt_gap_scaled": 0.108,
+            "density_gap_scaled": 0.801
+          }
+        },
+        {
+          "bandlab_preset": "natural",
+          "overall_character_distance": 8.677,
+          "components": {
+            "eq_rmse_db": 2.079,
+            "tone_rmse_db": 5.212,
+            "loudness_gap_lu": 1.705,
+            "makeup_gap_db": 5.897,
+            "crest_gap_db": 1.371,
+            "dynamics_gap_db": 0.04,
+            "stereo_corr_gap_scaled": 0.03,
+            "stereo_width_gap_scaled": 0.174,
+            "click_lift_gap_scaled": 1.543,
+            "tilt_gap_scaled": 0.778,
+            "density_gap_scaled": 1.104
+          }
+        }
+      ]
+    },
+    "spatial": {
+      "yes_preset_constant": "PRESET_SPATIAL",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 3.15,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 3.15,
+          "components": {
+            "eq_rmse_db": 0.937,
+            "tone_rmse_db": 2.687,
+            "loudness_gap_lu": 0.275,
+            "makeup_gap_db": 0.268,
+            "crest_gap_db": 0.398,
+            "dynamics_gap_db": 0.273,
+            "stereo_corr_gap_scaled": 0.02,
+            "stereo_width_gap_scaled": 0.083,
+            "click_lift_gap_scaled": 1.032,
+            "tilt_gap_scaled": 0.205,
+            "density_gap_scaled": 0.573
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 6.505,
+          "components": {
+            "eq_rmse_db": 1.658,
+            "tone_rmse_db": 3.279,
+            "loudness_gap_lu": 0.626,
+            "makeup_gap_db": 5.066,
+            "crest_gap_db": 0.612,
+            "dynamics_gap_db": 0.604,
+            "stereo_corr_gap_scaled": 0.07,
+            "stereo_width_gap_scaled": 0.269,
+            "click_lift_gap_scaled": 1.148,
+            "tilt_gap_scaled": 0.072,
+            "density_gap_scaled": 0.789
+          }
+        },
+        {
+          "bandlab_preset": "tape",
+          "overall_character_distance": 8.891,
+          "components": {
+            "eq_rmse_db": 1.373,
+            "tone_rmse_db": 5.178,
+            "loudness_gap_lu": 3.338,
+            "makeup_gap_db": 5.43,
+            "crest_gap_db": 1.937,
+            "dynamics_gap_db": 1.931,
+            "stereo_corr_gap_scaled": 0.22,
+            "stereo_width_gap_scaled": 0.613,
+            "click_lift_gap_scaled": 0.848,
+            "tilt_gap_scaled": 0.064,
+            "density_gap_scaled": 1.047
+          }
+        }
+      ]
+    },
+    "tape": {
+      "yes_preset_constant": "PRESET_TAPE",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 3.217,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 3.217,
+          "components": {
+            "eq_rmse_db": 0.898,
+            "tone_rmse_db": 2.759,
+            "loudness_gap_lu": 0.275,
+            "makeup_gap_db": 0.301,
+            "crest_gap_db": 0.427,
+            "dynamics_gap_db": 0.346,
+            "stereo_corr_gap_scaled": 0.03,
+            "stereo_width_gap_scaled": 0.158,
+            "click_lift_gap_scaled": 1.04,
+            "tilt_gap_scaled": 0.199,
+            "density_gap_scaled": 0.561
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 6.557,
+          "components": {
+            "eq_rmse_db": 1.671,
+            "tone_rmse_db": 3.309,
+            "loudness_gap_lu": 0.626,
+            "makeup_gap_db": 5.099,
+            "crest_gap_db": 0.583,
+            "dynamics_gap_db": 0.677,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.344,
+            "click_lift_gap_scaled": 1.155,
+            "tilt_gap_scaled": 0.078,
+            "density_gap_scaled": 0.777
+          }
+        },
+        {
+          "bandlab_preset": "tape",
+          "overall_character_distance": 8.909,
+          "components": {
+            "eq_rmse_db": 1.11,
+            "tone_rmse_db": 5.212,
+            "loudness_gap_lu": 3.338,
+            "makeup_gap_db": 5.463,
+            "crest_gap_db": 1.908,
+            "dynamics_gap_db": 2.004,
+            "stereo_corr_gap_scaled": 0.23,
+            "stereo_width_gap_scaled": 0.688,
+            "click_lift_gap_scaled": 0.855,
+            "tilt_gap_scaled": 0.07,
+            "density_gap_scaled": 1.035
+          }
+        }
+      ]
+    },
+    "universal": {
+      "yes_preset_constant": "PRESET_UNIVERSAL",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 3.415,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 3.415,
+          "components": {
+            "eq_rmse_db": 0.912,
+            "tone_rmse_db": 2.538,
+            "loudness_gap_lu": 0.275,
+            "makeup_gap_db": 0.168,
+            "crest_gap_db": 0.263,
+            "dynamics_gap_db": 1.65,
+            "stereo_corr_gap_scaled": 0.06,
+            "stereo_width_gap_scaled": 0.293,
+            "click_lift_gap_scaled": 1.028,
+            "tilt_gap_scaled": 0.124,
+            "density_gap_scaled": 0.579
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 6.714,
+          "components": {
+            "eq_rmse_db": 1.789,
+            "tone_rmse_db": 3.184,
+            "loudness_gap_lu": 0.626,
+            "makeup_gap_db": 4.966,
+            "crest_gap_db": 0.747,
+            "dynamics_gap_db": 1.981,
+            "stereo_corr_gap_scaled": 0.11,
+            "stereo_width_gap_scaled": 0.48,
+            "click_lift_gap_scaled": 1.143,
+            "tilt_gap_scaled": 0.154,
+            "density_gap_scaled": 0.795
+          }
+        },
+        {
+          "bandlab_preset": "tape",
+          "overall_character_distance": 9.209,
+          "components": {
+            "eq_rmse_db": 1.394,
+            "tone_rmse_db": 5.049,
+            "loudness_gap_lu": 3.338,
+            "makeup_gap_db": 5.33,
+            "crest_gap_db": 2.072,
+            "dynamics_gap_db": 3.308,
+            "stereo_corr_gap_scaled": 0.26,
+            "stereo_width_gap_scaled": 0.824,
+            "click_lift_gap_scaled": 0.844,
+            "tilt_gap_scaled": 0.145,
+            "density_gap_scaled": 1.053
+          }
+        }
+      ]
+    },
+    "warmth": {
+      "yes_preset_constant": "PRESET_WARMTH",
+      "nearest_bandlab_preset": "warm",
+      "overall_character_distance": 2.989,
+      "top_3_neighbors": [
+        {
+          "bandlab_preset": "warm",
+          "overall_character_distance": 2.989,
+          "components": {
+            "eq_rmse_db": 1.293,
+            "tone_rmse_db": 2.247,
+            "loudness_gap_lu": 0.274,
+            "makeup_gap_db": 0.297,
+            "crest_gap_db": 0.445,
+            "dynamics_gap_db": 0.602,
+            "stereo_corr_gap_scaled": 0.08,
+            "stereo_width_gap_scaled": 0.438,
+            "click_lift_gap_scaled": 0.935,
+            "tilt_gap_scaled": 0.276,
+            "density_gap_scaled": 0.582
+          }
+        },
+        {
+          "bandlab_preset": "clarity",
+          "overall_character_distance": 5.885,
+          "components": {
+            "eq_rmse_db": 1.904,
+            "tone_rmse_db": 2.741,
+            "loudness_gap_lu": 0.625,
+            "makeup_gap_db": 4.501,
+            "crest_gap_db": 0.565,
+            "dynamics_gap_db": 0.271,
+            "stereo_corr_gap_scaled": 0.13,
+            "stereo_width_gap_scaled": 0.624,
+            "click_lift_gap_scaled": 1.051,
+            "tilt_gap_scaled": 0.553,
+            "density_gap_scaled": 0.798
+          }
+        },
+        {
+          "bandlab_preset": "natural",
+          "overall_character_distance": 7.9,
+          "components": {
+            "eq_rmse_db": 1.136,
+            "tone_rmse_db": 4.246,
+            "loudness_gap_lu": 1.704,
+            "makeup_gap_db": 5.34,
+            "crest_gap_db": 1.494,
+            "dynamics_gap_db": 2.587,
+            "stereo_corr_gap_scaled": 0.03,
+            "stereo_width_gap_scaled": 0.189,
+            "click_lift_gap_scaled": 1.174,
+            "tilt_gap_scaled": 0.332,
+            "density_gap_scaled": 1.101
+          }
+        }
+      ]
+    }
+  },
+  "named_counterpart_gaps": {
+    "universal": {
+      "yes_preset_constant": "PRESET_UNIVERSAL",
+      "bandlab_reference_preset": "universal",
+      "mapping_note": "Name/role counterpart in this corpus.",
+      "overall_character_distance": 9.427,
+      "distance_components": {
+        "eq_rmse_db": 0.944,
+        "tone_rmse_db": 4.751,
+        "loudness_gap_lu": 2.412,
+        "makeup_gap_db": 6.229,
+        "crest_gap_db": 1.86,
+        "dynamics_gap_db": 3.994,
+        "stereo_corr_gap_scaled": 0.06,
+        "stereo_width_gap_scaled": 0.301,
+        "click_lift_gap_scaled": 1.059,
+        "tilt_gap_scaled": 0.07,
+        "density_gap_scaled": 0.393
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -2.412,
+        "makeup_gain_db": -6.229,
+        "true_peak_ceiling_dbtp": -4.837,
+        "crest_change_db": 1.86,
+        "spectral_tilt_db_per_oct": 0.058,
+        "centroid_shift_hz": 278.06,
+        "dynamic_contrast_change_db": 3.994,
+        "stereo_correlation_change": 0.006,
+        "stereo_width_change_db": -2.006,
+        "click_loudness_lift_lu": 3.027,
+        "multiband_density_index_db_per_oct": -0.131
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -2.435,
+        "60-120 Hz": -0.267,
+        "120-250 Hz": 0.007,
+        "250-500 Hz": 0.744,
+        "500-1k Hz": 0.542,
+        "1-2k Hz": 0.147,
+        "2-4k Hz": 1.052,
+        "4-8k Hz": 0.221,
+        "8-16k Hz": -0.011
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -7.4,
+        "80Hz": -5.18,
+        "160Hz": -4.823,
+        "315Hz": -4.501,
+        "630Hz": -4.287,
+        "1250Hz": -4.434,
+        "2500Hz": -3.942,
+        "5000Hz": -4.067,
+        "10000Hz": -3.828,
+        "16000Hz": -3.985
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "20-60 Hz",
+          "delta": -2.435
+        },
+        {
+          "name": "2-4k Hz",
+          "delta": 1.052
+        },
+        {
+          "name": "250-500 Hz",
+          "delta": 0.744
+        },
+        {
+          "name": "500-1k Hz",
+          "delta": 0.542
+        },
+        {
+          "name": "60-120 Hz",
+          "delta": -0.267
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -7.4
+        },
+        {
+          "name": "80Hz",
+          "delta": -5.18
+        },
+        {
+          "name": "160Hz",
+          "delta": -4.823
+        },
+        {
+          "name": "315Hz",
+          "delta": -4.501
+        },
+        {
+          "name": "1250Hz",
+          "delta": -4.434
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 2.41 LU quieter than BandLab universal; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 3.99 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.006, width delta -2.01 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 3.03 LU harder; candidate direction is less transient/sparse-material lift if matching BandLab.",
+        "Tonal contour is lower in sub/low bass by -1.35 dB on average; candidate direction is more sub/low bass."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "clarity": {
+      "yes_preset_constant": "PRESET_CLARITY",
+      "bandlab_reference_preset": "clarity",
+      "mapping_note": "Name/role counterpart in this corpus.",
+      "overall_character_distance": 7.031,
+      "distance_components": {
+        "eq_rmse_db": 1.67,
+        "tone_rmse_db": 3.362,
+        "loudness_gap_lu": 0.626,
+        "makeup_gap_db": 5.144,
+        "crest_gap_db": 0.888,
+        "dynamics_gap_db": 2.405,
+        "stereo_corr_gap_scaled": 0.08,
+        "stereo_width_gap_scaled": 0.341,
+        "click_lift_gap_scaled": 1.076,
+        "tilt_gap_scaled": 0.09,
+        "density_gap_scaled": 0.795
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -0.626,
+        "makeup_gain_db": -5.144,
+        "true_peak_ceiling_dbtp": -4.517,
+        "crest_change_db": 0.888,
+        "spectral_tilt_db_per_oct": -0.075,
+        "centroid_shift_hz": 110.58,
+        "dynamic_contrast_change_db": 2.405,
+        "stereo_correlation_change": 0.008,
+        "stereo_width_change_db": -2.27,
+        "click_loudness_lift_lu": 3.073,
+        "multiband_density_index_db_per_oct": -0.265
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -4.228,
+        "60-120 Hz": -0.156,
+        "120-250 Hz": 0.933,
+        "250-500 Hz": 1.125,
+        "500-1k Hz": 1.359,
+        "1-2k Hz": 1.482,
+        "2-4k Hz": 0.603,
+        "4-8k Hz": -0.691,
+        "8-16k Hz": -0.429
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -7.129,
+        "80Hz": -3.743,
+        "160Hz": -2.526,
+        "315Hz": -3.2,
+        "630Hz": -2.901,
+        "1250Hz": -1.56,
+        "2500Hz": -1.068,
+        "5000Hz": -2.679,
+        "10000Hz": -2.813,
+        "16000Hz": -2.121
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "20-60 Hz",
+          "delta": -4.228
+        },
+        {
+          "name": "1-2k Hz",
+          "delta": 1.482
+        },
+        {
+          "name": "500-1k Hz",
+          "delta": 1.359
+        },
+        {
+          "name": "250-500 Hz",
+          "delta": 1.125
+        },
+        {
+          "name": "120-250 Hz",
+          "delta": 0.933
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -7.129
+        },
+        {
+          "name": "80Hz",
+          "delta": -3.743
+        },
+        {
+          "name": "315Hz",
+          "delta": -3.2
+        },
+        {
+          "name": "630Hz",
+          "delta": -2.901
+        },
+        {
+          "name": "10000Hz",
+          "delta": -2.813
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES compresses less than BandLab by 2.41 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.008, width delta -2.27 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 3.07 LU harder; candidate direction is less transient/sparse-material lift if matching BandLab.",
+        "Tonal contour is lower in sub/low bass by -2.19 dB on average; candidate direction is more sub/low bass."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "tape": {
+      "yes_preset_constant": "PRESET_TAPE",
+      "bandlab_reference_preset": "tape",
+      "mapping_note": "Name/role counterpart in this corpus.",
+      "overall_character_distance": 8.909,
+      "distance_components": {
+        "eq_rmse_db": 1.11,
+        "tone_rmse_db": 5.212,
+        "loudness_gap_lu": 3.338,
+        "makeup_gap_db": 5.463,
+        "crest_gap_db": 1.908,
+        "dynamics_gap_db": 2.004,
+        "stereo_corr_gap_scaled": 0.23,
+        "stereo_width_gap_scaled": 0.688,
+        "click_lift_gap_scaled": 0.855,
+        "tilt_gap_scaled": 0.07,
+        "density_gap_scaled": 1.035
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -3.338,
+        "makeup_gain_db": -5.463,
+        "true_peak_ceiling_dbtp": -3.565,
+        "crest_change_db": 1.908,
+        "spectral_tilt_db_per_oct": -0.058,
+        "centroid_shift_hz": -764.22,
+        "dynamic_contrast_change_db": 2.004,
+        "stereo_correlation_change": 0.023,
+        "stereo_width_change_db": -4.586,
+        "click_loudness_lift_lu": 2.444,
+        "multiband_density_index_db_per_oct": -0.345
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -1.067,
+        "60-120 Hz": 0.577,
+        "120-250 Hz": 0.075,
+        "250-500 Hz": -0.284,
+        "500-1k Hz": -0.514,
+        "1-2k Hz": -0.056,
+        "2-4k Hz": 2.588,
+        "4-8k Hz": 0.27,
+        "8-16k Hz": -1.581
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -6.734,
+        "80Hz": -6.141,
+        "160Hz": -5.799,
+        "315Hz": -5.351,
+        "630Hz": -5.311,
+        "1250Hz": -5.112,
+        "2500Hz": -3.189,
+        "5000Hz": -4.088,
+        "10000Hz": -4.903,
+        "16000Hz": -4.589
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "2-4k Hz",
+          "delta": 2.588
+        },
+        {
+          "name": "8-16k Hz",
+          "delta": -1.581
+        },
+        {
+          "name": "20-60 Hz",
+          "delta": -1.067
+        },
+        {
+          "name": "60-120 Hz",
+          "delta": 0.577
+        },
+        {
+          "name": "500-1k Hz",
+          "delta": -0.514
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -6.734
+        },
+        {
+          "name": "80Hz",
+          "delta": -6.141
+        },
+        {
+          "name": "160Hz",
+          "delta": -5.799
+        },
+        {
+          "name": "315Hz",
+          "delta": -5.351
+        },
+        {
+          "name": "630Hz",
+          "delta": -5.311
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 3.34 LU quieter than BandLab tape; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 2.00 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.023, width delta -4.59 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 2.44 LU harder; candidate direction is less transient/sparse-material lift if matching BandLab."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "spatial": {
+      "yes_preset_constant": "PRESET_SPATIAL",
+      "bandlab_reference_preset": "spatial",
+      "mapping_note": "Name/role counterpart in this corpus.",
+      "overall_character_distance": 10.536,
+      "distance_components": {
+        "eq_rmse_db": 0.682,
+        "tone_rmse_db": 5.635,
+        "loudness_gap_lu": 3.721,
+        "makeup_gap_db": 6.176,
+        "crest_gap_db": 1.512,
+        "dynamics_gap_db": 2.842,
+        "stereo_corr_gap_scaled": 3.09,
+        "stereo_width_gap_scaled": 2.156,
+        "click_lift_gap_scaled": 1.351,
+        "tilt_gap_scaled": 0.167,
+        "density_gap_scaled": 0.624
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -3.721,
+        "makeup_gain_db": -6.176,
+        "true_peak_ceiling_dbtp": -5.523,
+        "crest_change_db": 1.512,
+        "spectral_tilt_db_per_oct": -0.139,
+        "centroid_shift_hz": -447.24,
+        "dynamic_contrast_change_db": 2.842,
+        "stereo_correlation_change": 0.309,
+        "stereo_width_change_db": -14.374,
+        "click_loudness_lift_lu": 3.86,
+        "multiband_density_index_db_per_oct": -0.208
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -1.308,
+        "60-120 Hz": 0.677,
+        "120-250 Hz": 0.488,
+        "250-500 Hz": -0.066,
+        "500-1k Hz": 0.169,
+        "1-2k Hz": 0.519,
+        "2-4k Hz": 0.758,
+        "4-8k Hz": -0.354,
+        "8-16k Hz": -0.88
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -7.095,
+        "80Hz": -5.617,
+        "160Hz": -5.57,
+        "315Hz": -5.894,
+        "630Hz": -5.463,
+        "1250Hz": -5.191,
+        "2500Hz": -4.636,
+        "5000Hz": -5.438,
+        "10000Hz": -5.781,
+        "16000Hz": -5.35
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "20-60 Hz",
+          "delta": -1.308
+        },
+        {
+          "name": "8-16k Hz",
+          "delta": -0.88
+        },
+        {
+          "name": "2-4k Hz",
+          "delta": 0.758
+        },
+        {
+          "name": "60-120 Hz",
+          "delta": 0.677
+        },
+        {
+          "name": "1-2k Hz",
+          "delta": 0.519
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -7.095
+        },
+        {
+          "name": "315Hz",
+          "delta": -5.894
+        },
+        {
+          "name": "10000Hz",
+          "delta": -5.781
+        },
+        {
+          "name": "80Hz",
+          "delta": -5.617
+        },
+        {
+          "name": "160Hz",
+          "delta": -5.57
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 3.72 LU quieter than BandLab spatial; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 2.84 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.309, width delta -14.37 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 3.86 LU harder; candidate direction is less transient/sparse-material lift if matching BandLab."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "oomph": {
+      "yes_preset_constant": "PRESET_OOMPH",
+      "bandlab_reference_preset": "oomph",
+      "mapping_note": "Name/role counterpart in this corpus.",
+      "overall_character_distance": 8.215,
+      "distance_components": {
+        "eq_rmse_db": 3.061,
+        "tone_rmse_db": 3.156,
+        "loudness_gap_lu": 1.003,
+        "makeup_gap_db": 4.045,
+        "crest_gap_db": 1.972,
+        "dynamics_gap_db": 4.684,
+        "stereo_corr_gap_scaled": 0.05,
+        "stereo_width_gap_scaled": 0.246,
+        "click_lift_gap_scaled": 1.929,
+        "tilt_gap_scaled": 0.394,
+        "density_gap_scaled": 1.005
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -1.003,
+        "makeup_gain_db": -4.045,
+        "true_peak_ceiling_dbtp": -2.228,
+        "crest_change_db": 1.972,
+        "spectral_tilt_db_per_oct": -0.328,
+        "centroid_shift_hz": 1160.76,
+        "dynamic_contrast_change_db": 4.684,
+        "stereo_correlation_change": 0.005,
+        "stereo_width_change_db": -1.637,
+        "click_loudness_lift_lu": 5.512,
+        "multiband_density_index_db_per_oct": -0.335
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -7.828,
+        "60-120 Hz": 0.925,
+        "120-250 Hz": 3.33,
+        "250-500 Hz": 2.359,
+        "500-1k Hz": 1.41,
+        "1-2k Hz": 0.716,
+        "2-4k Hz": 0.987,
+        "4-8k Hz": -1.322,
+        "8-16k Hz": -0.576
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -8.208,
+        "80Hz": -2.218,
+        "160Hz": -0.047,
+        "315Hz": -1.369,
+        "630Hz": -2.103,
+        "1250Hz": -2.54,
+        "2500Hz": -1.268,
+        "5000Hz": -1.903,
+        "10000Hz": -2.445,
+        "16000Hz": 1.837
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "20-60 Hz",
+          "delta": -7.828
+        },
+        {
+          "name": "120-250 Hz",
+          "delta": 3.33
+        },
+        {
+          "name": "250-500 Hz",
+          "delta": 2.359
+        },
+        {
+          "name": "500-1k Hz",
+          "delta": 1.41
+        },
+        {
+          "name": "4-8k Hz",
+          "delta": -1.322
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -8.208
+        },
+        {
+          "name": "1250Hz",
+          "delta": -2.54
+        },
+        {
+          "name": "10000Hz",
+          "delta": -2.445
+        },
+        {
+          "name": "80Hz",
+          "delta": -2.218
+        },
+        {
+          "name": "630Hz",
+          "delta": -2.103
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 1.00 LU quieter than BandLab oomph; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 4.68 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES pulls sparse clicks 5.51 LU harder; candidate direction is less transient/sparse-material lift if matching BandLab.",
+        "Tonal contour is lower in sub/low bass by -3.45 dB on average; candidate direction is more sub/low bass.",
+        "Tonal contour is higher in bass/low mid by +2.84 dB on average; candidate direction is less bass/low mid."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "warmth": {
+      "yes_preset_constant": "PRESET_WARMTH",
+      "bandlab_reference_preset": "warm",
+      "mapping_note": "BandLab label is warm; YES label is warmth.",
+      "overall_character_distance": 2.989,
+      "distance_components": {
+        "eq_rmse_db": 1.293,
+        "tone_rmse_db": 2.247,
+        "loudness_gap_lu": 0.274,
+        "makeup_gap_db": 0.297,
+        "crest_gap_db": 0.445,
+        "dynamics_gap_db": 0.602,
+        "stereo_corr_gap_scaled": 0.08,
+        "stereo_width_gap_scaled": 0.438,
+        "click_lift_gap_scaled": 0.935,
+        "tilt_gap_scaled": 0.276,
+        "density_gap_scaled": 0.582
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -0.274,
+        "makeup_gain_db": 0.297,
+        "true_peak_ceiling_dbtp": -0.309,
+        "crest_change_db": -0.445,
+        "spectral_tilt_db_per_oct": -0.23,
+        "centroid_shift_hz": -963.54,
+        "dynamic_contrast_change_db": -0.602,
+        "stereo_correlation_change": 0.008,
+        "stereo_width_change_db": -2.919,
+        "click_loudness_lift_lu": 2.672,
+        "multiband_density_index_db_per_oct": -0.194
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": 3.06,
+        "60-120 Hz": -0.452,
+        "120-250 Hz": 0.243,
+        "250-500 Hz": 0.777,
+        "500-1k Hz": 0.153,
+        "1-2k Hz": -0.877,
+        "2-4k Hz": -0.247,
+        "4-8k Hz": -0.865,
+        "8-16k Hz": -1.791
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": 1.075,
+        "80Hz": -2.829,
+        "160Hz": -2.057,
+        "315Hz": -1.427,
+        "630Hz": -1.48,
+        "1250Hz": -2.799,
+        "2500Hz": -2.135,
+        "5000Hz": -1.816,
+        "10000Hz": -2.7,
+        "16000Hz": -3.146
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "20-60 Hz",
+          "delta": 3.06
+        },
+        {
+          "name": "8-16k Hz",
+          "delta": -1.791
+        },
+        {
+          "name": "1-2k Hz",
+          "delta": -0.877
+        },
+        {
+          "name": "4-8k Hz",
+          "delta": -0.865
+        },
+        {
+          "name": "250-500 Hz",
+          "delta": 0.777
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "16000Hz",
+          "delta": -3.146
+        },
+        {
+          "name": "80Hz",
+          "delta": -2.829
+        },
+        {
+          "name": "1250Hz",
+          "delta": -2.799
+        },
+        {
+          "name": "10000Hz",
+          "delta": -2.7
+        },
+        {
+          "name": "2500Hz",
+          "delta": -2.135
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.008, width delta -2.92 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 2.67 LU harder; candidate direction is less transient/sparse-material lift if matching BandLab.",
+        "Tonal contour is higher in sub/low bass by +1.30 dB on average; candidate direction is less sub/low bass.",
+        "Tonal contour is lower in air/top by -1.33 dB on average; candidate direction is more air/top."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "punch": {
+      "yes_preset_constant": "PRESET_PUNCH",
+      "bandlab_reference_preset": "punch",
+      "mapping_note": "Name/role counterpart in this corpus.",
+      "overall_character_distance": 16.683,
+      "distance_components": {
+        "eq_rmse_db": 3.668,
+        "tone_rmse_db": 7.506,
+        "loudness_gap_lu": 6.658,
+        "makeup_gap_db": 9.321,
+        "crest_gap_db": 5.994,
+        "dynamics_gap_db": 4.925,
+        "stereo_corr_gap_scaled": 1.24,
+        "stereo_width_gap_scaled": 1.872,
+        "click_lift_gap_scaled": 1.174,
+        "tilt_gap_scaled": 1.224,
+        "density_gap_scaled": 3.039
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -6.658,
+        "makeup_gain_db": -9.321,
+        "true_peak_ceiling_dbtp": -5.685,
+        "crest_change_db": 5.994,
+        "spectral_tilt_db_per_oct": -1.02,
+        "centroid_shift_hz": -3149.33,
+        "dynamic_contrast_change_db": 4.925,
+        "stereo_correlation_change": 0.124,
+        "stereo_width_change_db": -12.481,
+        "click_loudness_lift_lu": -3.353,
+        "multiband_density_index_db_per_oct": -1.013
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -4.101,
+        "60-120 Hz": 0.655,
+        "120-250 Hz": 3.348,
+        "250-500 Hz": 3.98,
+        "500-1k Hz": 4.159,
+        "1-2k Hz": 2.835,
+        "2-4k Hz": -0.864,
+        "4-8k Hz": -4.496,
+        "8-16k Hz": -5.52
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -13.191,
+        "80Hz": -8.445,
+        "160Hz": -5.842,
+        "315Hz": -5.347,
+        "630Hz": -4.561,
+        "1250Hz": -4.081,
+        "2500Hz": -5.803,
+        "5000Hz": -7.528,
+        "10000Hz": -7.922,
+        "16000Hz": -8.048
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "8-16k Hz",
+          "delta": -5.52
+        },
+        {
+          "name": "4-8k Hz",
+          "delta": -4.496
+        },
+        {
+          "name": "500-1k Hz",
+          "delta": 4.159
+        },
+        {
+          "name": "20-60 Hz",
+          "delta": -4.101
+        },
+        {
+          "name": "250-500 Hz",
+          "delta": 3.98
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -13.191
+        },
+        {
+          "name": "80Hz",
+          "delta": -8.445
+        },
+        {
+          "name": "16000Hz",
+          "delta": -8.048
+        },
+        {
+          "name": "10000Hz",
+          "delta": -7.922
+        },
+        {
+          "name": "5000Hz",
+          "delta": -7.528
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 6.66 LU quieter than BandLab punch; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 4.93 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.124, width delta -12.48 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 3.35 LU less; candidate direction is more transient/sparse-material lift if matching BandLab.",
+        "Tonal contour is lower in sub/low bass by -1.72 dB on average; candidate direction is more sub/low bass.",
+        "Tonal contour is higher in bass/low mid by +3.66 dB on average; candidate direction is less bass/low mid.",
+        "Tonal contour is higher in mid/presence by +2.04 dB on average; candidate direction is less mid/presence.",
+        "Tonal contour is lower in air/top by -5.01 dB on average; candidate direction is more air/top."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "loud": {
+      "yes_preset_constant": "PRESET_LOUD",
+      "bandlab_reference_preset": "punch",
+      "mapping_note": "BandLab has no Loud preset in this corpus; Punch is used as the closest high-energy BandLab reference.",
+      "overall_character_distance": 16.086,
+      "distance_components": {
+        "eq_rmse_db": 3.732,
+        "tone_rmse_db": 7.766,
+        "loudness_gap_lu": 6.658,
+        "makeup_gap_db": 9.47,
+        "crest_gap_db": 5.499,
+        "dynamics_gap_db": 1.978,
+        "stereo_corr_gap_scaled": 1.24,
+        "stereo_width_gap_scaled": 1.876,
+        "click_lift_gap_scaled": 0.978,
+        "tilt_gap_scaled": 1.11,
+        "density_gap_scaled": 3.018
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -6.658,
+        "makeup_gain_db": -9.47,
+        "true_peak_ceiling_dbtp": -6.333,
+        "crest_change_db": 5.499,
+        "spectral_tilt_db_per_oct": -0.925,
+        "centroid_shift_hz": -2921.8,
+        "dynamic_contrast_change_db": 1.978,
+        "stereo_correlation_change": 0.124,
+        "stereo_width_change_db": -12.508,
+        "click_loudness_lift_lu": -2.795,
+        "multiband_density_index_db_per_oct": -1.006
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -4.974,
+        "60-120 Hz": 0.287,
+        "120-250 Hz": 3.192,
+        "250-500 Hz": 4.127,
+        "500-1k Hz": 4.354,
+        "1-2k Hz": 3.08,
+        "2-4k Hz": -0.683,
+        "4-8k Hz": -4.252,
+        "8-16k Hz": -5.127
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -14.237,
+        "80Hz": -9.007,
+        "160Hz": -6.222,
+        "315Hz": -5.412,
+        "630Hz": -4.571,
+        "1250Hz": -4.067,
+        "2500Hz": -5.843,
+        "5000Hz": -7.547,
+        "10000Hz": -7.79,
+        "16000Hz": -7.875
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "8-16k Hz",
+          "delta": -5.127
+        },
+        {
+          "name": "20-60 Hz",
+          "delta": -4.974
+        },
+        {
+          "name": "500-1k Hz",
+          "delta": 4.354
+        },
+        {
+          "name": "4-8k Hz",
+          "delta": -4.252
+        },
+        {
+          "name": "250-500 Hz",
+          "delta": 4.127
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -14.237
+        },
+        {
+          "name": "80Hz",
+          "delta": -9.007
+        },
+        {
+          "name": "16000Hz",
+          "delta": -7.875
+        },
+        {
+          "name": "10000Hz",
+          "delta": -7.79
+        },
+        {
+          "name": "5000Hz",
+          "delta": -7.547
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 6.66 LU quieter than BandLab punch; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 1.98 dB on the dynamic test; candidate direction is more density/compression.",
+        "YES is narrower/less decorrelated than BandLab: correlation delta +0.124, width delta -12.51 dB; candidate direction is more stereo width/decorrelation.",
+        "YES pulls sparse clicks 2.79 LU less; candidate direction is more transient/sparse-material lift if matching BandLab.",
+        "Tonal contour is lower in sub/low bass by -2.34 dB on average; candidate direction is more sub/low bass.",
+        "Tonal contour is higher in bass/low mid by +3.66 dB on average; candidate direction is less bass/low mid.",
+        "Tonal contour is higher in mid/presence by +2.25 dB on average; candidate direction is less mid/presence.",
+        "Tonal contour is lower in air/top by -4.69 dB on average; candidate direction is more air/top."
+      ],
+      "do_not_apply_automatically": true
+    },
+    "custom": {
+      "yes_preset_constant": "PRESET_CUSTOM_NEUTRAL",
+      "bandlab_reference_preset": "natural",
+      "mapping_note": "YES Custom is the neutral custom calibration; BandLab Natural is the closest neutral-labeled reference.",
+      "overall_character_distance": 8.424,
+      "distance_components": {
+        "eq_rmse_db": 1.347,
+        "tone_rmse_db": 4.64,
+        "loudness_gap_lu": 2.203,
+        "makeup_gap_db": 2.803,
+        "crest_gap_db": 1.995,
+        "dynamics_gap_db": 5.41,
+        "stereo_corr_gap_scaled": 0.03,
+        "stereo_width_gap_scaled": 0.205,
+        "click_lift_gap_scaled": 0.15,
+        "tilt_gap_scaled": 0.625,
+        "density_gap_scaled": 1.098
+      },
+      "metric_deltas_yes_minus_bandlab": {
+        "output_lufs": -2.203,
+        "makeup_gain_db": -2.803,
+        "true_peak_ceiling_dbtp": -1.054,
+        "crest_change_db": 1.995,
+        "spectral_tilt_db_per_oct": 0.521,
+        "centroid_shift_hz": 808.16,
+        "dynamic_contrast_change_db": 5.41,
+        "stereo_correlation_change": 0.003,
+        "stereo_width_change_db": -1.366,
+        "click_loudness_lift_lu": -0.429,
+        "multiband_density_index_db_per_oct": -0.366
+      },
+      "eq_contour_delta_db_yes_minus_bandlab": {
+        "20-60 Hz": -0.962,
+        "60-120 Hz": -1.412,
+        "120-250 Hz": -1.824,
+        "250-500 Hz": -0.651,
+        "500-1k Hz": -0.626,
+        "1-2k Hz": 0.336,
+        "2-4k Hz": 1.747,
+        "4-8k Hz": 2.1,
+        "8-16k Hz": 1.297
+      },
+      "tone_gain_delta_db_yes_minus_bandlab": {
+        "40Hz": -7.717,
+        "80Hz": -6.909,
+        "160Hz": -6.518,
+        "315Hz": -5.345,
+        "630Hz": -4.259,
+        "1250Hz": -2.788,
+        "2500Hz": -1.1,
+        "5000Hz": -0.716,
+        "10000Hz": -1.806,
+        "16000Hz": -2.462
+      },
+      "largest_eq_gaps": [
+        {
+          "name": "4-8k Hz",
+          "delta": 2.1
+        },
+        {
+          "name": "120-250 Hz",
+          "delta": -1.824
+        },
+        {
+          "name": "2-4k Hz",
+          "delta": 1.747
+        },
+        {
+          "name": "60-120 Hz",
+          "delta": -1.412
+        },
+        {
+          "name": "8-16k Hz",
+          "delta": 1.297
+        }
+      ],
+      "largest_tone_gaps": [
+        {
+          "name": "40Hz",
+          "delta": -7.717
+        },
+        {
+          "name": "80Hz",
+          "delta": -6.909
+        },
+        {
+          "name": "160Hz",
+          "delta": -6.518
+        },
+        {
+          "name": "315Hz",
+          "delta": -5.345
+        },
+        {
+          "name": "630Hz",
+          "delta": -4.259
+        }
+      ],
+      "candidate_adjustment_directions": [
+        "YES is 2.20 LU quieter than BandLab natural; if matching BandLab output behavior, consider a higher target loudness for this preset/protocol. candidate only; do not apply without owner listening signoff.",
+        "YES compresses less than BandLab by 5.41 dB on the dynamic test; candidate direction is more density/compression.",
+        "Tonal contour is higher in air/top by +1.70 dB on average; candidate direction is less air/top."
+      ],
+      "do_not_apply_automatically": true
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[yesmaster] fingerprinted 9/9 presets
+    clarity      8 signals · out -14.046 LUFS · makeup 2.668 dB · tilt Δ 0.142 dB/oct
+    custom       8 signals · out -14.544 LUFS · makeup 5.848 dB · tilt Δ 0.0 dB/oct
+    loud         8 signals · out -14.046 LUFS · makeup 2.605 dB · tilt Δ 0.222 dB/oct
+    oomph        8 signals · out -14.044 LUFS · makeup 4.19 dB · tilt Δ -0.568 dB/oct
+    punch        8 signals · out -14.046 LUFS · makeup 2.754 dB · tilt Δ 0.127 dB/oct
+    spatial      8 signals · out -14.046 LUFS · makeup 2.746 dB · tilt Δ 0.157 dB/oct
+    tape         8 signals · out -14.046 LUFS · makeup 2.713 dB · tilt Δ 0.152 dB/oct
+    universal    8 signals · out -14.046 LUFS · makeup 2.846 dB · tilt Δ 0.089 dB/oct
+    warmth       8 signals · out -14.045 LUFS · makeup 3.311 dB · tilt Δ -0.244 dB/oct
+    canonical -> measurements\fingerprints\yesmaster\canonical.json
