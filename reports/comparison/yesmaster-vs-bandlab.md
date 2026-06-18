@@ -54,13 +54,15 @@ My first pass read "stereo axis dead" because every preset measured ≈0 correla
 That was the *test signal*, not the presets: the only stereo probe (`mid_side_test`) is
 near-mono (side ~24 dB down), and YES Master widens by **M/S side-scaling** — scaling a
 near-zero side does nothing, so a real 1.16× widener reads −0.006. The presets *do* carry a
-sensible width spread (`spatial` 1.16 → `oomph` 0.95). On a realistic correlation-0.5 signal
-(verified by replicating `dsp.rs::apply_width_stereo` offline), that spread is real but
-small: `spatial` −0.120, `oomph` +0.038 — full lineup span ≈0.157, about **half** of
-BandLab's single `spatial` (−0.315). Two genuine gaps remain: (a) the reach is gentle, and
-(b) side-scaling can't widen already-narrow/mono material at all, whereas BandLab's
-decorrelation widens anything. Also: a proper non-mono test signal is needed to measure any
-of this through the engine — the current battery is blind to width.
+sensible width spread (`spatial` 1.16 → `oomph` 0.95). Confirmed **through the real engine**
+on a new correlation-0.5 stereo probe (`source/test-signals/stereo_field_minus20.wav`,
+measured by `tools/measure_stereo_width.py`): `spatial` widens **−0.091**, `oomph` narrows
+**+0.059**, full lineup span **0.150** — and the `trim_width` guardrail is NOT cutting it
+(1.16 is substantially applied). Three genuine gaps remain: (a) the reach is gentle
+(`spatial` −0.091 vs BandLab `spatial`'s −0.315 reach), (b) side-scaling can't widen
+already-narrow/mono material at all, whereas BandLab's decorrelation widens anything, and
+(c) a measurement nuance worth knowing — the chain *itself* narrows ~+0.025 (saturation/comp),
+mildly working against the width knob.
 
 **2. Tone — too uniform.** Your tilt spans only 0.79 dB/oct (BandLab 1.67), and almost
 everything clusters at the bright end with a near-identical "slight sub-cut + slight air
