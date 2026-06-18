@@ -1,0 +1,76 @@
+{
+  "notes": [
+    "This is a measurement dataset only; no YES Master DSP or preset calibration constants were changed.",
+    "Spatial is included because it exists in the current Preset enum/dsp.rs even though the downloaded prompt's older example list omitted it.",
+    "Custom is rendered as YES Master's neutral Custom calibration (Preset::Custom), not a saved user preset."
+  ],
+  "presets": [
+    "universal"
+  ],
+  "protocol": {
+    "ceiling_dbtp": -1.0,
+    "compression_mode": "Preset",
+    "constant_across": "selected signals x selected current YES Master presets",
+    "default_target_lufs": -14.0,
+    "engine": "YES Master Rust backend via yes_master_lib::engine::mastering_render_to_path",
+    "input_gain_db": 0.0,
+    "input_gain_policy": "Fixed at 0 dB. Source analysis is still injected because that is how the desktop app resolves adaptive guardrails.",
+    "intensities": [
+      0.0,
+      1.0
+    ],
+    "output_format": "WAV, source sample rate and source bit depth for the test-signal corpus",
+    "target_lufs_by_preset": {
+      "clarity": -13.420000076293945,
+      "custom": -12.340999603271484,
+      "loud": -7.388000011444092,
+      "oomph": -13.041000366210938,
+      "punch": -7.388000011444092,
+      "spatial": -10.324999809265137,
+      "tape": -10.708000183105469,
+      "universal": -11.633999824523926,
+      "warmth": -13.770999908447266
+    },
+    "volume_match": false
+  },
+  "renders": [
+    {
+      "compression_digest": null,
+      "confidence_digest": null,
+      "effective_adaptive_strength": 0.5,
+      "intensity": 0.0,
+      "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-recheck\\_intensity_sweep\\intensity_0_00\\universal\\pink_noise_minus20.wav",
+      "preset": "universal",
+      "rendered_bit_depth": 16,
+      "rendered_dynamic_range_lu": 0.06173025816679001,
+      "rendered_lufs": -11.633999824523926,
+      "rendered_sample_rate": 44100,
+      "rendered_true_peak_dbtp": -1.7838869094848633,
+      "source_bit_depth": 16,
+      "source_file": "pink_noise_minus20.wav",
+      "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+      "source_sample_rate": 44100
+    },
+    {
+      "compression_digest": null,
+      "confidence_digest": null,
+      "effective_adaptive_strength": 0.5,
+      "intensity": 1.0,
+      "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-recheck\\_intensity_sweep\\intensity_1_00\\universal\\pink_noise_minus20.wav",
+      "preset": "universal",
+      "rendered_bit_depth": 16,
+      "rendered_dynamic_range_lu": 0.05505836382508278,
+      "rendered_lufs": -11.633999824523926,
+      "rendered_sample_rate": 44100,
+      "rendered_true_peak_dbtp": -1.964125633239746,
+      "source_bit_depth": 16,
+      "source_file": "pink_noise_minus20.wav",
+      "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+      "source_sample_rate": 44100
+    }
+  ],
+  "service": "yesmaster-recheck/_intensity_sweep",
+  "signals": [
+    "pink_noise_minus20.wav"
+  ]
+}
