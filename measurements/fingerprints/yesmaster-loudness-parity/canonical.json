@@ -1,0 +1,2147 @@
+{
+  "schema": "preset-fingerprint/v1",
+  "service": "yesmaster-loudness-parity",
+  "generated_utc": "2026-06-18T17:07:48+00:00",
+  "method": "Static-character isolation via spectrally-neutral test signals. Delta = output measurement - input measurement. EQ shape is makeup-gain-normalized band energy. See reports/ and tools/.",
+  "capture_protocol": {
+    "notes": [
+      "This is a measurement dataset only; no YES Master DSP or preset calibration constants were changed.",
+      "Spatial is included because it exists in the current Preset enum/dsp.rs even though the downloaded prompt's older example list omitted it.",
+      "Custom is rendered as YES Master's neutral Custom calibration (Preset::Custom), not a saved user preset."
+    ],
+    "presets": [
+      "universal",
+      "clarity",
+      "tape",
+      "spatial",
+      "oomph",
+      "warmth",
+      "punch",
+      "loud",
+      "custom"
+    ],
+    "protocol": {
+      "ceiling_dbtp": -1.0,
+      "compression_mode": "Preset",
+      "constant_across": "all 8 signals x current YES Master preset list",
+      "default_target_lufs": -14.0,
+      "engine": "YES Master Rust backend via yes_master_lib::engine::mastering_render_to_path",
+      "input_gain_db": 0.0,
+      "input_gain_policy": "Fixed at 0 dB. Source analysis is still injected because that is how the desktop app resolves adaptive guardrails.",
+      "intensity": "Default / Moderate (0.5)",
+      "output_format": "WAV, source sample rate and source bit depth for the test-signal corpus",
+      "target_lufs_by_preset": {
+        "clarity": -13.420000076293945,
+        "custom": -12.340999603271484,
+        "loud": -7.388000011444092,
+        "oomph": -13.041000366210938,
+        "punch": -7.388000011444092,
+        "spatial": -10.324999809265137,
+        "tape": -10.708000183105469,
+        "universal": -11.633999824523926,
+        "warmth": -13.770999908447266
+      },
+      "volume_match": false
+    },
+    "renders": [
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\pink_noise_minus20.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05881492421030998,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.8509588241577148,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\pink_noise_minus20.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05471210926771164,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -3.74462890625,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\pink_noise_minus20.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05455045774579048,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.2568540573120117,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\pink_noise_minus20.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05360831692814827,
+        "rendered_lufs": -10.68454360961914,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.0,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\pink_noise_minus20.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.10889981687068939,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.4139604568481445,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\pink_noise_minus20.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0734763890504837,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -3.733109474182129,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\pink_noise_minus20.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.053707290440797806,
+        "rendered_lufs": -10.397808074951172,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.0,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\pink_noise_minus20.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.04940225929021835,
+        "rendered_lufs": -9.641047477722168,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.8913910388946533,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\pink_noise_minus20.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.06254798918962479,
+        "rendered_lufs": -14.499189376831055,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.0,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.5dB / LRA 0.1LU / corr 0.03",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\pink_noise_minus14.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.04704209417104721,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -3.04583740234375,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\pink_noise_minus14.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.04693443700671196,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -4.620805263519287,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\pink_noise_minus14.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05292660742998123,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -3.1613881587982178,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\pink_noise_minus14.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05367429926991463,
+        "rendered_lufs": -10.324999809265137,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -2.4978907108306885,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\pink_noise_minus14.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.10505376756191254,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -4.481662273406982,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\pink_noise_minus14.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.06253740936517715,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -5.623666286468506,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\pink_noise_minus14.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.09777935594320297,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.9689298272132874,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\pink_noise_minus14.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.07023080438375473,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.8465521335601807,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\pink_noise_minus14.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.08486293256282806,
+        "rendered_lufs": -12.895933151245117,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.6814748644828796,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 4.7dB / LRA 0.1LU / corr 0.02",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\pink_noise_minus10.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.11103149503469467,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -5.194189071655273,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\pink_noise_minus10.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.10672280937433243,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -6.829433441162109,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\pink_noise_minus10.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.08294901996850967,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -4.672590732574463,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\pink_noise_minus10.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.10450665652751923,
+        "rendered_lufs": -10.324999809265137,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -4.05673360824585,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\pink_noise_minus10.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.1081899106502533,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -6.218028545379639,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\pink_noise_minus10.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0902949646115303,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.444276809692383,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\pink_noise_minus10.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.06775083392858505,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -1.9426839351654053,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\pink_noise_minus10.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.05593477189540863,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -2.086905002593994,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\pink_noise_minus10.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.5764504075050354,
+        "rendered_lufs": -12.340999603271484,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -2.7259950637817383,
+        "source_bit_depth": 16,
+        "source_file": "pink_noise_minus10.wav",
+        "source_profile_digest": "bright 0.28 / low 0.37 / DR 4.5dB / LRA 0.1LU / corr -0.01",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\sine_sweep_minus20.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 9.546182632446289,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -11.889354705810547,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\sine_sweep_minus20.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 9.217264175415039,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -13.10327434539795,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\sine_sweep_minus20.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 10.510887145996094,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.244460105895996,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\sine_sweep_minus20.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 9.923108100891113,
+        "rendered_lufs": -10.324999809265137,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.288500785827637,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\sine_sweep_minus20.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 5.795441150665283,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -9.725641250610352,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\sine_sweep_minus20.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 7.471001625061035,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -13.644268035888672,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\sine_sweep_minus20.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 8.248443603515625,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.596622943878174,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\sine_sweep_minus20.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 9.156804084777832,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.633339881896973,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\sine_sweep_minus20.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 8.313064575195312,
+        "rendered_lufs": -12.340999603271484,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -13.185135841369629,
+        "source_bit_depth": 16,
+        "source_file": "sine_sweep_minus20.wav",
+        "source_profile_digest": "bright 0.28 / low 0.36 / DR 0.1dB / LRA 8.3LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\click_track.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -33.28440856933594,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.5667628049850464,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\click_track.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -33.47858428955078,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.654438316822052,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\click_track.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -33.25027084350586,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.6225219368934631,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\click_track.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -33.27094650268555,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.5818150639533997,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\click_track.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -33.153194427490234,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.48152732849121094,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\click_track.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -33.54825210571289,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.8555326461791992,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\click_track.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -32.491939544677734,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.3693220019340515,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\click_track.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -31.934728622436523,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.2559298574924469,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\click_track.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0,
+        "rendered_lufs": -37.330955505371094,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -0.9989495277404785,
+        "source_bit_depth": 16,
+        "source_file": "click_track.wav",
+        "source_profile_digest": "bright 0.84 / low 0.01 / DR 0.0dB / LRA 0.0LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\tone_ladder_minus20.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 6.524590969085693,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -12.002880096435547,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\tone_ladder_minus20.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 6.884798526763916,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -13.36913013458252,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\tone_ladder_minus20.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 7.448490142822266,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.545730590820312,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\tone_ladder_minus20.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 6.909753799438477,
+        "rendered_lufs": -10.324999809265137,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.553486824035645,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\tone_ladder_minus20.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 5.047469615936279,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -9.404544830322266,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\tone_ladder_minus20.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 4.486457347869873,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -12.915711402893066,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\tone_ladder_minus20.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 6.0218024253845215,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.132334232330322,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\tone_ladder_minus20.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 6.693498134613037,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.634339332580566,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\tone_ladder_minus20.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 5.77099084854126,
+        "rendered_lufs": -12.340999603271484,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -13.428236961364746,
+        "source_bit_depth": 16,
+        "source_file": "tone_ladder_minus20.wav",
+        "source_profile_digest": "bright 0.31 / low 0.31 / DR 0.0dB / LRA 5.8LU / corr 1.00",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\dynamic_test_minus14.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 17.818368911743164,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -5.350665092468262,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\dynamic_test_minus14.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 18.24722671508789,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.0332932472229,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\dynamic_test_minus14.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 16.319997787475586,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -4.454300880432129,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\dynamic_test_minus14.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 16.222492218017578,
+        "rendered_lufs": -10.324999809265137,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -3.960008144378662,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\dynamic_test_minus14.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 16.64510154724121,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -6.492701530456543,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\dynamic_test_minus14.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 15.548501968383789,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.307499885559082,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\dynamic_test_minus14.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 12.705280303955078,
+        "rendered_lufs": -7.624354839324951,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": 0.36982977390289307,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\dynamic_test_minus14.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 9.694138526916504,
+        "rendered_lufs": -8.150010108947754,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": 0.3471813201904297,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\dynamic_test_minus14.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 18.853286743164062,
+        "rendered_lufs": -12.340999603271484,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -2.719420909881592,
+        "source_bit_depth": 16,
+        "source_file": "dynamic_test_minus14.wav",
+        "source_profile_digest": "bright 0.28 / low 0.38 / DR 22.5dB / LRA 20.3LU / corr -0.06",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\universal\\mid_side_test_minus20.wav",
+        "preset": "universal",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.003916058223694563,
+        "rendered_lufs": -11.633999824523926,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -9.275276184082031,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\clarity\\mid_side_test_minus20.wav",
+        "preset": "clarity",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.004006382543593645,
+        "rendered_lufs": -13.420000076293945,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.786702156066895,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\tape\\mid_side_test_minus20.wav",
+        "preset": "tape",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.003989395685493946,
+        "rendered_lufs": -10.708000183105469,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -8.118724822998047,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\spatial\\mid_side_test_minus20.wav",
+        "preset": "spatial",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.004002770408987999,
+        "rendered_lufs": -10.324999809265137,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -7.7606048583984375,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\oomph\\mid_side_test_minus20.wav",
+        "preset": "oomph",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0038180374540388584,
+        "rendered_lufs": -13.041000366210938,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.682073593139648,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\warmth\\mid_side_test_minus20.wav",
+        "preset": "warmth",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.0039272671565413475,
+        "rendered_lufs": -13.770999908447266,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -11.651568412780762,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\punch\\mid_side_test_minus20.wav",
+        "preset": "punch",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.004027278162539005,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -5.238576412200928,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\loud\\mid_side_test_minus20.wav",
+        "preset": "loud",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.003540978766977787,
+        "rendered_lufs": -7.388000011444092,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -5.333015441894531,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      },
+      {
+        "compression_digest": null,
+        "confidence_digest": null,
+        "effective_adaptive_strength": 0.5,
+        "output_path": "\\\\?\\C:\\Users\\SM - Dan\\Documents\\GitHub\\preset-research\\competitors\\yesmaster-loudness-parity\\custom\\mid_side_test_minus20.wav",
+        "preset": "custom",
+        "rendered_bit_depth": 16,
+        "rendered_dynamic_range_lu": 0.003953829407691956,
+        "rendered_lufs": -12.340999603271484,
+        "rendered_sample_rate": 44100,
+        "rendered_true_peak_dbtp": -10.116133689880371,
+        "source_bit_depth": 16,
+        "source_file": "mid_side_test_minus20.wav",
+        "source_profile_digest": "bright 0.00 / low 0.00 / DR 0.0dB / LRA 0.0LU / corr 0.99",
+        "source_sample_rate": 44100
+      }
+    ],
+    "service": "yesmaster-loudness-parity"
+  },
+  "signal_provenance": {
+    "pink_noise_minus20.wav": {
+      "role": "pink_noise",
+      "purpose": "Primary tonal reference. Equal energy per octave; output delta IS the EQ curve."
+    },
+    "pink_noise_minus14.wav": {
+      "role": "pink_noise",
+      "purpose": "Level-dependent check. Spectral delta vs -20 reveals level-dependent processing."
+    },
+    "pink_noise_minus10.wav": {
+      "role": "pink_noise",
+      "purpose": "Hot-level behavior. Pushes compressor/limiter; reveals stand-down on loud material."
+    },
+    "sine_sweep_minus20.wav": {
+      "role": "sweep",
+      "purpose": "Precise frequency response. Reveals narrow-band features broadband noise misses."
+    },
+    "click_track.wav": {
+      "role": "click_track",
+      "purpose": "Compressor timing. Attack, release, transient shaping."
+    },
+    "tone_ladder_minus20.wav": {
+      "role": "tone_ladder",
+      "purpose": "Discrete per-frequency gain. Exact dB at known frequencies."
+    },
+    "dynamic_test_minus14.wav": {
+      "role": "dynamic",
+      "purpose": "Dynamic range preservation. Maintains 20 dB contrast or crushes it?"
+    },
+    "mid_side_test_minus20.wav": {
+      "role": "mid_side",
+      "purpose": "Stereo width. Narrowing, widening, or rebalancing?"
+    }
+  },
+  "presets": {
+    "clarity": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -13.466,
+        "makeup_gain_db": 3.248,
+        "true_peak_ceiling_dbtp": -3.718,
+        "lra_change_lu": -0.009,
+        "crest_change_db": -0.179
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.961,
+        "60-120 Hz": 3.8,
+        "120-250 Hz": 3.508,
+        "250-500 Hz": 2.628,
+        "500-1k Hz": 2.685,
+        "1-2k Hz": 2.658,
+        "2-4k Hz": 3.241,
+        "4-8k Hz": 4.145,
+        "8-16k Hz": 4.937
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -2.213,
+        "60-120 Hz": 0.626,
+        "120-250 Hz": 0.334,
+        "250-500 Hz": -0.546,
+        "500-1k Hz": -0.489,
+        "1-2k Hz": -0.516,
+        "2-4k Hz": 0.067,
+        "4-8k Hz": 0.971,
+        "8-16k Hz": 1.763
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 4.019,
+        "60-120 Hz": 6.858,
+        "120-250 Hz": 6.566,
+        "250-500 Hz": 5.686,
+        "500-1k Hz": 5.743,
+        "1-2k Hz": 5.716,
+        "2-4k Hz": 6.299,
+        "4-8k Hz": 7.203,
+        "8-16k Hz": 7.995
+      },
+      "spectral_tilt_change_db_per_oct": 0.142,
+      "centroid_shift_hz": 972.84,
+      "tone_gain_db": {
+        "40Hz": 1.769,
+        "80Hz": 3.412,
+        "160Hz": 3.189,
+        "315Hz": 2.292,
+        "630Hz": 2.282,
+        "1250Hz": 2.221,
+        "2500Hz": 2.686,
+        "5000Hz": 3.507,
+        "10000Hz": 4.37,
+        "16000Hz": 4.591
+      },
+      "dynamics": {
+        "contrast_change_db": -1.662,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.005,
+        "width_change_db": 1.997,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 3.299,
+        "output_true_peak_dbtp": -0.536,
+        "output_peak_dbfs": -1.0,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.73,
+          "median_transient_peak_dbfs": -19.42,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -6.77,
+          "pink_noise_minus14.wav": -2.752,
+          "pink_noise_minus20.wav": 3.248
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -3.25,
+          "pink_noise_minus14.wav": 0.961,
+          "pink_noise_minus20.wav": 6.926
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": -0.001
+    },
+    "custom": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -14.544,
+        "makeup_gain_db": 5.848,
+        "true_peak_ceiling_dbtp": -0.972,
+        "lra_change_lu": 0.0,
+        "crest_change_db": 0.0
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.002,
+        "60-120 Hz": 0.001,
+        "120-250 Hz": 0.003,
+        "250-500 Hz": 0.0,
+        "500-1k Hz": 0.001,
+        "1-2k Hz": 0.002,
+        "2-4k Hz": 0.001,
+        "4-8k Hz": 0.001,
+        "8-16k Hz": 0.001
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 0.001,
+        "60-120 Hz": -0.0,
+        "120-250 Hz": 0.002,
+        "250-500 Hz": -0.001,
+        "500-1k Hz": -0.0,
+        "1-2k Hz": 0.001,
+        "2-4k Hz": -0.0,
+        "4-8k Hz": -0.0,
+        "8-16k Hz": -0.0
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 5.849,
+        "60-120 Hz": 5.848,
+        "120-250 Hz": 5.85,
+        "250-500 Hz": 5.847,
+        "500-1k Hz": 5.848,
+        "1-2k Hz": 5.849,
+        "2-4k Hz": 5.848,
+        "4-8k Hz": 5.848,
+        "8-16k Hz": 5.848
+      },
+      "spectral_tilt_change_db_per_oct": 0.0,
+      "centroid_shift_hz": -0.24,
+      "tone_gain_db": {
+        "40Hz": 4.545,
+        "80Hz": 4.545,
+        "160Hz": 4.545,
+        "315Hz": 4.544,
+        "630Hz": 4.545,
+        "1250Hz": 4.545,
+        "2500Hz": 4.545,
+        "5000Hz": 4.545,
+        "10000Hz": 4.545,
+        "16000Hz": 4.545
+      },
+      "dynamics": {
+        "contrast_change_db": -1.515,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": 0.0,
+        "width_change_db": 0.0,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": -0.554,
+        "output_true_peak_dbtp": -0.993,
+        "output_peak_dbfs": -0.999,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.46,
+          "median_transient_peak_dbfs": -33.86,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -2.425,
+          "pink_noise_minus14.wav": 1.47,
+          "pink_noise_minus20.wav": 5.848
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -2.17,
+          "pink_noise_minus14.wav": 1.486,
+          "pink_noise_minus20.wav": 5.848
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": -0.001
+    },
+    "loud": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -9.687,
+        "makeup_gain_db": 6.964,
+        "true_peak_ceiling_dbtp": -0.865,
+        "lra_change_lu": -0.015,
+        "crest_change_db": -1.118
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.035,
+        "60-120 Hz": 3.333,
+        "120-250 Hz": 3.05,
+        "250-500 Hz": 2.09,
+        "500-1k Hz": 3.192,
+        "1-2k Hz": 4.702,
+        "2-4k Hz": 4.166,
+        "4-8k Hz": 3.96,
+        "8-16k Hz": 4.311
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -3.169,
+        "60-120 Hz": 0.129,
+        "120-250 Hz": -0.154,
+        "250-500 Hz": -1.114,
+        "500-1k Hz": -0.012,
+        "1-2k Hz": 1.498,
+        "2-4k Hz": 0.962,
+        "4-8k Hz": 0.756,
+        "8-16k Hz": 1.107
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 6.787,
+        "60-120 Hz": 10.085,
+        "120-250 Hz": 9.802,
+        "250-500 Hz": 8.842,
+        "500-1k Hz": 9.944,
+        "1-2k Hz": 11.454,
+        "2-4k Hz": 10.918,
+        "4-8k Hz": 10.712,
+        "8-16k Hz": 11.063
+      },
+      "spectral_tilt_change_db_per_oct": 0.222,
+      "centroid_shift_hz": 692.68,
+      "tone_gain_db": {
+        "40Hz": 6.875,
+        "80Hz": 8.952,
+        "160Hz": 8.76,
+        "315Hz": 7.738,
+        "630Hz": 8.46,
+        "1250Hz": 10.235,
+        "2500Hz": 9.854,
+        "5000Hz": 9.448,
+        "10000Hz": 9.798,
+        "16000Hz": 9.904
+      },
+      "dynamics": {
+        "contrast_change_db": -9.913,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.0,
+        "width_change_db": 0.177,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 4.843,
+        "output_true_peak_dbtp": -0.121,
+        "output_peak_dbfs": -0.999,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.61,
+          "median_transient_peak_dbfs": -16.59,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -0.706,
+          "pink_noise_minus14.wav": 3.175,
+          "pink_noise_minus20.wav": 6.964
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 2.782,
+          "pink_noise_minus14.wav": 6.993,
+          "pink_noise_minus20.wav": 10.705
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": 0.004
+    },
+    "oomph": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -13.085,
+        "makeup_gain_db": 5.149,
+        "true_peak_ceiling_dbtp": -1.408,
+        "lra_change_lu": 0.055,
+        "crest_change_db": 0.394
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 5.319,
+        "60-120 Hz": 6.454,
+        "120-250 Hz": 4.597,
+        "250-500 Hz": 0.937,
+        "500-1k Hz": 0.59,
+        "1-2k Hz": 0.208,
+        "2-4k Hz": 1.461,
+        "4-8k Hz": 2.028,
+        "8-16k Hz": 1.779
+      },
+      "eq_contour_db": {
+        "20-60 Hz": 2.722,
+        "60-120 Hz": 3.857,
+        "120-250 Hz": 2.0,
+        "250-500 Hz": -1.66,
+        "500-1k Hz": -2.007,
+        "1-2k Hz": -2.389,
+        "2-4k Hz": -1.136,
+        "4-8k Hz": -0.569,
+        "8-16k Hz": -0.818
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 10.529,
+        "60-120 Hz": 11.664,
+        "120-250 Hz": 9.807,
+        "250-500 Hz": 6.147,
+        "500-1k Hz": 5.8,
+        "1-2k Hz": 5.418,
+        "2-4k Hz": 6.671,
+        "4-8k Hz": 7.238,
+        "8-16k Hz": 6.989
+      },
+      "spectral_tilt_change_db_per_oct": -0.568,
+      "centroid_shift_hz": -866.17,
+      "tone_gain_db": {
+        "40Hz": 7.705,
+        "80Hz": 7.999,
+        "160Hz": 6.42,
+        "315Hz": 2.731,
+        "630Hz": 2.205,
+        "1250Hz": 1.727,
+        "2500Hz": 2.816,
+        "5000Hz": 3.668,
+        "10000Hz": 3.393,
+        "16000Hz": 3.296
+      },
+      "dynamics": {
+        "contrast_change_db": -3.626,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.001,
+        "width_change_db": 0.735,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 3.624,
+        "output_true_peak_dbtp": -0.361,
+        "output_peak_dbfs": -1.0,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.86,
+          "median_transient_peak_dbfs": -19.05,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -4.927,
+          "pink_noise_minus14.wav": -0.864,
+          "pink_noise_minus20.wav": 5.149
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -2.869,
+          "pink_noise_minus14.wav": 1.342,
+          "pink_noise_minus20.wav": 7.307
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": -0.02
+    },
+    "punch": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -10.443,
+        "makeup_gain_db": 6.357,
+        "true_peak_ceiling_dbtp": -0.973,
+        "lra_change_lu": -0.011,
+        "crest_change_db": -0.623
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 0.964,
+        "60-120 Hz": 3.757,
+        "120-250 Hz": 3.264,
+        "250-500 Hz": 1.999,
+        "500-1k Hz": 3.053,
+        "1-2k Hz": 4.513,
+        "2-4k Hz": 4.041,
+        "4-8k Hz": 3.772,
+        "8-16k Hz": 3.974
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -2.296,
+        "60-120 Hz": 0.497,
+        "120-250 Hz": 0.004,
+        "250-500 Hz": -1.261,
+        "500-1k Hz": -0.207,
+        "1-2k Hz": 1.253,
+        "2-4k Hz": 0.781,
+        "4-8k Hz": 0.512,
+        "8-16k Hz": 0.714
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 7.086,
+        "60-120 Hz": 9.879,
+        "120-250 Hz": 9.386,
+        "250-500 Hz": 8.121,
+        "500-1k Hz": 9.175,
+        "1-2k Hz": 10.635,
+        "2-4k Hz": 10.163,
+        "4-8k Hz": 9.894,
+        "8-16k Hz": 10.096
+      },
+      "spectral_tilt_change_db_per_oct": 0.127,
+      "centroid_shift_hz": 465.15,
+      "tone_gain_db": {
+        "40Hz": 7.921,
+        "80Hz": 9.514,
+        "160Hz": 9.14,
+        "315Hz": 7.803,
+        "630Hz": 8.47,
+        "1250Hz": 10.221,
+        "2500Hz": 9.894,
+        "5000Hz": 9.467,
+        "10000Hz": 9.666,
+        "16000Hz": 9.731
+      },
+      "dynamics": {
+        "contrast_change_db": -6.964,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.0,
+        "width_change_db": 0.204,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 4.285,
+        "output_true_peak_dbtp": -0.241,
+        "output_peak_dbfs": -0.999,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.61,
+          "median_transient_peak_dbfs": -17.54,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -0.698,
+          "pink_noise_minus14.wav": 3.355,
+          "pink_noise_minus20.wav": 6.357
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": 2.782,
+          "pink_noise_minus14.wav": 6.993,
+          "pink_noise_minus20.wav": 9.949
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": -0.003
+    },
+    "spatial": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -10.73,
+        "makeup_gain_db": 6.061,
+        "true_peak_ceiling_dbtp": -1.006,
+        "lra_change_lu": -0.009,
+        "crest_change_db": -0.454
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 1.441,
+        "60-120 Hz": 3.438,
+        "120-250 Hz": 3.283,
+        "250-500 Hz": 2.756,
+        "500-1k Hz": 2.96,
+        "1-2k Hz": 3.125,
+        "2-4k Hz": 3.437,
+        "4-8k Hz": 4.02,
+        "8-16k Hz": 4.6
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -1.788,
+        "60-120 Hz": 0.209,
+        "120-250 Hz": 0.054,
+        "250-500 Hz": -0.473,
+        "500-1k Hz": -0.269,
+        "1-2k Hz": -0.104,
+        "2-4k Hz": 0.208,
+        "4-8k Hz": 0.791,
+        "8-16k Hz": 1.371
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 7.006,
+        "60-120 Hz": 9.003,
+        "120-250 Hz": 8.848,
+        "250-500 Hz": 8.321,
+        "500-1k Hz": 8.525,
+        "1-2k Hz": 8.69,
+        "2-4k Hz": 9.002,
+        "4-8k Hz": 9.585,
+        "8-16k Hz": 10.165
+      },
+      "spectral_tilt_change_db_per_oct": 0.157,
+      "centroid_shift_hz": 771.52,
+      "tone_gain_db": {
+        "40Hz": 5.303,
+        "80Hz": 6.225,
+        "160Hz": 6.111,
+        "315Hz": 5.57,
+        "630Hz": 5.7,
+        "1250Hz": 5.876,
+        "2500Hz": 6.129,
+        "5000Hz": 6.623,
+        "10000Hz": 7.248,
+        "16000Hz": 7.411
+      },
+      "dynamics": {
+        "contrast_change_db": -3.463,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.006,
+        "width_change_db": 2.473,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 3.506,
+        "output_true_peak_dbtp": -0.461,
+        "output_peak_dbfs": -1.0,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.73,
+          "median_transient_peak_dbfs": -19.0,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -3.605,
+          "pink_noise_minus14.wav": 0.419,
+          "pink_noise_minus20.wav": 6.061
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -0.155,
+          "pink_noise_minus14.wav": 4.056,
+          "pink_noise_minus20.wav": 9.662
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": 0.001
+    },
+    "tape": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -10.754,
+        "makeup_gain_db": 6.005,
+        "true_peak_ceiling_dbtp": -1.228,
+        "lra_change_lu": -0.008,
+        "crest_change_db": -0.483
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 1.219,
+        "60-120 Hz": 3.275,
+        "120-250 Hz": 3.381,
+        "250-500 Hz": 3.461,
+        "500-1k Hz": 2.96,
+        "1-2k Hz": 2.152,
+        "2-4k Hz": 2.91,
+        "4-8k Hz": 4.073,
+        "8-16k Hz": 4.995
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -1.939,
+        "60-120 Hz": 0.117,
+        "120-250 Hz": 0.223,
+        "250-500 Hz": 0.303,
+        "500-1k Hz": -0.198,
+        "1-2k Hz": -1.006,
+        "2-4k Hz": -0.248,
+        "4-8k Hz": 0.915,
+        "8-16k Hz": 1.837
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 7.119,
+        "60-120 Hz": 9.175,
+        "120-250 Hz": 9.281,
+        "250-500 Hz": 9.361,
+        "500-1k Hz": 8.86,
+        "1-2k Hz": 8.052,
+        "2-4k Hz": 8.81,
+        "4-8k Hz": 9.973,
+        "8-16k Hz": 10.895
+      },
+      "spectral_tilt_change_db_per_oct": 0.152,
+      "centroid_shift_hz": 987.38,
+      "tone_gain_db": {
+        "40Hz": 4.688,
+        "80Hz": 5.648,
+        "160Hz": 5.728,
+        "315Hz": 5.849,
+        "630Hz": 5.483,
+        "1250Hz": 4.503,
+        "2500Hz": 5.055,
+        "5000Hz": 6.149,
+        "10000Hz": 7.149,
+        "16000Hz": 7.402
+      },
+      "dynamics": {
+        "contrast_change_db": -3.39,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.005,
+        "width_change_db": 1.973,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 3.527,
+        "output_true_peak_dbtp": -0.5,
+        "output_peak_dbfs": -1.0,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.84,
+          "median_transient_peak_dbfs": -18.95,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -4.02,
+          "pink_noise_minus14.wav": 0.003,
+          "pink_noise_minus20.wav": 6.005
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -0.538,
+          "pink_noise_minus14.wav": 3.673,
+          "pink_noise_minus20.wav": 9.638
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": 0.005
+    },
+    "universal": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -11.68,
+        "makeup_gain_db": 5.212,
+        "true_peak_ceiling_dbtp": -1.859,
+        "lra_change_lu": -0.007,
+        "crest_change_db": -0.319
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 1.458,
+        "60-120 Hz": 3.474,
+        "120-250 Hz": 3.415,
+        "250-500 Hz": 3.234,
+        "500-1k Hz": 3.233,
+        "1-2k Hz": 3.28,
+        "2-4k Hz": 3.381,
+        "4-8k Hz": 3.77,
+        "8-16k Hz": 4.236
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -1.818,
+        "60-120 Hz": 0.198,
+        "120-250 Hz": 0.139,
+        "250-500 Hz": -0.042,
+        "500-1k Hz": -0.043,
+        "1-2k Hz": 0.004,
+        "2-4k Hz": 0.105,
+        "4-8k Hz": 0.494,
+        "8-16k Hz": 0.96
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 6.434,
+        "60-120 Hz": 8.45,
+        "120-250 Hz": 8.391,
+        "250-500 Hz": 8.21,
+        "500-1k Hz": 8.209,
+        "1-2k Hz": 8.256,
+        "2-4k Hz": 8.357,
+        "4-8k Hz": 8.746,
+        "8-16k Hz": 9.212
+      },
+      "spectral_tilt_change_db_per_oct": 0.089,
+      "centroid_shift_hz": 535.6,
+      "tone_gain_db": {
+        "40Hz": 4.115,
+        "80Hz": 5.053,
+        "160Hz": 5.006,
+        "315Hz": 4.826,
+        "630Hz": 4.806,
+        "1250Hz": 4.851,
+        "2500Hz": 4.916,
+        "5000Hz": 5.212,
+        "10000Hz": 5.712,
+        "16000Hz": 5.844
+      },
+      "dynamics": {
+        "contrast_change_db": -2.086,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.002,
+        "width_change_db": 1.069,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 3.493,
+        "output_true_peak_dbtp": -0.447,
+        "output_peak_dbfs": -1.0,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.75,
+          "median_transient_peak_dbfs": -18.89,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -4.81,
+          "pink_noise_minus14.wav": -0.789,
+          "pink_noise_minus20.wav": 5.212
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -1.464,
+          "pink_noise_minus14.wav": 2.747,
+          "pink_noise_minus20.wav": 8.712
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": -0.001
+    },
+    "warmth": {
+      "n_signals": 8,
+      "signals_present": [
+        "click_track.wav",
+        "dynamic_test_minus14.wav",
+        "mid_side_test_minus20.wav",
+        "pink_noise_minus10.wav",
+        "pink_noise_minus14.wav",
+        "pink_noise_minus20.wav",
+        "sine_sweep_minus20.wav",
+        "tone_ladder_minus20.wav"
+      ],
+      "loudness": {
+        "output_integrated_lufs": -13.816,
+        "makeup_gain_db": 3.54,
+        "true_peak_ceiling_dbtp": -3.713,
+        "lra_change_lu": 0.015,
+        "crest_change_db": -0.501
+      },
+      "eq_shape_db": {
+        "20-60 Hz": 2.346,
+        "60-120 Hz": 4.354,
+        "120-250 Hz": 4.301,
+        "250-500 Hz": 4.258,
+        "500-1k Hz": 3.374,
+        "1-2k Hz": 2.123,
+        "2-4k Hz": 2.759,
+        "4-8k Hz": 3.117,
+        "8-16k Hz": 2.945
+      },
+      "eq_contour_db": {
+        "20-60 Hz": -0.94,
+        "60-120 Hz": 1.068,
+        "120-250 Hz": 1.015,
+        "250-500 Hz": 0.972,
+        "500-1k Hz": 0.088,
+        "1-2k Hz": -1.163,
+        "2-4k Hz": -0.527,
+        "4-8k Hz": -0.169,
+        "8-16k Hz": -0.341
+      },
+      "eq_band_delta_raw_db": {
+        "20-60 Hz": 5.824,
+        "60-120 Hz": 7.832,
+        "120-250 Hz": 7.779,
+        "250-500 Hz": 7.736,
+        "500-1k Hz": 6.852,
+        "1-2k Hz": 5.601,
+        "2-4k Hz": 6.237,
+        "4-8k Hz": 6.595,
+        "8-16k Hz": 6.423
+      },
+      "spectral_tilt_change_db_per_oct": -0.244,
+      "centroid_shift_hz": -220.3,
+      "tone_gain_db": {
+        "40Hz": 3.372,
+        "80Hz": 4.293,
+        "160Hz": 4.22,
+        "315Hz": 4.225,
+        "630Hz": 3.528,
+        "1250Hz": 2.06,
+        "2500Hz": 2.545,
+        "5000Hz": 3.083,
+        "10000Hz": 2.893,
+        "16000Hz": 2.826
+      },
+      "dynamics": {
+        "contrast_change_db": -4.338,
+        "note": "negative = preset compresses loud/quiet contrast"
+      },
+      "stereo": {
+        "correlation_change": -0.0,
+        "width_change_db": 0.104,
+        "note": "positive width_change = wider; correlation up = narrower"
+      },
+      "click_response": {
+        "loudness_lift_lufs": 3.229,
+        "output_true_peak_dbtp": -0.736,
+        "output_peak_dbfs": -1.369,
+        "reshaping_raw": {
+          "median_release_ms_to_-20dB": 0.93,
+          "median_transient_peak_dbfs": -18.95,
+          "n_impulses_analyzed": 118
+        },
+        "note": "Sparse 1-sample clicks every 500 ms CANNOT measure limiter release. The raw transient_peak/release values (reshaping_raw) are confounded by per-preset click WIDENING through the 1 ms envelope, not limiter aggressiveness (adversarially verified). Honest click metrics: output_true_peak (do clicks survive to clip?) and loudness_lift (how hard the preset pulls up sparse transients). Real limiter timing needs a dense-transient source (drum loop / shaped bursts)."
+      },
+      "level_dependence": {
+        "makeup_gain_rms_by_input_level": {
+          "pink_noise_minus10.wav": -6.493,
+          "pink_noise_minus14.wav": -2.463,
+          "pink_noise_minus20.wav": 3.54
+        },
+        "loudness_lift_lufs_by_input_level": {
+          "pink_noise_minus10.wav": -3.6,
+          "pink_noise_minus14.wav": 0.611,
+          "pink_noise_minus20.wav": 6.576
+        },
+        "note": "Values falling as the input gets louder => adaptive loudness-targeting. makeup_gain is an RMS delta; loudness_lift is a LUFS delta (the honest 'chase'). They diverge when a preset reshapes the spectrum (RMS can fall while LUFS rises)."
+      },
+      "multiband_density_index_db_per_oct": -0.002
+    }
+  }
+}
